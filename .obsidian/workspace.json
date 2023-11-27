@@ -1,0 +1,120 @@
+{
+  "main": {
+    "id": "9cd956b4c3269b80",
+    "type": "split",
+    "children": [
+      {
+        "id": "44f796970a5dde8c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "ce6cf98fc428e864",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "Skill/Qt Desktop.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2f825e22f085de19",
+    "type": "split",
+    "children": [
+      {
+        "id": "6d3878e89a74f9a1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "8de5106be7265e5f",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "75de153d60e3b1c1",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 254.51103591918945
+  },
+  "right": {
+    "id": "2883e72b7ca53695",
+    "type": "split",
+    "children": [],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "graph:查看关系图谱": false,
+      "random-note:开始漫游笔记": false,
+      "daily-notes:打开/创建今天的日记": false
+    }
+  },
+  "active": "ce6cf98fc428e864",
+  "lastOpenFiles": [
+    "Skill/Open Map.md",
+    "Skill/Ubuntu.md",
+    "Skill/SDL2.md",
+    "Books/《禅与摩托车维修技术》.md",
+    "Books/《影响力》.md",
+    "Books/《左手程序右手诗》.md",
+    "Books/《吾国教育病理》.md",
+    "Books/《黑客与画家》.md",
+    "Books/《沉默的大多数》.md",
+    "Books/《大教堂与集市》.md",
+    "Books/《暗时间》.md",
+    "Skill/Qt Desktop.md",
+    "Skill/WSL2.md",
+    "Skill/Windows.md",
+    "Skill/Web开发.md",
+    "Skill/VSCode.md",
+    "Skill/SFML.md",
+    "Skill/OpenGL.md",
+    "Skill/Obsidian.md",
+    "Skill/GFW.md",
+    "Skill/Docker.md",
+    "Coursera/-CEE/(0)化学.md",
+    "Open Map.md",
+    "Poems/孟浩然/《春晓》.md",
+    "Poems/孟浩然/《望洞庭湖赠张丞相》.md",
+    "Poems/欧阳修/《醉翁亭记》.md",
+    "Poems/诸葛亮",
+    "Poems/韩愈",
+    "Poems/陶渊明",
+    "Poems/陆游",
+    "Poems/辛弃疾",
+    "Poems/苏轼",
+    "Poems/白居易",
+    "Poems/王羲之",
+    "Poems/王维",
+    "Poems/王安石"
+  ]
+}
