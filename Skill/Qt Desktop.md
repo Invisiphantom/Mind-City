@@ -1,6 +1,9 @@
 《Qt6 C++开发指南》
 [《Qt6 C++开发指南 》2023 bilibili](https://www.bilibili.com/video/BV1km4y1k7CW/)
+[《Qt6 C++开发指南 》全书示例源码](https://meta.box.lenovo.com/v/link/view/c4afcfedbad548e3a2e5f14fcc0ebbf6)
 [使用VScode开发构建Qt项目_哔哩哔哩_bilibili](https://www.bilibili.com/video/BV1TZ4y1t7eq/)
+
+[Qt Location 6.6.1](https://doc.qt.io/qt-6/qtlocation-index.html)
 
 [Google Maps Path](https://www.google.com/maps/dir/26.2638516,116.6545764/26.2638176,116.6573246/@26.2636731,116.6555174,18z/data=!4m2!4m1!3e2?entry=ttu)
 [OpenStreetMap Path](https://www.openstreetmap.org/directions?engine=fossgis_osrm_car&route=26.26723%2C116.64998%3B26.26721%2C116.65274#map=18/26.26610/116.65221)

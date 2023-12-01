@@ -4,17 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "44f796970a5dde8c",
+        "id": "bc7fe2560f8b6e7e",
         "type": "tabs",
         "children": [
           {
-            "id": "ce6cf98fc428e864",
+            "id": "431768881f3c7991",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Skill/Qt Desktop.md",
+                "file": "Skill/Hexo+Github博客配置.md",
                 "mode": "source",
+                "backlinks": false,
                 "source": false
               }
             }
@@ -61,7 +62,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 254.51103591918945
+    "width": 344.5
   },
   "right": {
     "id": "2883e72b7ca53695",
@@ -75,46 +76,57 @@
     "hiddenItems": {
       "graph:查看关系图谱": false,
       "random-note:开始漫游笔记": false,
-      "daily-notes:打开/创建今天的日记": false
+      "daily-notes:打开/创建今天的日记": false,
+      "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "ce6cf98fc428e864",
+  "active": "431768881f3c7991",
   "lastOpenFiles": [
-    "Skill/Open Map.md",
-    "Skill/Ubuntu.md",
-    "Skill/SDL2.md",
-    "Books/《禅与摩托车维修技术》.md",
-    "Books/《影响力》.md",
-    "Books/《左手程序右手诗》.md",
-    "Books/《吾国教育病理》.md",
-    "Books/《黑客与画家》.md",
-    "Books/《沉默的大多数》.md",
-    "Books/《大教堂与集市》.md",
-    "Books/《暗时间》.md",
-    "Skill/Qt Desktop.md",
-    "Skill/WSL2.md",
-    "Skill/Windows.md",
-    "Skill/Web开发.md",
-    "Skill/VSCode.md",
-    "Skill/SFML.md",
-    "Skill/OpenGL.md",
-    "Skill/Obsidian.md",
-    "Skill/GFW.md",
-    "Skill/Docker.md",
-    "Coursera/-CEE/(0)化学.md",
-    "Open Map.md",
-    "Poems/孟浩然/《春晓》.md",
-    "Poems/孟浩然/《望洞庭湖赠张丞相》.md",
-    "Poems/欧阳修/《醉翁亭记》.md",
-    "Poems/诸葛亮",
-    "Poems/韩愈",
-    "Poems/陶渊明",
-    "Poems/陆游",
-    "Poems/辛弃疾",
-    "Poems/苏轼",
-    "Poems/白居易",
-    "Poems/王羲之",
-    "Poems/王维",
-    "Poems/王安石"
+    "Annex/Hexo+Github博客配置.png",
+    "Annex/Pasted image 20231201185556.png",
+    "Annex/Pasted image 20231201185553.png",
+    "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/lib/maps/xml.json",
+    "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/lib/maps/entities.json",
+    "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/lib/maps/legacy.json",
+    "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/lib/maps/decode.json",
+    "Ethan-Blog/node_modules/hexo-cli/node_modules/dom-serializer/node_modules/entities/lib/maps/decode.json",
+    "Ethan-Blog/node_modules/hexo-cli/node_modules/dom-serializer/node_modules/entities/lib/maps/xml.json",
+    "Ethan-Blog/node_modules/hexo-cli/node_modules/dom-serializer/node_modules/entities/lib/maps/legacy.json",
+    "Ethan-Blog/node_modules/hexo-cli/node_modules/dom-serializer/node_modules/entities/lib/maps/entities.json",
+    "Ethan-Blog/node_modules/resolve/test/resolver/symlinked/_/node_modules/foo.js",
+    "Ethan-Blog/node_modules/resolve/test/resolver/multirepo/packages/package-b/package.json",
+    "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/readme.md",
+    "Ethan-Blog/node_modules/hexo-cli/node_modules/dom-serializer/node_modules/entities/readme.md",
+    "Ethan-Blog/node_modules/hexo-theme-landscape/source/css/images/banner.jpg",
+    "Ethan-Blog/node_modules/hexo-cli/assets/source/_posts/hello-world.md",
+    "Ethan-Blog/node_modules/stylus/node_modules/source-map/README.md",
+    "Ethan-Blog/node_modules/stylus/node_modules/ms/readme.md",
+    "Ethan-Blog/node_modules/stylus/node_modules/ms/license.md",
+    "Ethan-Blog/node_modules/stylus/node_modules/debug/README.md",
+    "Ethan-Blog/node_modules/string_decoder/node_modules/safe-buffer/README.md",
+    "Ethan-Blog/node_modules/send/node_modules/statuses/README.md",
+    "Ethan-Blog/node_modules/send/node_modules/statuses/HISTORY.md",
+    "Ethan-Blog/node_modules/send/node_modules/on-finished/README.md",
+    "Ethan-Blog/node_modules/send/node_modules/on-finished/HISTORY.md",
+    "Ethan-Blog/node_modules/send/node_modules/ms/readme.md",
+    "Ethan-Blog/node_modules/send/node_modules/ms/license.md",
+    "Ethan-Blog/node_modules/send/node_modules/mime/README.md",
+    "Ethan-Blog/node_modules/send/node_modules/mime/CHANGELOG.md",
+    "Ethan-Blog/node_modules/https-proxy-agent/node_modules/ms/readme.md",
+    "Ethan-Blog/node_modules/https-proxy-agent/node_modules/ms/license.md",
+    "Ethan-Blog/node_modules/https-proxy-agent/node_modules/debug/README.md",
+    "Ethan-Blog/node_modules/http-errors/node_modules/statuses/README.md",
+    "Ethan-Blog/node_modules/http-errors/node_modules/statuses/HISTORY.md",
+    "Ethan-Blog/node_modules/http-proxy-agent/node_modules/ms/readme.md",
+    "Ethan-Blog/node_modules/http-proxy-agent/node_modules/ms/license.md",
+    "Ethan-Blog/node_modules/http-proxy-agent/node_modules/debug/README.md",
+    "Ethan-Blog/node_modules/hexo-fs/node_modules/htmlparser2/README.md",
+    "Ethan-Blog/public/css/images/banner.jpg",
+    "Ethan-Blog/node_modules/nib/iconic/iconic_stroke.svg",
+    "Ethan-Blog/node_modules/highlight.js/styles/pojoaque.jpg",
+    "Ethan-Blog/node_modules/highlight.js/styles/brown-papersq.png",
+    "Ethan-Blog/node_modules/psl/browserstack-logo.svg",
+    "Annex/Hexo+Github博客配置-3.png",
+    "Annex/Hexo+Github博客配置-2.png"
   ]
 }
