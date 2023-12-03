@@ -2,6 +2,9 @@
   "showLineNumber": false,
   "spellcheck": false,
   "promptDelete": false,
-  "attachmentFolderPath": "Annex",
-  "alwaysUpdateLinks": true
+  "attachmentFolderPath": "./Annex",
+  "alwaysUpdateLinks": true,
+  "newLinkFormat": "relative",
+  "useMarkdownLinks": true,
+  "newFileLocation": "current"
 }

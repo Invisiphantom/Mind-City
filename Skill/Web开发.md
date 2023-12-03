@@ -1,12 +1,6 @@
 [响应式网页设计 认证 | freeCodeCamp.org](https://www.freecodecamp.org/chinese/learn/2022/responsive-web-design/#learn-html-by-building-a-cat-photo-app)
 [一起来感受前端之美 | 百度前端技术学园 (baidu.com)](http://ife.baidu.com/preface.html)
 
-[文档 | Hexo](https://hexo.io/zh-cn/docs/index.html)
-[超详细Hexo+Github博客搭建小白教程 | 韦阳的博客](https://godweiyang.com/2018/04/13/hexo-blog/#toc-heading-1)
-[Getting Started | NexT](https://theme-next.js.org/docs/getting-started/)
-[Obsidian+Git完美维护Hexo博客 - 知乎](https://zhuanlan.zhihu.com/p/554333805)
-
-[Candinya/Kratos-Rebirth: 一只可爱的hexo主题 m(=•ェ•=)m~🍭 (github.com)](https://github.com/Candinya/Kratos-Rebirth)
 
 [CSS 和文档 | CSS-The-Definitive-Guide-4th-zh-CN](https://jack-sparrow.github.io/CSS-The-Definitive-Guide-4th-zh-CN/docs/1_CSS_and_Documents/)
 
