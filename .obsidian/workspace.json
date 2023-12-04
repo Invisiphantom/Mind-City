@@ -4,33 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "72a049ea2286694a",
+        "id": "952645afc8b28710",
         "type": "tabs",
         "children": [
           {
-            "id": "2f19d391e41b2dac",
+            "id": "8a3062614d3deaff",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Coursera/-知识体系总览.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
-            }
-          },
-          {
-            "id": "f1ab172542055891",
-            "type": "leaf",
-            "state": {
-              "type": "markdown",
-              "state": {
-                "file": "Coursera/(5)计算机网络h.md",
-                "mode": "source",
-                "backlinks": false,
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -94,18 +76,29 @@
       "templates:插入模板": false
     }
   },
-  "active": "2f19d391e41b2dac",
+  "active": "8a3062614d3deaff",
   "lastOpenFiles": [
-    "Coursera/(3)深度学习.md",
+    "Skill/IVerilog+VSCode环境配置.md",
+    "Skill/Annex/IVerilog+VSCode环境配置-9.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-8.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-8.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-7.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-6.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-5.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-4.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-4.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-3.png",
+    "Skill/Annex/IVerilog+VSCode环境配置-2.png",
+    "Coursera/(3)数字逻辑与部件设计.md",
+    "Coursera/(5)计算机网络h.md",
     "Coursera/-知识体系总览.md",
+    "Coursera/(3)深度学习.md",
     "Coursera/-.md",
     "Coursera/(3)心理学与生活.md",
     "Coursera/-Computer Science.md",
-    "Coursera/(5)计算机网络h.md",
     "Books/《深入了解计算机系统》.md",
     "Coursera/(3)计算机系统基础.md",
     "Coursera/(3)信息安全导论.md",
-    "Coursera/(3)数字逻辑与部件设计.md",
     "Coursera/(3)数据结构h.md",
     "Coursera/(3)集合与图论.md",
     "Coursera/(3)概率统计.md",
@@ -120,20 +113,8 @@
     "Skill/Obsidian.md",
     "Skill/Docker.md",
     "Skill/GFW.md",
-    "Skill/Hexo+Github博客配置.md",
-    "Skill/Ubuntu.md",
-    "Skill/Annex/Hexo+Github博客配置-10.png",
-    "Skill/Annex/Hexo+Github博客配置-9.png",
-    "Skill/Annex/Hexo+Github博客配置-8.png",
-    "Skill/Annex/Pasted image 20231201215109.png",
-    "Skill/Annex/Hexo+Github博客配置-7.png",
-    "Skill/Annex/Hexo+Github博客配置-1.png",
-    "Skill/Annex/Hexo+Github博客配置.png",
-    "Skill/Annex/Hexo+Github博客配置-2.png",
     "Skill/Annex",
-    "Annex/Hexo+Github博客配置-7.png",
     "Annex/Template",
-    "Skill/Annex/Hexo+Github博客配置-6.png",
     "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/lib/maps/xml.json",
     "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/lib/maps/entities.json",
     "Ethan-Blog/node_modules/hexo-fs/node_modules/dom-serializer/node_modules/entities/lib/maps/legacy.json",
