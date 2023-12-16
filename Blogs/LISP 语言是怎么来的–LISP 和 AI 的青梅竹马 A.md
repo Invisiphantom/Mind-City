@@ -1,0 +1,1 @@
+[4G Spaces (youxu.info)](https://blog.youxu.info/2009/08/31/lisp-and-ai-1/)

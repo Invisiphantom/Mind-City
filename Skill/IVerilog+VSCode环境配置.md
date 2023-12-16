@@ -1,15 +1,15 @@
 ### 安装WSL-Ubuntu22.04
 启用Hyper-V、适用于Linux的Windows子系统、虚拟机平台
-![](Annex/IVerilog+VSCode环境配置.png)
+![](img/IVerilog+VSCode环境配置.png)
 更新WSL版本
 `$ wsl --update`
 `$ wsl --version`
-![](Annex/IVerilog+VSCode环境配置-1.png)
+![](img/IVerilog+VSCode环境配置-1.png)
 在Microsoft Store搜索并安装Ubuntu22.04
-![](Annex/IVerilog+VSCode环境配置-2.png)
+![](img/IVerilog+VSCode环境配置-2.png)
 配置clash for windows代理
 在clash中启用局域网连接
-![](Annex/IVerilog+VSCode环境配置-3.png)
+![](img/IVerilog+VSCode环境配置-3.png)
 在WSL中的`~/.bashrc`中添加代理配置
 ```bash
 host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
@@ -29,7 +29,7 @@ export ALL_PROXY="sock5://$host_ip:7890"
 在VSCode中打开文件夹
 `$ code .`
 配置VSCode插件
-![](Annex/IVerilog+VSCode环境配置-4.png)
+![](img/IVerilog+VSCode环境配置-4.png)
 用户配置文件`settings.json`
 ```json
 {
@@ -288,7 +288,7 @@ export ALL_PROXY="sock5://$host_ip:7890"
 ### 安装Verible-verilog和ctags
 [Verible is a suite of SystemVerilog developer tools](https://github.com/chipsalliance/verible)
 打开Release界面复制下载链接
-![](Annex/IVerilog+VSCode环境配置-5.png)
+![](img/IVerilog+VSCode环境配置-5.png)
 在WSL使用wget下载
 `$ wget https://github.com/chipsalliance/verible/releases/download/v0.0-3430-g060bde0f/verible-v0.0-3430-g060bde0f-Ubuntu-22.04-jammy-x86_64.tar.gz`
 使用tar解压
@@ -301,7 +301,7 @@ export ALL_PROXY="sock5://$host_ip:7890"
 ### 配置VSCode插件TerosHDL
 点击`Check dependencies`查看依赖
 `$ pip install vnit cocotb edalize`安装
-![](Annex/IVerilog+VSCode环境配置-7.png)
+![](img/IVerilog+VSCode环境配置-7.png)
 
 ### 测试配置
 解码器代码
@@ -381,6 +381,6 @@ endmodule
 使用`Alt+Shift+F`通过`verible-verilog-format`实现代码快速格式化
 使用`F12`通过`ctags`实现变量定义跳转
 使用`TerosHDL`查看电路图
-![](Annex/IVerilog+VSCode环境配置-9.png)
+![](img/IVerilog+VSCode环境配置-9.png)
 使用`Ctrl+Alt+N`通过`Code-Runner`插件执行iVerilog仿真并使用GTKWave查看波形图
-![](Annex/IVerilog+VSCode环境配置-8.png)
+![](img/IVerilog+VSCode环境配置-8.png)

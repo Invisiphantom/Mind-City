@@ -1,10 +1,10 @@
 ### 新建Github仓库
 仓库名需要为 `[username].github.io`
-![](Annex/Hexo+Github博客配置-1.png)
+![](img/Hexo+Github博客配置-1.png)
 
 ### 域名解析
 [云解析 DNS - 控制台](https://console.cloud.tencent.com/cns)
-![](Annex/Hexo+Github博客配置-9.png)
+![](img/Hexo+Github博客配置-9.png)
 
 
 ### 配置Hexo文件夹
@@ -38,7 +38,7 @@
 `$ ssh-keygen -t rsa -C "your email"`
 
 - 将`C:\Users\16770\.ssh\id_rsa.pub`公钥添加到Github账号
-![](Annex/Hexo+Github博客配置.png)
+![](img/Hexo+Github博客配置.png)
 
 - 更改私钥文件权限为只读
 Linux: `$ chmod 600 ~/.ssh/id_rsa`
@@ -50,7 +50,7 @@ Windows:
 
 - 测试SSH连接
 `$ ssh -T git@github.com`
-![](Annex/Hexo+Github博客配置-5.png)
+![](img/Hexo+Github博客配置-5.png)
 
 - 安装Hexo-git插件
 `$ npm install hexo-deployer-git`
@@ -69,7 +69,7 @@ deploy:
 
 ### 使用VSCode编辑
 - 基础插件配置
-![](Annex/Hexo+Github博客配置-6.png)
+![](img/Hexo+Github博客配置-6.png)
 - 用户配置`settings.json`
 ```json
 {
@@ -157,11 +157,11 @@ deploy:
 将Obsidian笔记文件夹 Mind-City 放在Hexo目录下
 并将本地图片的链接方式修改为 Markdown的链接语法
 并将附件存放在子文件夹的Annex文件夹中
-![](Annex/Hexo+Github博客配置-7.png)
+![](img/Hexo+Github博客配置-7.png)
 
 
 推荐两款Obsidian插件：
-![](Annex/Hexo+Github博客配置-8.png)
+![](img/Hexo+Github博客配置-8.png)
 - Clear Unuserd images 可以自动清除没被链接的多余图片
 - Paste images rename 可以自动将粘贴的图片重命名为`[filename].png`格式
 

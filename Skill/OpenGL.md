@@ -12,10 +12,10 @@
 [OpenGL矩阵变换的数学推导-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1389550)
 
 
-> surface, context and thread    画布，画家与画室
-> VBO   方案碎片    VAO    绘画方案
+  surface, context and thread    画布，画家与画室
+  VBO   方案碎片    VAO    绘画方案
 
-> 3D渲染、动画制作、玩家交互、游戏逻辑
+  3D渲染、动画制作、玩家交互、游戏逻辑
 
 \#define GLEW_STATIC
 
