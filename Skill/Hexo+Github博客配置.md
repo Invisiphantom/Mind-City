@@ -1,3 +1,5 @@
+
+<!--more-->
 ### 新建Github仓库
 仓库名需要为 `[username].github.io`
 ![](img/Hexo+Github博客配置-1.png)
