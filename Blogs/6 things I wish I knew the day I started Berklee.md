@@ -1,10 +1,11 @@
+
 [6 things I wish I knew the day I started Berklee | Derek Sivers](https://sive.rs/berklee)
 
   My favorite part of the movies is the training sequence, where a young Bruce Wayne, Neo, or Kung-Fu Panda goes to a remote location to be trained relentlessly, nonstop, past all breaking points, until they emerge as a master.
 
   But the casual ones end up having casual talent and merely casual lives.
 
-  While you’re here, presidents will change, the world ****will change, and the media will try to convince you how important it all is.
+  While you’re here, presidents will change, the world will change, and the media will try to convince you how important it all is.
   But it’s not. None of it matters to you now.
 
   The standard pace is for chumps.

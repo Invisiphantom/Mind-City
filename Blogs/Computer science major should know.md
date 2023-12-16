@@ -1,7 +1,8 @@
+
 [What every computer science major should know (might.net)](https://matt.might.net/articles/what-cs-majors-should-know/)
 
 ## Portfolio versus resume
-A _resume_ says nothing of a programmer's ability.
+A resume says nothing of a programmer's ability.
 
 Every computer science major should build a _portfolio_.
 
