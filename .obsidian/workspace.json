@@ -11,8 +11,13 @@
             "id": "c19a1c63b3d5a139",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "Skill/Docker.md",
+                "mode": "source",
+                "backlinks": false,
+                "source": false
+              }
             }
           }
         ]
@@ -78,6 +83,8 @@
   },
   "active": "c19a1c63b3d5a139",
   "lastOpenFiles": [
+    "Skill/GFW.md",
+    "Skill/Y86-64单周期CPU设计.md",
     "Kernal/核心.md",
     "阅读计划.md",
     "Books/《我的世界观》.md",
@@ -88,7 +95,6 @@
     "Blogs/-program-think/关于自学能力.md",
     "Blogs/-pongba/心智探寻（四）.md",
     "Coursera/(3)心理学与生活.md",
-    "Skill/GFW.md",
     "Blogs/-0xffff/混圈子与学技术，务虚与务实.md",
     "Blogs/-0xffff/未命名.md",
     "Blogs/-0xffff/-README.md",
@@ -105,7 +111,6 @@
     "Poems/《大学》.md",
     "博览群书.md",
     "技术风向.md",
-    "生活经验.md",
     "Skill/img/Cachelab Report1.png",
     "Skill/img/Cachelab Report.png",
     "Blogs/-Bintou",
