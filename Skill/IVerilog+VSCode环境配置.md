@@ -1,5 +1,6 @@
-
-<!--more-->
+- WSL2全称Windows Subsystem for Linux 2，是微软在Windows 10中推出的一种新的Linux子系统，可以在Windows中运行Linux的二进制文件，同时提供了与Linux相同的系统调用接口，以及与Linux相同的Shell命令行体验。
+- IVerilog是一个开源的Verilog仿真器，支持多种平台。IVerilog的仿真速度快，支持多种仿真方式，包括命令行、GUI、VPI等。IVerilog的GUI界面支持波形显示，支持波形的缩放、平移、放大、缩小等操作，支持波形的保存、打印等操作。
+------
 ### 安装WSL-Ubuntu22.04
 启用Hyper-V、适用于Linux的Windows子系统、虚拟机平台
 ![](img/IVerilog+VSCode环境配置.png)

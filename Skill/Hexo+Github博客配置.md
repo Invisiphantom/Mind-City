@@ -1,5 +1,7 @@
-
-<!--more-->
+Hexo是一个基于Node.js的静态博客框架，支持Markdown语法，可以将Markdown文件转换为静态网页。  
+Github是一个代码托管平台，可以将Hexo生成的静态网页部署到Github上，实现博客的在线访问。  
+Obsidian是一个Markdown笔记软件，可以通过Python脚本将笔记文件夹转换为Hexo博客文件夹，实现博客的批量导入。  
+------
 ### 新建Github仓库
 仓库名需要为 `[username].github.io`
 ![](img/Hexo+Github博客配置-1.png)
