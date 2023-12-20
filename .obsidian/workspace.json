@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "3cb7f63abc3befa3",
+        "id": "54757ca09d521783",
         "type": "tabs",
         "children": [
           {
-            "id": "1e2aa55fbdd8d3fa",
+            "id": "f45307c19e547f0e",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "阅读计划.md",
+                "file": "Skill/Hexo+Github博客配置.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -62,7 +62,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 292.5024719238281
+    "width": 242.5
   },
   "right": {
     "id": "2883e72b7ca53695",
@@ -81,13 +81,32 @@
       "templates:插入模板": false
     }
   },
-  "active": "8de5106be7265e5f",
+  "active": "f45307c19e547f0e",
   "lastOpenFiles": [
+    "Skill/img/Hexo+Github博客配置-9.png",
+    "Skill/img/Hexo+Github博客配置-8.png",
+    "Skill/img/Pasted image 20231220220319.png",
     "Skill/Hexo+Github博客配置.md",
+    "Skill/Y86-64单周期CPU设计.md",
+    "Skill/IVerilog+VSCode环境配置.md",
+    "Skill/WSL2配置.md",
+    "Skill/SDL2+2048小游戏开发-环境配置.md",
+    "Skill/SDL2+2048小游戏开发-代码详解.md",
+    "Skill/img/SDL2+2048小游戏开发-环境配置.png",
+    "Skill/img/SDL2+2048小游戏开发-环境配置-9.png",
+    "Skill/img/SDL2+2048小游戏开发-环境配置-8.png",
+    "Skill/img/SDL2+2048小游戏开发-环境配置-7.png",
+    "Skill/img/SDL2+2048小游戏开发-环境配置-6.png.png",
+    "Skill/img/SDL2+2048小游戏开发-环境配置-6.png",
+    "Skill/img/SDL2+2048小游戏开发-环境配置-5.png",
+    "Skill/img/SDL2+2048小游戏开发-环境配置-3.png",
+    "Skill/SDL2游戏开发.md",
+    "Skill/Web开发.md",
+    "Books/《幸福之路》.md",
+    "Books/《我的世界观》.md",
+    "阅读计划.md",
     "Skill/Docker.md",
     "Skill/Windows开发.md",
-    "Skill/WSL2配置.md",
-    "Skill/Y86-64单周期CPU设计.md",
     "Blogs/-xtub/面向未来的产品经理要懂哪些技术.md",
     "Poems/韩愈/《马说》.md",
     "Poems/韩愈/《师说》.md",
@@ -100,15 +119,6 @@
     "Poems/陆游/《卜算子·咏梅》.md",
     "Poems/陆游/《十一月四日风雨大作二首》.md",
     "Poems/陆游/《书愤》.md",
-    "Poems/辛弃疾/《西江月·夜行黄沙道中》.md",
-    "Poems/辛弃疾/《破阵子·为陈同甫赋壮词以寄之》.md",
-    "Poems/苏轼/《记承天寺夜游》.md",
-    "Poems/辛弃疾/《永遇乐·京口北固亭怀古》.md",
-    "Poems/辛弃疾/《水龙吟·登建康赏心亭》.md",
-    "Poems/辛弃疾/《南乡子·登京口北固亭有怀》.md",
-    "Poems/诸葛亮/《出师表》.md",
-    "Poems/辛弃疾/《丑奴儿·书博山道中壁》.md",
-    "Poems/诸葛亮/《诫子书》.md",
     "Poems/韩愈",
     "Poems/陶渊明",
     "Poems/陆游",
@@ -118,16 +128,6 @@
     "Poems/白居易",
     "Poems/王羲之",
     "Poems/王维",
-    "Poems/王安石",
-    "Skill/img/Cachelab Report1.png",
-    "Skill/img/Cachelab Report.png",
-    "Skill/img/IVerilog+VSCode环境配置-9.png",
-    "Skill/img/IVerilog+VSCode环境配置-8.png",
-    "Skill/img/IVerilog+VSCode环境配置-8.png",
-    "Skill/img/IVerilog+VSCode环境配置-7.png",
-    "Skill/Annex/IVerilog+VSCode环境配置-6.png",
-    "Skill/img/IVerilog+VSCode环境配置-5.png",
-    "Skill/img/IVerilog+VSCode环境配置-4.png",
-    "Skill/img/IVerilog+VSCode环境配置-4.png"
+    "Poems/王安石"
   ]
 }

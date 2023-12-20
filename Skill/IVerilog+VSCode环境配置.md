@@ -303,7 +303,7 @@ export ALL_PROXY="sock5://$host_ip:7890"
 
 ### 配置VSCode插件TerosHDL
 点击`Check dependencies`查看依赖
-`$ pip install vnit cocotb edalize`安装
+`$ pip install vunit cocotb edalize yowasp-yosys`安装
 ![](img/IVerilog+VSCode环境配置-7.png)
 
 ### 测试配置

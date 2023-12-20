@@ -1,14 +1,19 @@
 Hexo是一个基于Node.js的静态博客框架，支持Markdown语法，可以将Markdown文件转换为静态网页。  
 Github是一个代码托管平台，可以将Hexo生成的静态网页部署到Github上，实现博客的在线访问。  
 Obsidian是一个Markdown笔记软件，可以通过Python脚本将笔记文件夹转换为Hexo博客文件夹，实现博客的批量导入。  
+
 ------
+
 ### 新建Github仓库
 仓库名需要为 `[username].github.io`
 ![](img/Hexo+Github博客配置-1.png)
 
 ### 域名解析
-[云解析 DNS - 控制台](https://console.cloud.tencent.com/cns)
+从云服务商处购买自定义域名并配置解析
+
+[腾讯云解析 DNS - 控制台](https://console.cloud.tencent.com/cns)
 ![](img/Hexo+Github博客配置-9.png)
+
 
 
 ### 配置Hexo文件夹
@@ -66,6 +71,9 @@ deploy:
   repo: https://github.com/Invisiphantom/Invisiphantom.github.io
   branch: main
 ```
+
+- 在`source`文件夹中添加`CNAME`文件并输入自定义域名
+例如`blog.ethancao.cn`
 
 - 愉快地部署
 `$ hexo d`
