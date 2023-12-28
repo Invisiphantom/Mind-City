@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "54757ca09d521783",
+        "id": "6958a9069e7176b0",
         "type": "tabs",
         "children": [
           {
-            "id": "f45307c19e547f0e",
+            "id": "d72d4b71a7464256",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Skill/Hexo+Github博客配置.md",
+                "file": "Wiki/简单工具.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "秋水时至",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -57,17 +57,40 @@
                 "sortOrder": "alphabetical"
               }
             }
+          },
+          {
+            "id": "d251838001dfd9a6",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
           }
         ]
       }
     ],
     "direction": "horizontal",
-    "width": 242.5
+    "width": 289.5
   },
   "right": {
     "id": "2883e72b7ca53695",
     "type": "split",
-    "children": [],
+    "children": [
+      {
+        "id": "3511eaa7c0bad344",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b00e83e7071c6e55",
+            "type": "leaf",
+            "state": {
+              "type": "advanced-tables-toolbar",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
     "direction": "horizontal",
     "width": 300,
     "collapsed": true
@@ -81,44 +104,46 @@
       "templates:插入模板": false
     }
   },
-  "active": "f45307c19e547f0e",
+  "active": "d72d4b71a7464256",
   "lastOpenFiles": [
+    "Wiki/objdump.md",
+    "Wiki/简单工具.md",
+    "Skill/Python学习笔记.md",
+    "Coursera/(3)深度学习.md",
+    "Wiki/wc.md",
+    "Wiki/vim.md",
+    "Wiki/update-alternatives.md",
+    "Wiki/tree.md",
+    "Wiki/top.md",
+    "Wiki/tar.md",
+    "Wiki/readelf.md",
+    "Wiki/man.md",
+    "Wiki/less.md",
+    "Wiki/grep.md",
+    "Wiki/gcc.md",
+    "Wiki/find.md",
+    "Wiki/img/readelf.png",
+    "Wiki/正则表达式.md",
+    "Coursera/(3)计算机系统基础.md",
+    "Wiki/img/gcc.png",
+    "Wiki/img",
+    "Wiki/as.md",
+    "Wiki/cpp.md",
+    "Skill/正则表达式.md",
+    "Wiki/nano.md",
+    "未命名.md",
+    "Wiki",
+    "Coursera/(2)面向对象程序设计.md",
+    "Coursera/(3)数据结构h.md",
+    "Skill/Hexo+Github博客配置.md",
+    "Skill/img/RISC-V单周期CPU设计-4.png",
+    "Skill/img/RISC-V单周期CPU设计-3.png",
+    "Skill/img/RISC-V单周期CPU设计-2.png",
+    "Skill/img/RISC-V单周期CPU设计-1.png",
+    "Skill/img/RISC-V单周期CPU设计.png",
     "Skill/img/Hexo+Github博客配置-9.png",
     "Skill/img/Hexo+Github博客配置-8.png",
     "Skill/img/Pasted image 20231220220319.png",
-    "Skill/Hexo+Github博客配置.md",
-    "Skill/Y86-64单周期CPU设计.md",
-    "Skill/IVerilog+VSCode环境配置.md",
-    "Skill/WSL2配置.md",
-    "Skill/SDL2+2048小游戏开发-环境配置.md",
-    "Skill/SDL2+2048小游戏开发-代码详解.md",
-    "Skill/img/SDL2+2048小游戏开发-环境配置.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-9.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-8.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-7.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-6.png.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-6.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-5.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-3.png",
-    "Skill/SDL2游戏开发.md",
-    "Skill/Web开发.md",
-    "Books/《幸福之路》.md",
-    "Books/《我的世界观》.md",
-    "阅读计划.md",
-    "Skill/Docker.md",
-    "Skill/Windows开发.md",
-    "Blogs/-xtub/面向未来的产品经理要懂哪些技术.md",
-    "Poems/韩愈/《马说》.md",
-    "Poems/韩愈/《师说》.md",
-    "Poems/陶渊明/《饮酒》.md",
-    "Poems/陶渊明/《桃花源记》.md",
-    "Poems/陶渊明/《归园田居》.md",
-    "Poems/陶渊明/《归去来兮辞》.md",
-    "Poems/陆游/《示儿》.md",
-    "Poems/陆游/《游山西村》.md",
-    "Poems/陆游/《卜算子·咏梅》.md",
-    "Poems/陆游/《十一月四日风雨大作二首》.md",
-    "Poems/陆游/《书愤》.md",
     "Poems/韩愈",
     "Poems/陶渊明",
     "Poems/陆游",
@@ -126,8 +151,6 @@
     "Poems/诸葛亮",
     "Poems/苏轼",
     "Poems/白居易",
-    "Poems/王羲之",
-    "Poems/王维",
-    "Poems/王安石"
+    "Poems/王羲之"
   ]
 }

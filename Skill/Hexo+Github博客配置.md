@@ -266,6 +266,7 @@ if __name__ == "__main__":
 ### 安装主题NexT-Gemini
 `$ git clone https://github.com/theme-next/hexo-theme-next themes/next`
 
+
 ### 修改行内代码样式
 在`theme/next/source/css/main.styl`末尾添加
 ```css
@@ -278,6 +279,12 @@ code {
   font-size: 18px;
 }
 ```
+
+### 启用Gitalk评论区
+[[Gitalk]评论系统 - Hexo-NexT](https://hexo-next.readthedocs.io/zh-cn/latest/next/advanced/gitalk-%E8%AF%84%E8%AE%BA%E7%B3%BB%E7%BB%9F/)
+
+### 启用Disqus评论区
+[Hexo NexT 添加 Disqus 评论区 | Bambrow's Blog](https://bambrow.com/20211130-hexo-comment-disqus/)
 
 
 ### 启用pjax和fancybox
