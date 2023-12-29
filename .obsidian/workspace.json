@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "54757ca09d521783",
+        "id": "0ccdc8ab0db48569",
         "type": "tabs",
         "children": [
           {
-            "id": "f45307c19e547f0e",
+            "id": "810f689ef5ce0109",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Skill/Hexo+Github博客配置.md",
+                "file": "Skill/Obsidian.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -49,7 +49,7 @@
             "state": {
               "type": "search",
               "state": {
-                "query": "秋水时至",
+                "query": "",
                 "matchingCase": false,
                 "explainSearch": false,
                 "collapseAll": false,
@@ -81,12 +81,16 @@
       "templates:插入模板": false
     }
   },
-  "active": "f45307c19e547f0e",
+  "active": "810f689ef5ce0109",
   "lastOpenFiles": [
+    "Coursera/(3)集合与图论.md",
+    "Poems/《关雎》.md",
+    "Poems/《蒹葭》.md",
+    "Coursera/(3)数字逻辑与部件设计.md",
+    "Skill/Hexo+Github博客配置.md",
     "Skill/img/Hexo+Github博客配置-9.png",
     "Skill/img/Hexo+Github博客配置-8.png",
     "Skill/img/Pasted image 20231220220319.png",
-    "Skill/Hexo+Github博客配置.md",
     "Skill/Y86-64单周期CPU设计.md",
     "Skill/IVerilog+VSCode环境配置.md",
     "Skill/WSL2配置.md",
@@ -99,7 +103,6 @@
     "Skill/img/SDL2+2048小游戏开发-环境配置-6.png.png",
     "Skill/img/SDL2+2048小游戏开发-环境配置-6.png",
     "Skill/img/SDL2+2048小游戏开发-环境配置-5.png",
-    "Skill/img/SDL2+2048小游戏开发-环境配置-3.png",
     "Skill/SDL2游戏开发.md",
     "Skill/Web开发.md",
     "Books/《幸福之路》.md",
@@ -116,9 +119,6 @@
     "Poems/陶渊明/《归去来兮辞》.md",
     "Poems/陆游/《示儿》.md",
     "Poems/陆游/《游山西村》.md",
-    "Poems/陆游/《卜算子·咏梅》.md",
-    "Poems/陆游/《十一月四日风雨大作二首》.md",
-    "Poems/陆游/《书愤》.md",
     "Poems/韩愈",
     "Poems/陶渊明",
     "Poems/陆游",
