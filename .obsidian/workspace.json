@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coursera/(1)数学分析.md",
+                "file": "Skill/Hexo+Github博客配置.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -83,9 +83,9 @@
   },
   "active": "e6465e3ed7c55198",
   "lastOpenFiles": [
+    "Coursera/(1)数学分析.md",
     "Coursera/img/(1)数学分析.png",
     "Coursera/-知识体系总览.md",
-    "Coursera/(1)数学分析.md",
     "Kernel/核心.md",
     "Skill/LaTeX Math.md",
     "Skill/Obsidian.md",

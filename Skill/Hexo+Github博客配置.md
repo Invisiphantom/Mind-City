@@ -386,6 +386,9 @@ menu:
   }
 ```
 
+### 配置MathJax
+[Hexo+NexT使用MathJax问题 | I'm dev (i-m.dev)](https://i-m.dev/posts/20190304-210101.html)
+
 
 ### 参考链接
 [Hexo-NexT 功能文档](https://hexo-next.readthedocs.io/zh-cn/latest/)
