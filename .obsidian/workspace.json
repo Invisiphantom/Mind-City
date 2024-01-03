@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "b6147de578898dcc",
+        "id": "6582df068dca4d88",
         "type": "tabs",
         "children": [
           {
-            "id": "160bce396dc2684a",
+            "id": "cb67e65b8914843a",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coursera/(3)计算机系统基础.md",
+                "file": "博客规划.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -81,8 +81,10 @@
       "templates:插入模板": false
     }
   },
-  "active": "160bce396dc2684a",
+  "active": "cb67e65b8914843a",
   "lastOpenFiles": [
+    "博客规划.md",
+    "Coursera/(3)计算机系统基础.md",
     "Coursera/(3)图论.md",
     "Coursera/img/(3)图论-1.png",
     "Coursera/img/(3)图论.png",
@@ -120,8 +122,6 @@
     "Skill/img/RISC-V单周期CPU设计-1.png",
     "Skill/RISC-V单周期CPU设计.md",
     "Skill/Python学习笔记.md",
-    "Coursera/(3)集合与图论.md",
-    "Poems/《关雎》.md",
     "Poems/韩愈",
     "Poems/陶渊明",
     "Poems/陆游",
