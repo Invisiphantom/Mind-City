@@ -41,6 +41,13 @@ y &= \frac{1}{2}x^2+2x+1 \\
 \end{align*}
 $$
 
+$\left\{\begin{array}{l}
+    a + b = c \\
+    d - e = f \\
+    g \cdot h = i
+\end{array}\right.$
+
+
 $$\ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-}$$
 
 ### Markdown源码
