@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "6582df068dca4d88",
+        "id": "92cf78290927931b",
         "type": "tabs",
         "children": [
           {
-            "id": "cb67e65b8914843a",
+            "id": "bcc3ed29e84199bf",
             "type": "leaf",
             "state": {
               "type": "markdown",
@@ -81,9 +81,15 @@
       "templates:插入模板": false
     }
   },
-  "active": "cb67e65b8914843a",
+  "active": "8de5106be7265e5f",
   "lastOpenFiles": [
+    "Skill/Qt+OSM地图软件开发.md",
     "博客规划.md",
+    "阅读计划.md",
+    "Skill/Qt 开发指南.md",
+    "Skill/img/Qt 开发指南.png",
+    "Skill/img/Qt 开发指南.png",
+    "Skill/Windows开发.md",
     "Coursera/(3)计算机系统基础.md",
     "Coursera/(3)图论.md",
     "Coursera/img/(3)图论-1.png",
@@ -112,16 +118,10 @@
     "Wiki/man.md",
     "Wiki/less.md",
     "Wiki/grep.md",
-    "Wiki/gcc.md",
-    "Wiki/find.md",
     "Wiki",
     "Skill/img/RISC-V单周期CPU设计.png",
     "Skill/img/RISC-V单周期CPU设计-4.png",
     "Skill/img/RISC-V单周期CPU设计-3.png",
-    "Skill/img/RISC-V单周期CPU设计-2.png",
-    "Skill/img/RISC-V单周期CPU设计-1.png",
-    "Skill/RISC-V单周期CPU设计.md",
-    "Skill/Python学习笔记.md",
     "Poems/韩愈",
     "Poems/陶渊明",
     "Poems/陆游",

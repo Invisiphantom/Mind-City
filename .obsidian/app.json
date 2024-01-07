@@ -7,5 +7,12 @@
   "newLinkFormat": "relative",
   "useMarkdownLinks": true,
   "newFileLocation": "current",
-  "showInlineTitle": true
+  "showInlineTitle": true,
+  "pdfExportSettings": {
+    "includeName": true,
+    "pageSize": "A4",
+    "landscape": false,
+    "margin": "0",
+    "downscalePercent": 90
+  }
 }
