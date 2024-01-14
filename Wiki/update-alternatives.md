@@ -29,8 +29,6 @@ $ update-alternatives --help
 使用实例：Ubuntu22.04安装g++-13
 ```bash
 sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
-sudo update-alternatives --remove-all gcc
-sudo update-alternatives --remove-all g++
 sudo update-alternatives --remove-all cpp
 
 sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-13 20 \
