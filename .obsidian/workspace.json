@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "a4e630eed0405ada",
+        "id": "1f395461b0124828",
         "type": "tabs",
         "children": [
           {
-            "id": "ec3ce418691be8af",
+            "id": "5b2186d3de168932",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Wiki/vim.md",
+                "file": "Coursera/(4)代数结构.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -81,8 +81,15 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "ec3ce418691be8af",
+  "active": "5b2186d3de168932",
   "lastOpenFiles": [
+    "Coursera/img/(4)代数结构-1.png",
+    "Wiki/正则表达式.md",
+    "Coursera/img/(4)代数结构.png",
+    "Coursera/(4)代数结构.png",
+    "Coursera/image.png",
+    "Wiki/conda.md",
+    "Wiki/vim.md",
     "Wiki/git.md",
     "Wiki/gcc.md",
     "Wiki/winget.md",
@@ -91,16 +98,13 @@
     "Wiki/update-alternatives.md",
     "Wiki/readelf.md",
     "Wiki/objdump.md",
-    "Wiki/conda.md",
     "Skill/Hexo+Github博客配置.md",
     "1.md",
     "Skill/IVerilog+VSCode环境配置.md",
     "Skill/SDL2+2048小游戏开发-环境配置.md",
     "Skill/RISC-V单周期CPU设计.md",
     "Skill/Qt 开发指南.md",
-    "Wiki/正则表达式.md",
     "Wiki/find.md",
-    "Wiki/vim.md",
     "Wiki/tree.md",
     "Wiki/top.md",
     "Wiki/tar.md",
@@ -115,10 +119,7 @@
     "Skill/img/Qt 开发指南.png",
     "Coursera/img/(3)图论-1.png",
     "Coursera/img/(3)图论.png",
-    "Coursera/img/(1)数学分析.png",
     "Skill/Latex",
-    "Wiki/img/readelf.png",
-    "Wiki/img/gcc.png",
     "Wiki/img",
     "Wiki",
     "Poems/韩愈",

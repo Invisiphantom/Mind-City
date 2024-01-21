@@ -30,7 +30,7 @@ LaTeX Math Cheat Sheet
 |   $\sum$    |   $\prod$    |         $\infty$          |       $\frac{1}{2}$        |  $\sqrt[3]{2}$   |
 |   $\lim$    |    $\int$    |        $\partial$         |      $\overline{BD}$       | $\underline{AC}$ |
 | $\because$  | $\therefore$ | $\overbrace{k\cdots k}^r$ | $\underbrace{k\cdots k}_r$ |  $\blacksquare$  |
-
+| 
 
 ### 公式块
 $$
