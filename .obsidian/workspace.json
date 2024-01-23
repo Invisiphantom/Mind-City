@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coursera/(4)代数结构.md",
+                "file": "Coursera/(5)计算机网络h.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -81,10 +81,13 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "8de5106be7265e5f",
+  "active": "39b8046bd7070759",
   "lastOpenFiles": [
-    "Coursera/img/(4)代数结构-2.png",
+    "Coursera/(2)面向对象程序设计.md",
+    "Wiki/update-alternatives.md",
+    "Coursera/(6)人工智能h.md",
     "Coursera/(4)代数结构.md",
+    "Coursera/img/(4)代数结构-2.png",
     "Coursera/img/屏幕截图 2024-01-21 162637 1.png",
     "Coursera/img/(4)代数结构-1.png",
     "Wiki/正则表达式.md",
@@ -97,8 +100,6 @@
     "Wiki/gcc.md",
     "Wiki/winget.md",
     "Wiki/grep.md",
-    "Coursera/(2)面向对象程序设计.md",
-    "Wiki/update-alternatives.md",
     "Wiki/readelf.md",
     "Wiki/objdump.md",
     "Skill/Hexo+Github博客配置.md",
