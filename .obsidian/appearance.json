@@ -1,9 +1,9 @@
 {
   "accentColor": "#1eafff",
   "monospaceFontFamily": "Cascadia Code",
-  "textFontFamily": "Microsoft YaHei UI",
+  "textFontFamily": "Cascadia Code,Microsoft YaHei UI",
   "baseFontSize": 15,
   "showViewHeader": true,
   "translucency": false,
-  "interfaceFontFamily": "Microsoft YaHei UI"
+  "interfaceFontFamily": "Cascadia Code,Microsoft YaHei UI"
 }

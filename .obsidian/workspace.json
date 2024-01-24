@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "793638c6f699dc67",
+        "id": "0c94543c67bcc20f",
         "type": "tabs",
         "children": [
           {
-            "id": "0c00764c77e89804",
+            "id": "4e11e97ed00b661d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Wiki/less.md",
+                "file": "Coursera/(1)数学分析.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -81,8 +81,16 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "0c00764c77e89804",
+  "active": "4e11e97ed00b661d",
   "lastOpenFiles": [
+    "Coursera/img/(1)数学分析.png",
+    "Coursera/(4)抽象代数/(2)环论.md",
+    "Coursera/(4)抽象代数/(1)群论.md",
+    "Coursera/(4)抽象代数/img/(1)群论-4.png",
+    "Coursera/(4)抽象代数/img/(1)群论-3.png",
+    "Coursera/(4)抽象代数/img/(1)群论-2.png",
+    "Coursera/(4)抽象代数/img/(1)群论-1.png",
+    "Wiki/less.md",
     "Wiki/objdump.md",
     "Wiki/readelf.md",
     "Wiki/grep.md",
@@ -90,7 +98,6 @@
     "阅读计划.md",
     "博客规划.md",
     "demo.py",
-    "Coursera/(4)抽象代数/(1)群论.md",
     "Coursera/image.png",
     "Coursera/image-1.png",
     "Coursera/(1)数学分析.md",
@@ -109,17 +116,10 @@
     "Coursera/(5)计算机网络h.md",
     "Wiki/update-alternatives.md",
     "Coursera/(6)人工智能h.md",
-    "Coursera/(4)代数结构.md",
     "Coursera/img/(4)代数结构-2.png",
     "Coursera/img/屏幕截图 2024-01-21 162637 1.png",
     "Coursera/img/(4)代数结构-1.png",
     "Coursera/img/(4)代数结构.png",
-    "Coursera/(4)代数结构.png",
-    "Wiki/conda.md",
-    "Wiki/vim.md",
-    "Coursera/img/(3)图论-4.png",
-    "Coursera/img/(3)图论-3.png",
-    "Coursera/img/(3)图论-2.png",
     "Skill/Latex",
     "Wiki/img",
     "Wiki",
