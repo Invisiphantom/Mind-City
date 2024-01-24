@@ -13,12 +13,55 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coursera/(5)计算机网络h.md",
+                "file": "Coursera/(4)抽象代数/(1)群论.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
-            }
+            },
+            "group": "bba54d7cd0faa4c6"
+          }
+        ]
+      },
+      {
+        "id": "b667948f2e986c24",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "f2af5970178444b7",
+            "type": "leaf",
+            "state": {
+              "type": "localgraph",
+              "state": {
+                "file": "Coursera/(4)抽象代数/(1)群论.md",
+                "options": {
+                  "collapse-filter": true,
+                  "search": "",
+                  "localJumps": 1,
+                  "localBacklinks": true,
+                  "localForelinks": true,
+                  "localInterlinks": false,
+                  "showTags": false,
+                  "showAttachments": false,
+                  "hideUnresolved": false,
+                  "collapse-color-groups": true,
+                  "colorGroups": [],
+                  "collapse-display": true,
+                  "showArrow": false,
+                  "textFadeMultiplier": 0,
+                  "nodeSizeMultiplier": 1,
+                  "lineSizeMultiplier": 1,
+                  "collapse-forces": true,
+                  "centerStrength": 0.518713248970312,
+                  "repelStrength": 10,
+                  "linkStrength": 1,
+                  "linkDistance": 250,
+                  "scale": 1,
+                  "close": false
+                }
+              }
+            },
+            "group": "bba54d7cd0faa4c6"
           }
         ]
       }
@@ -83,38 +126,38 @@
   },
   "active": "39b8046bd7070759",
   "lastOpenFiles": [
+    "Coursera/image.png",
+    "Coursera/image-1.png",
+    "Coursera/(1)数学分析.md",
     "Coursera/(2)面向对象程序设计.md",
+    "Skill/Web开发.md",
+    "Skill/SDL2+2048小游戏开发-代码详解.md",
+    "Skill/Qt 开发指南.md",
+    "Skill/LaTeX Math.md",
+    "Skill/Python学习笔记.md",
+    "Skill/OpenGL.md",
+    "Skill/IVerilog+VSCode环境配置.md",
+    "Skill/Hexo+Github博客配置.md",
+    "Wiki/正则表达式.md",
+    "Wiki/gcc.md",
+    "Wiki/objdump.md",
+    "Wiki/tar.md",
+    "Coursera/(5)计算机网络h.md",
     "Wiki/update-alternatives.md",
     "Coursera/(6)人工智能h.md",
     "Coursera/(4)代数结构.md",
     "Coursera/img/(4)代数结构-2.png",
     "Coursera/img/屏幕截图 2024-01-21 162637 1.png",
     "Coursera/img/(4)代数结构-1.png",
-    "Wiki/正则表达式.md",
     "Coursera/img/(4)代数结构.png",
     "Coursera/(4)代数结构.png",
-    "Coursera/image.png",
     "Wiki/conda.md",
     "Wiki/vim.md",
     "Wiki/git.md",
-    "Wiki/gcc.md",
     "Wiki/winget.md",
     "Wiki/grep.md",
     "Wiki/readelf.md",
-    "Wiki/objdump.md",
-    "Skill/Hexo+Github博客配置.md",
     "1.md",
-    "Skill/IVerilog+VSCode环境配置.md",
-    "Skill/SDL2+2048小游戏开发-环境配置.md",
-    "Skill/RISC-V单周期CPU设计.md",
-    "Skill/Qt 开发指南.md",
-    "Wiki/find.md",
-    "Wiki/tree.md",
-    "Wiki/top.md",
-    "Wiki/tar.md",
-    "Wiki/man.md",
-    "Wiki/less.md",
-    "Wiki/wc.md",
     "Coursera/img/(3)图论-4.png",
     "Coursera/img/(3)图论-3.png",
     "Coursera/img/(3)图论-2.png",
