@@ -4,64 +4,21 @@
     "type": "split",
     "children": [
       {
-        "id": "460f579a1823df8b",
+        "id": "793638c6f699dc67",
         "type": "tabs",
         "children": [
           {
-            "id": "39b8046bd7070759",
+            "id": "0c00764c77e89804",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coursera/(4)抽象代数/(1)群论.md",
+                "file": "Wiki/less.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
               }
-            },
-            "group": "bba54d7cd0faa4c6"
-          }
-        ]
-      },
-      {
-        "id": "b667948f2e986c24",
-        "type": "tabs",
-        "children": [
-          {
-            "id": "f2af5970178444b7",
-            "type": "leaf",
-            "state": {
-              "type": "localgraph",
-              "state": {
-                "file": "Coursera/(4)抽象代数/(1)群论.md",
-                "options": {
-                  "collapse-filter": true,
-                  "search": "",
-                  "localJumps": 1,
-                  "localBacklinks": true,
-                  "localForelinks": true,
-                  "localInterlinks": false,
-                  "showTags": false,
-                  "showAttachments": false,
-                  "hideUnresolved": false,
-                  "collapse-color-groups": true,
-                  "colorGroups": [],
-                  "collapse-display": true,
-                  "showArrow": false,
-                  "textFadeMultiplier": 0,
-                  "nodeSizeMultiplier": 1,
-                  "lineSizeMultiplier": 1,
-                  "collapse-forces": true,
-                  "centerStrength": 0.518713248970312,
-                  "repelStrength": 10,
-                  "linkStrength": 1,
-                  "linkDistance": 250,
-                  "scale": 1,
-                  "close": false
-                }
-              }
-            },
-            "group": "bba54d7cd0faa4c6"
+            }
           }
         ]
       }
@@ -124,8 +81,16 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "39b8046bd7070759",
+  "active": "0c00764c77e89804",
   "lastOpenFiles": [
+    "Wiki/objdump.md",
+    "Wiki/readelf.md",
+    "Wiki/grep.md",
+    "Wiki/man.md",
+    "阅读计划.md",
+    "博客规划.md",
+    "demo.py",
+    "Coursera/(4)抽象代数/(1)群论.md",
     "Coursera/image.png",
     "Coursera/image-1.png",
     "Coursera/(1)数学分析.md",
@@ -140,7 +105,6 @@
     "Skill/Hexo+Github博客配置.md",
     "Wiki/正则表达式.md",
     "Wiki/gcc.md",
-    "Wiki/objdump.md",
     "Wiki/tar.md",
     "Coursera/(5)计算机网络h.md",
     "Wiki/update-alternatives.md",
@@ -153,15 +117,9 @@
     "Coursera/(4)代数结构.png",
     "Wiki/conda.md",
     "Wiki/vim.md",
-    "Wiki/git.md",
-    "Wiki/winget.md",
-    "Wiki/grep.md",
-    "Wiki/readelf.md",
-    "1.md",
     "Coursera/img/(3)图论-4.png",
     "Coursera/img/(3)图论-3.png",
     "Coursera/img/(3)图论-2.png",
-    "Skill/img/Qt 开发指南.png",
     "Skill/Latex",
     "Wiki/img",
     "Wiki",
@@ -170,7 +128,6 @@
     "Poems/陆游",
     "Poems/辛弃疾",
     "Poems/诸葛亮",
-    "Poems/苏轼",
-    "Poems/白居易"
+    "Poems/苏轼"
   ]
 }
