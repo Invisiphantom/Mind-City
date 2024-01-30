@@ -19,6 +19,12 @@ LaTeX Math Cheat Sheet
 | $\Lambda$  | $\lambda$  |   $\Psi$   |   $\psi$   |
 |   $\Mu$    |   $\mu$    |  $\Omega$  |  $\omega$  |
 
+### 数学字体
+|     字体      |       字体       |     字体      |      字体      |
+| :-----------: | :--------------: | :-----------: | :------------: |
+| $\mathbb{P}$  |   $\mathbf{P}$   | $\mathcal{P}$ | $\mathfrak{P}$ |
+| $\mathscr{P}$ |   $\mathsf{P}$   | $\mathit{P}$  |  $\mathtt{P}$  |
+| $\mathrm{P}$  | $\mathnormal{P}$ |
 
 ### 常用符号
 |    符号     |     符号     |           符号            |            符号            |       符号       |
@@ -30,7 +36,7 @@ LaTeX Math Cheat Sheet
 |   $\sum$    |   $\prod$    |         $\infty$          |       $\frac{1}{2}$        |  $\sqrt[3]{2}$   |
 |   $\lim$    |    $\int$    |        $\partial$         |      $\overline{BD}$       | $\underline{AC}$ |
 | $\because$  | $\therefore$ | $\overbrace{k\cdots k}^r$ | $\underbrace{k\cdots k}_r$ |  $\blacksquare$  |
-| 
+|             |
 
 ### 公式块
 $$
