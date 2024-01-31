@@ -27,16 +27,16 @@ LaTeX Math Cheat Sheet
 | $\mathrm{P}$  | $\mathnormal{P}$ |
 
 ### 常用符号
-|    符号     |     符号     |           符号            |            符号            |       符号       |
-| :---------: | :----------: | :-----------------------: | :------------------------: | :--------------: |
-|   $\neq$    |    $\leq$    |          $\geq$           |           $\in$            |     $\notin$     |
-| $\subseteq$ | $\supseteq$  |           $\to$           |         $\implies$         |      $\iff$      |
-|   $\cap$    |    $\cup$    |         $\bigcap$         |         $\bigcup$          |   $\emptyset$    |
-|   $\land$   |    $\lor$    |         $\forall$         |         $\exists$          |    $\nexists$    |
-|   $\sum$    |   $\prod$    |         $\infty$          |       $\frac{1}{2}$        |  $\sqrt[3]{2}$   |
-|   $\lim$    |    $\int$    |        $\partial$         |      $\overline{BD}$       | $\underline{AC}$ |
-| $\because$  | $\therefore$ | $\overbrace{k\cdots k}^r$ | $\underbrace{k\cdots k}_r$ |  $\blacksquare$  |
-|             |
+|      符号      |     符号     |           符号            |            符号            |       符号       |
+| :------------: | :----------: | :-----------------------: | :------------------------: | :--------------: |
+|     $\neq$     |    $\leq$    |          $\geq$           |           $\in$            |     $\notin$     |
+|  $\subseteq$   | $\supseteq$  |           $\to$           |         $\implies$         |      $\iff$      |
+|     $\cap$     |    $\cup$    |         $\bigcap$         |         $\bigcup$          |   $\emptyset$    |
+|    $\land$     |    $\lor$    |         $\forall$         |         $\exists$          |    $\nexists$    |
+|     $\sum$     |   $\prod$    |         $\infty$          |       $\frac{1}{2}$        |  $\sqrt[3]{2}$   |
+|     $\lim$     |    $\int$    |        $\partial$         |      $\overline{BD}$       | $\underline{AC}$ |
+|   $\because$   | $\therefore$ | $\overbrace{k\cdots k}^r$ | $\underbrace{k\cdots k}_r$ |  $\blacksquare$  |
+| $\binom{n}{k}$ |
 
 ### 公式块
 $$
