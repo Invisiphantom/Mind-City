@@ -10,6 +10,13 @@ https://github.com/
 第四步: 安装Github桌面版
 https://desktop.github.com/
 
+第五步: 登录Github桌面版, 然后Clone刚才新建的仓库
+
+第六步: 将本地的仓库文件夹用VSCode打开, 然后在VSCode中进行编辑
+
+第七步: 在Github桌面版或者VSCode中提交更改, 然后Push到远程仓库
+
+
 
 
 1. GitHub Theme: 界面主题
