@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coursera/(1)线性代数.md",
+                "file": "Coursera/(3)数字逻辑与部件设计.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -62,7 +62,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 242.5
+    "width": 246.5
   },
   "right": {
     "id": "2883e72b7ca53695",
@@ -81,8 +81,9 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "4e11e97ed00b661d",
+  "active": "8de5106be7265e5f",
   "lastOpenFiles": [
+    "Coursera/(1)线性代数.md",
     "Coursera/(4)计算机组成与体系结构h.md",
     "Coursera/(3)数字逻辑与部件设计.md",
     "Coursera/(3)计算机系统基础.md",
@@ -116,7 +117,6 @@
     "Skill/Hexo+Github博客配置.md",
     "Wiki/正则表达式.md",
     "Wiki/tar.md",
-    "Coursera/(5)计算机网络h.md",
     "Coursera/img/(4)代数结构-2.png",
     "Coursera/img/屏幕截图 2024-01-21 162637 1.png",
     "Coursera/img/(4)代数结构-1.png",
