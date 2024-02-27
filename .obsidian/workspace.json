@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "0c94543c67bcc20f",
+        "id": "1a4f163477f31219",
         "type": "tabs",
         "children": [
           {
-            "id": "4e11e97ed00b661d",
+            "id": "7f5aaff8b7b0f4e2",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "Coursera/(3)数字逻辑与部件设计.md",
+                "file": "Wiki/update-alternatives.md",
                 "mode": "source",
                 "backlinks": false,
                 "source": false
@@ -81,11 +81,12 @@
       "oz-clear-unused-images:Clear Unused Images": false
     }
   },
-  "active": "8de5106be7265e5f",
+  "active": "7f5aaff8b7b0f4e2",
   "lastOpenFiles": [
+    "Coursera/(3)深度学习.md",
+    "Coursera/(3)数字逻辑与部件设计.md",
     "Coursera/(1)线性代数.md",
     "Coursera/(4)计算机组成与体系结构h.md",
-    "Coursera/(3)数字逻辑与部件设计.md",
     "Coursera/(3)计算机系统基础.md",
     "Wiki/gcc.md",
     "Coursera/(1)数学分析.md",
@@ -116,7 +117,6 @@
     "Skill/IVerilog+VSCode环境配置.md",
     "Skill/Hexo+Github博客配置.md",
     "Wiki/正则表达式.md",
-    "Wiki/tar.md",
     "Coursera/img/(4)代数结构-2.png",
     "Coursera/img/屏幕截图 2024-01-21 162637 1.png",
     "Coursera/img/(4)代数结构-1.png",
