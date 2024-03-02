@@ -26,6 +26,9 @@ LaTeX Math Cheat Sheet
 | $\mathscr{P}$ |   $\mathsf{P}$   | $\mathit{P}$  |  $\mathtt{P}$  |
 | $\mathrm{P}$  | $\mathnormal{P}$ |
 
+
+
+
 ### 常用符号
 |      符号      |     符号     |           符号            |            符号            |       符号       |
 | :------------: | :----------: | :-----------------------: | :------------------------: | :--------------: |
@@ -35,7 +38,7 @@ LaTeX Math Cheat Sheet
 |    $\land$     |    $\lor$    |         $\forall$         |         $\exists$          |    $\nexists$    |
 |     $\sum$     |   $\prod$    |         $\infty$          |       $\frac{1}{2}$        |  $\sqrt[3]{2}$   |
 |     $\lim$     |    $\int$    |        $\partial$         |      $\overline{BD}$       | $\underline{AC}$ |
-|   $\because$   | $\therefore$ | $\overbrace{k\cdots k}^r$ | $\underbrace{k\cdots k}_r$ |  $\blacksquare$  |
+|   $\because$   | $\therefore$ | $\overbrace{k\cdots k}^r$ | $\underbrace{k\cdots k}_r$ |    $\bar{x}$     |
 | $\binom{n}{k}$ |
 
 ### 公式块
