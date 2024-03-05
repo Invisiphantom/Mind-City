@@ -2,3 +2,7 @@
 
 conda create --name Py python=3.11
 conda activate Py
+
+conda install numpy matplotlib jupyter
+
+conda remove --name Py --all
