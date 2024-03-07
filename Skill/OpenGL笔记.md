@@ -1,30 +1,4 @@
-Ubuntu22.04配置OpenGL环境
-
-```bash
-sudo apt install build-essential g++
-sudo apt install libgl-dev libglfw3-dev
-```
-
-https://glad.dav1d.de/
-选择最新版本gl, 勾选"Local Files", 然后生成并下载
-
-
-修改`.vscode/tasks.json`文件, 添加头文件和链接操作
-```json
-    "args": [
-        "-fdiagnostics-color=always",
-        "-g",
-        "${file}",
-        "${workspaceFolder}/glad/glad.c",
-        "-o",
-        "${fileDirname}/${fileBasenameNoExtension}",
-        "-lGL",
-        "-lglfw",
-    ],
-```
-
-<br>
-
+## OpenGL资料
 
 OpenGL教程: [LearnOpenGL](https://learnopengl.com/Getting-started/OpenGL)
 
@@ -43,10 +17,34 @@ OpenGL教程: [LearnOpenGL](https://learnopengl.com/Getting-started/OpenGL)
 [OpenGL矩阵变换的数学推导-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1389550)
 
 
-  surface, context and thread    画布，画家与画室
-  VBO   方案碎片    VAO    绘画方案
 
-  3D渲染、动画制作、玩家交互、游戏逻辑
 
-\#define GLEW_STATIC
+## OpenGL配置
 
+```bash
+sudo apt install build-essential g++ gdb
+sudo apt install libgl-dev libglfw3-dev
+```
+
+https://glad.dav1d.de/
+选择最新版本gl, 勾选"Local Files", 然后生成并下载glad.zip
+
+
+修改`.vscode/tasks.json`文件, 添加头文件和链接操作
+```json
+    "args": [
+        "-fdiagnostics-color=always",
+        "-g",
+        "${file}",
+        "${workspaceFolder}/glad/glad.c",
+        "-o",
+        "${fileDirname}/${fileBasenameNoExtension}",
+        "-lGL",
+        "-lglfw",
+    ],
+```
+
+
+## OpenGL管线
+
+| 着色器 | 作用 |
