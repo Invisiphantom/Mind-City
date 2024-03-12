@@ -1,6 +1,16 @@
 ### 导入库
 `import matplotlib.pyplot as plt`
 
+
+
+### plt.imread()
+(function) def imread(
+    fname: str | Path | BinaryIO,
+    format: str | None = None
+) -> ndarray
+
+
+
 ### plt.imshow()
 (function) def imshow(
     X: ArrayLike | Image,
@@ -50,5 +60,3 @@ list(colormaps)
 | viridis | 翠绿色 |
 | gray    | 灰度   |
 
-### 图像窗口
-`plt.show()`
