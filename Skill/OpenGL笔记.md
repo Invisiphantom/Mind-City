@@ -50,6 +50,7 @@ https://glad.dav1d.de/
 
 VSCode插件
 Shader languages support for VS Code
+glsl-snippets
 glsl-canvas
 GLSL Lint
 
@@ -114,6 +115,7 @@ void glGetAttachedShaders(	GLuint program,
 
 | gl函数                                                                                              | 功能                  |
 | --------------------------------------------------------------------------------------------------- | --------------------- |
+| `GLenum glGetError(void)`                                                                           | 获取错误代码          |
 | `void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)`                                  | 设置视窗位置与大小    |
 | `void glClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)`                        | 设置清空颜色缓冲区    |
 | `void glClear(GLbitfield mask)`                                                                     | 清空缓冲区            |
@@ -130,6 +132,7 @@ void glGetAttachedShaders(	GLuint program,
 | `void glLinkProgram(GLuint program)`                                                                | 链接生成可执行程序    |
 | `void glGetProgramiv(GLuint program, GLenum pname, GLint *params)`                                  | 查询程序状态          |
 | `void glGetProgramInfoLog(GLuint program, GLsizei maxLength, GLsizei *length, GLchar *infoLog)`     | 获取程序错误日志      |
+| `void glUseProgram(GLuint program)`                                                                 | 激活程序              |
 | `void glDeleteProgram(GLuint program)`                                                              | 删除程序              |
 | --------------------------------------------------------------------------------------------------- | --------------------- |
 | `void glGenVertexArrays(GLsizei n, GLuint *arrays)`                                                 | 创建顶点数组对象      |
@@ -152,6 +155,27 @@ void glGetAttachedShaders(	GLuint program,
 | GL_TRIANGLES | 三角形   |
 | GL_QUADS     | 四边形   |
 | GL_POLYGON   | 多边形   |
+
+## GLSL语法
+
+### 基本数据类型
+
+| Type                   | Desc     |
+| ---------------------- | -------- |
+| void                   | 空类型   |
+| bool/bvec2/bvec3/bvec4 | 布尔类型 |
+| int/ivec2/ivec3/ivec4  | 整型     |
+| float/vec2/vec3/vec4   | 浮点型   |
+| mat2/mat3/mat4         | 矩阵     |
+
+### Vertex Shader
+
+| Name        | Type | Desc       |
+| ----------- | ---- | ---------- |
+| gl_Color    | vec4 | 顶点主颜色 |
+| gl_Position | vec4 | 顶点位置   |
+| gl_VertesID | int  | 顶点ID     |
+
 
 ## glfw语法
 
@@ -263,43 +287,70 @@ void processInput(GLFWwindow *window)
 6. 渲染循环
 7. 释放资源
 
+```vert
+#version 410
+void main(void)
+{
+    if(gl_VertexID==0)gl_Position=vec4(.25,-.25,0.,1.);
+    else if(gl_VertexID==1)gl_Position=vec4(-.25,-.25,0.,1.);
+    else gl_Position=vec4(.25,.25,0.,1.);
+}
+```
+
+```frag
+#version 410
+out vec4 color;
+void main(void)
+{
+    color=vec4(.1804,.7059,.4431,1.);
+}
+```
+
 ```cpp
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
+#include <fstream>
+#include <string>
 
 using namespace std;
 
-void frambuffer_size_callback(GLFWwindow* window, int width, int height) {
+void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }
 
 void processInput(GLFWwindow* window) {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) glfwSetWindowShouldClose(window, true);
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+        glfwSetWindowShouldClose(window, true);
+    }
 }
 
-#define numVAOs 1
-GLuint renderingProgram;
-GLuint vao[numVAOs];
+string readShaderSource(const char* filePath) {
+    string sourceCode;
+    ifstream fileStream(filePath, ios::in);
+    while (!fileStream.eof()) {
+        string line = "";
+        getline(fileStream, line);
+        sourceCode.append(line + "\n");
+    }
+    fileStream.close();
+    return sourceCode;
+}
+
 
 GLuint createShaderProgram() {
-    const char* vshaderSource =
-        "#version 410\n"
-        "void main(void)\n"
-        "{ gl_Position = vec4(0.0, 0.0, 0.0, 1.0); }";
+    string vShaderStr = readShaderSource("demo.vert");
+    string fShaderStr = readShaderSource("demo.frag");
 
-    const char* fshaderSource =
-        "#version 410\n"
-        "out vec4 color;\n"
-        "void main(void)\n"
-        " {color = vec4(0.0, 0.1, 0.5, 1.0); }";
+    const char* vshaderSource = vShaderStr.c_str();
+    const char* fshaderSource = fShaderStr.c_str();
 
     GLuint vShader = glCreateShader(GL_VERTEX_SHADER);
     GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-    glShaderSource(vShader, 1, &vshaderSource, NULL);
-    glShaderSource(fShader, 1, &fshaderSource, NULL);
+    glShaderSource(vShader, 1, &vshaderSource, nullptr);
+    glShaderSource(fShader, 1, &fshaderSource, nullptr);
     glCompileShader(vShader);
     glCompileShader(fShader);
 
@@ -314,17 +365,22 @@ GLuint createShaderProgram() {
     return vfProgram;
 }
 
+#define numVAOs 1
+GLuint renderingProgram;
+GLuint vao[numVAOs];
+
 int main() {
     glfwInit();
-    glfwInitHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-    glfwInitHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+    glfwInitHint(GLFW_VERSION_MAJOR, 4);
+    glfwInitHint(GLFW_VERSION_MINOR, 1);
     glfwInitHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", nullptr, nullptr);
+    GLFWwindow* window = glfwCreateWindow(800, 600, "Learn OpenGL", nullptr, nullptr);
     glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, frambuffer_size_callback);
+    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+
     glfwSwapInterval(1);
 
     renderingProgram = createShaderProgram();
@@ -334,17 +390,18 @@ int main() {
     while (!glfwWindowShouldClose(window)) {
         processInput(window);
 
+        glClear(GL_DEPTH_BUFFER_BIT);
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glUseProgram(renderingProgram);
-        glPointSize(30.0f);
-        glDrawArrays(GL_POINTS, 0, 1);
+        glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
+    glDeleteProgram(renderingProgram);
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
