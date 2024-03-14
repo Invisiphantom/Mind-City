@@ -12,3 +12,7 @@
 | 模块内部寄存器 |  [reg_name]_r   |
 |  模块内部连线  |  [wire_name]_w  |
 | 低电平有效信号 |  [pin_name]_n   |
+
+
+
+`include "../include/common.sv"

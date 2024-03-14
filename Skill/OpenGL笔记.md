@@ -20,11 +20,11 @@ OpenGL教程: [LearnOpenGL](https://learnopengl.com/Getting-started/OpenGL)
 | 图形库  | 介绍                                                 |
 | ------- | ---------------------------------------------------- |
 | OpenGL  | Open Graphics Library, 开放图形库                    |
-| GLAD    | GL Loader Generator, OpenGL加载器生成器              |
+| GLFW    | OpenGL FrameWork, OpenGL创建窗口和处理用户输入       |
+| GLAD    | GL Loader Generator, OpenGL动态链接库加载器          |
 | GLSL    | OpenGL Shading Language, OpenGL着色器语言            |
 | GLM     | OpenGL Mathematics, OpenGL数学库                     |
 | GLEW    | OpenGL Extension Wrangler Library, OpenGL扩展库      |
-| GLFW    | OpenGL FrameWork, OpenGL框架                         |
 | SOIL2   | Simple OpenGL Image Library, 简单OpenGL图像库        |
 | ------  | --------------------------------------------------   |
 | GLUI    | OpenGL User Interface, OpenGL用户界面                |
@@ -41,12 +41,17 @@ OpenGL教程: [LearnOpenGL](https://learnopengl.com/Getting-started/OpenGL)
 ```bash
 sudo apt install build-essential g++ gdb
 sudo apt install libgl-dev libglfw3-dev
+sudo apt install glslang-tools
 ```
 
 https://glad.dav1d.de/
 选择4.1版本gl, 勾选"Local Files", 然后生成并下载glad.zip
-`sudo mv glad /usr/include/`
+`sudo mv glad /usr/local/include/`
 
+VSCode插件
+Shader languages support for VS Code
+glsl-canvas
+GLSL Lint
 
 修改`.vscode/tasks.json`文件, 添加头文件和链接操作
 ```json
@@ -70,16 +75,10 @@ https://glad.dav1d.de/
 ```
 
 
+
+
 ## OpenGL管线
 
-| 图形管线       | 英文名                      | 功能     |
-| -------------- | --------------------------- | -------- |
-| 顶点着色器     | Vertex Shader               | 顶点处理 |
-| 曲面细分着色器 | Tessellation Control Shader | 图元处理 |
-| 几何着色器     | Geometry Shader             | 图元处理 |
-| 光栅化着色器   | Rasterization Shader        | 片段处理 |
-| 片段着色器     | Fragment Shader             | 片段处理 |
-| 像素操作       | Pixel Shader                | 片段处理 |
 
 
 | glad函数                             | 功能           |
@@ -92,11 +91,14 @@ https://glad.dav1d.de/
 | `int glfwInit()`                                                                                                  | 初始化glfw库                 |
 | `void glfwWindowHint(int hint, int value)`                                                                        | 配置glfw参数                 |
 | `void glfwTerminate()`                                                                                            | 终止glfw库                   |
+| ----------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `GLFWwindow *glfwCreateWindow(int width, int height, const char *title, GLFWmonitor *monitor, GLFWwindow *share)` | 创建窗口                     |
 | `void glfwMakeContextCurrent(GLFWwindow *window)`                                                                 | 指定窗口上下文               |
+| `GLFWframebuffersizefun glfwSetFramebufferSizeCallback(GLFWwindow *window, GLFWframebuffersizefun callback)`      | 设置帧缓冲区回调函数         |
 | `void glfwDestroyWindow(GLFWwindow *window)`                                                                      | 销毁窗口                     |
-| `GLFWframebuffersizefun glfwSetFramebufferSizeCallback(GLFWwindow *window, GLFWframebuffersizefun callback)`      | 设置帧缓冲区大小变化回调函数 |
+| ----------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `GLFWglproc glfwGetProcAddress(const char *procname)`                                                             | 获取OpenGL函数指针           |
+| ----------------------------------------------------------------------------------------------------------------- | ---------------------------- |
 | `void glfwSwapInterval(int interval)`                                                                             | 设置垂直同步                 |
 | `int glfwWindowShouldClose(GLFWwindow *window)`                                                                   | 检测窗口是否应该关闭         |
 | `void glfwSetWindowShouldClose(GLFWwindow *window, int value)`                                                    | 设置窗口是否应该关闭         |
@@ -110,28 +112,46 @@ void glGetAttachedShaders(	GLuint program,
  	GLsizei *count,
  	GLuint *shaders);
 
-| gl函数                                                                                         | 功能               |
-| ---------------------------------------------------------------------------------------------- | ------------------ |
-| `void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)`                             | 设置视窗位置与大小 |
-| `void glClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)`                   | 设置清空颜色缓冲区 |
-| `void glClear(GLbitfield mask)`                                                                | 清空缓冲区         |
-| `GLuint glCreateShader(GLenum shaderType);`                                                    | 创建着色器         |
-| `void glShaderSource(GLuint shader, GLsizei count, GLchar **string, const GLint *length)`      | 设置着色器源码     |
-| `void glCompileShader(GLuint shader)`                                                          | 编译着色器源码     |
-| `GLuint glCreateProgram()`                                                                     | 创建着色器程序     |
-| `void glGetAttachedShaders(GLuint program, GLsizei maxCount, GLsizei *count, GLuint *shaders)` | 绑定程序与着色器   |
-| `void glLinkProgram(GLuint program)`                                                           | 链接生成可执行程序 |
-| `void glDeleteShader(GLuint shader)`                                                           | 删除着色器         |
+| gl函数                                                                                              | 功能                  |
+| --------------------------------------------------------------------------------------------------- | --------------------- |
+| `void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)`                                  | 设置视窗位置与大小    |
+| `void glClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)`                        | 设置清空颜色缓冲区    |
+| `void glClear(GLbitfield mask)`                                                                     | 清空缓冲区            |
+| --------------------------------------------------------------------------------------------------- | --------------------- |
+| `GLuint glCreateShader(GLenum shaderType);`                                                         | 创建着色器            |
+| `void glShaderSource(GLuint shader, GLsizei count, GLchar **string, const GLint *length=NULL)`      | 设置着色器源码        |
+| `void glCompileShader(GLuint shader)`                                                               | 编译着色器源码        |
+| `void glGetShaderiv(GLuint shader, GLenum pname, GLint *params)`                                    | 查询着色器状态        |
+| `void glGetShaderInfoLog(GLuint shader, GLsizei maxLength, GLsizei *length, GLchar *infoLog)`       | 获取着色器错误日志    |
+| `void glDeleteShader(GLuint shader)`                                                                | 删除着色器            |
+| --------------------------------------------------------------------------------------------------- | --------------------- |
+| `GLuint glCreateProgram()`                                                                          | 创建程序              |
+| `void glAttachShader(GLuint program, GLuint shader)`                                                | 绑定程序与着色器      |
+| `void glLinkProgram(GLuint program)`                                                                | 链接生成可执行程序    |
+| `void glGetProgramiv(GLuint program, GLenum pname, GLint *params)`                                  | 查询程序状态          |
+| `void glGetProgramInfoLog(GLuint program, GLsizei maxLength, GLsizei *length, GLchar *infoLog)`     | 获取程序错误日志      |
+| `void glDeleteProgram(GLuint program)`                                                              | 删除程序              |
+| --------------------------------------------------------------------------------------------------- | --------------------- |
+| `void glGenVertexArrays(GLsizei n, GLuint *arrays)`                                                 | 创建顶点数组对象      |
+| `void glGenBuffers(GLsizei n, GLuint *buffers)`                                                     | 创建缓冲区对象        |
+| `void glDrawArrays(GLenum mode, GLint first, GLsizei count)`                                        | 绘制图元              |
 
-| GLenum shaderType           | 着色器类型         |
-| --------------------------- | ------------------ |
-| `GL_VERTEX_SHADER`          | 顶点着色器         |
-| `GL_TESS_CONTROL_SHADER`    | 曲面细分控制着色器 |
-| `GL_TESS_EVALUATION_SHADER` | 曲面细分评估着色器 |
-| `GL_GEOMETRY_SHADER`        | 几何着色器         |
-| `GL_FRAGMENT_SHADER`        | 片段着色器         |
-| `GL_COMPUTE_SHADER`         | 计算着色器         |
+| GLenum shaderType           | 文件名 | 着色器类型         |
+| --------------------------- | ------ | ------------------ |
+| `GL_VERTEX_SHADER`          | .vert  | 顶点着色器         |
+| `GL_TESS_CONTROL_SHADER`    | .tesc  | 曲面细分控制着色器 |
+| `GL_TESS_EVALUATION_SHADER` | .tese  | 曲面细分评估着色器 |
+| `GL_GEOMETRY_SHADER`        | .geom  | 几何着色器         |
+| `GL_FRAGMENT_SHADER`        | .frag  | 片段着色器         |
+| `GL_COMPUTE_SHADER`         | .comp  | 计算着色器         |
 
+| GLenum mode  | 图元类型 |
+| ------------ | -------- |
+| GL_POINTS    | 点       |
+| GL_LINES     | 线段     |
+| GL_TRIANGLES | 三角形   |
+| GL_QUADS     | 四边形   |
+| GL_POLYGON   | 多边形   |
 
 ## glfw语法
 
@@ -235,84 +255,98 @@ void processInput(GLFWwindow *window)
 ```
 
 
+1. 初始化GLFW
+2. 配置GLFW
+3. 创建窗口对象
+4. 指定窗口上下文
+5. 加载OpenGL函数指针
+6. 渲染循环
+7. 释放资源
+
 ```cpp
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
 #include <iostream>
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height);
-void processInput(GLFWwindow *window);
+using namespace std;
 
-// settings
-const unsigned int SCR_WIDTH = 800;
-const unsigned int SCR_HEIGHT = 600;
+void frambuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
+}
 
-int main()
-{
-    // glfw: initialize and configure
-    // ------------------------------
+void processInput(GLFWwindow* window) {
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) glfwSetWindowShouldClose(window, true);
+}
+
+#define numVAOs 1
+GLuint renderingProgram;
+GLuint vao[numVAOs];
+
+GLuint createShaderProgram() {
+    const char* vshaderSource =
+        "#version 410\n"
+        "void main(void)\n"
+        "{ gl_Position = vec4(0.0, 0.0, 0.0, 1.0); }";
+
+    const char* fshaderSource =
+        "#version 410\n"
+        "out vec4 color;\n"
+        "void main(void)\n"
+        " {color = vec4(0.0, 0.1, 0.5, 1.0); }";
+
+    GLuint vShader = glCreateShader(GL_VERTEX_SHADER);
+    GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);
+
+    glShaderSource(vShader, 1, &vshaderSource, NULL);
+    glShaderSource(fShader, 1, &fshaderSource, NULL);
+    glCompileShader(vShader);
+    glCompileShader(fShader);
+
+    GLuint vfProgram = glCreateProgram();
+    glAttachShader(vfProgram, vShader);
+    glAttachShader(vfProgram, fShader);
+    glLinkProgram(vfProgram);
+
+    glDeleteShader(vShader);
+    glDeleteShader(fShader);
+
+    return vfProgram;
+}
+
+int main() {
     glfwInit();
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
-    glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-    glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+    glfwInitHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
+    glfwInitHint(GLFW_CONTEXT_VERSION_MINOR, 1);
+    glfwInitHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    // glfw window creation
-    // --------------------
-    GLFWwindow* window = glfwCreateWindow(SCR_WIDTH, SCR_HEIGHT, "LearnOpenGL", NULL, NULL);
-    if (window == NULL)
-    {
-        std::cout << "Failed to create GLFW window" << std::endl;
-        glfwTerminate();
-        return -1;
-    }
+    GLFWwindow* window = glfwCreateWindow(800, 600, "LearnOpenGL", nullptr, nullptr);
     glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetFramebufferSizeCallback(window, frambuffer_size_callback);
 
-    // glad: load all OpenGL function pointers
-    // ---------------------------------------
-    if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress))
-    {
-        std::cout << "Failed to initialize GLAD" << std::endl;
-        return -1;
-    }    
+    gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
+    glfwSwapInterval(1);
 
-    // render loop
-    // -----------
-    while (!glfwWindowShouldClose(window))
-    {
-        // input
+    renderingProgram = createShaderProgram();
+    glGenVertexArrays(numVAOs, vao);
+    glBindVertexArray(vao[0]);
+
+    while (!glfwWindowShouldClose(window)) {
         processInput(window);
 
-        // render
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        // glfw: swap buffers and poll IO events (keys pressed/released, mouse moved etc.)
+        glUseProgram(renderingProgram);
+        glPointSize(30.0f);
+        glDrawArrays(GL_POINTS, 0, 1);
+
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    // glfw: terminate, clearing all previously allocated GLFW resources.
-    // ------------------------------------------------------------------
+    glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
-}
-
-// process all input: query GLFW whether relevant keys are pressed/released this frame and react accordingly
-// ---------------------------------------------------------------------------------------------------------
-void processInput(GLFWwindow *window)
-{
-    if(glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
-        glfwSetWindowShouldClose(window, true);
-}
-
-// glfw: whenever the window size changed (by OS or user resize) this callback function executes
-// ---------------------------------------------------------------------------------------------
-void framebuffer_size_callback(GLFWwindow* window, int width, int height)
-{
-    // make sure the viewport matches the new window dimensions; note that width and 
-    // height will be significantly larger than specified on retina displays.
-    glViewport(0, 0, width, height);
 }
 ```
