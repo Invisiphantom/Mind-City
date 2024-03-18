@@ -19,7 +19,7 @@ sudo systemctl reload postgresql
 psql -U postgres -W
 
 CREATE USER ethan WITH PASSWORD '123456' SUPERUSER;
-CREATE DATABASE ethan AUTHORIZATION ethan;
+CREATE DATABASE ethan OWNER ethan;
 psql
 ```
 

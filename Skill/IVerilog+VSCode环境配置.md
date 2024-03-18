@@ -293,7 +293,7 @@ export ALL_PROXY="sock5://$host_ip:7890"
 打开Release界面复制下载链接
 ![](img/IVerilog+VSCode环境配置-5.png)
 在WSL使用wget下载
-`$ wget https://github.com/chipsalliance/verible/releases/download/v0.0-3430-g060bde0f/verible-v0.0-3430-g060bde0f-Ubuntu-22.04-jammy-x86_64.tar.gz`
+`$ wget https://github.com/chipsalliance/verible/releases/download/v0.0-3622-g07b310a3/verible-v0.0-3622-g07b310a3-linux-static-x86_64.tar.gz`
 使用tar解压
 `$ tar -xvf verible-v0.0-3430-g060bde0f-Ubuntu-22.04-jammy-x86_64.tar.gz`
 将verible文件夹复制到`/usr/local/`目录下
