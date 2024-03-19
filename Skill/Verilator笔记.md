@@ -7,6 +7,7 @@ cd verilator
 git checkout v4.210
 sudo apt install perl make autoconf g++ flex bison ccache gtkwave libsdl2-dev
 autoconf
+autoupdate
 ./configure
 make -j12 or -j4
 sudo make uninstall

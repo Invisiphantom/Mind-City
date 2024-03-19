@@ -60,3 +60,21 @@ list(colormaps)
 | viridis | 翠绿色 |
 | gray    | 灰度   |
 
+
+
+### plt.subplots()
+(function) def subplots(
+    nrows: int = 1,
+    ncols: int = 1,
+    *,
+    sharex: bool | Literal['none', 'all', 'row', 'col'] = False,
+    sharey: bool | Literal['none', 'all', 'row', 'col'] = False,
+    squeeze: bool = True,
+    width_ratios: Sequence[float] | None = None,
+    height_ratios: Sequence[float] | None = None,
+    subplot_kw: dict[str, Any] | None = None,
+    gridspec_kw: dict[str, Any] | None = None,
+    **fig_kw: Any
+) -> tuple[Figure, Any]
+
+`fig, axes = plt.subplots(2, 5, figsize=(12, 5))`

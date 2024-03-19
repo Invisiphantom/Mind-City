@@ -1,0 +1,9 @@
+torch.nn.CrossEntropyLoss
+class CrossEntropyLoss(
+    weight: Tensor | None = None,
+    size_average: Any | None = None,
+    ignore_index: int = -100,
+    reduce: Any | None = None,
+    reduction: str = 'mean',
+    label_smoothing: float = 0
+)

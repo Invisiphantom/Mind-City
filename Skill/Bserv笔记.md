@@ -4,7 +4,7 @@
 git clone --recurse-submodules https://github.com/JonathanSilver/bserv.git
 
 cd boost
-./bootstrap
+./boostrap.sh
 ./b2
 sudo ./b2 install
 
@@ -37,6 +37,8 @@ create database bserv;
 psql bserv < db.sql
 mv config-ubuntu.json config.json
 code config.json
+modify: "conn-str": "postgresql://ethan:123456@localhost:5432/bserv",
+
 mkdir build && cd build
 cmake ..
 cmake --build .
@@ -44,9 +46,11 @@ cd WebApp
 ./WebApp ../../config.json
 ```
 
-
-```json
-{
-    "C_Cpp.default.configurationProvider": "ms-vscode.cmake-tools"
-}
+Windows访问WSL的localhost
+```bash
+ip a |grep "global eth0"
+netstat -tuln
 ```
+
+
+C_Cpp.SelectIntelliSenseConfiguration -> use cmake-tools

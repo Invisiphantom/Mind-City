@@ -11,6 +11,10 @@ conda remove --name Py --all
 conda create --name Py python=3.11
 conda activate Py
 
+conda remove --name PyT --all
+conda create --name PyT python=3.11
+conda activate PyT
+
 conda install numpy pandas matplotlib jupyter seaborn
 pip install nltk
 ```
