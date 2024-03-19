@@ -16,6 +16,7 @@ mysql -u debian-sys-maint -p
 USE mysql
 ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '123456';
 FLUSH PRIVILEGES;
+sudo mysql -u root -p
 ```
 
 ## MySQL语法
