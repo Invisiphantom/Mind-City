@@ -24,6 +24,8 @@ torch.cuda.is_available()
 
 ## PyTorch工具包
 
+https://pytorch.org/docs/stable/torch.html
+
 | Package                | Desc                 |
 | ---------------------- | -------------------- |
 | torch                  | PyTorch核心库        |
@@ -31,54 +33,25 @@ torch.cuda.is_available()
 | torch.nn.functional    | 实用数学函数         |
 | torch.utils            | 各种工具包           |
 | torch.utils.data       | 处理数据集的工具包   |
+| torch.autograd         | 自动微分工具包       |
 | torch.optim            | 梯度下降优化算法库   |
 | torchvision            | 图像数据集的工具包   |
 | torchvision.transforms | 用于图像数据的预处理 |
 
 
-## PyTorch函数
-
-torch.utils.data.DataLoader
-class DataLoader(
-    dataset: Dataset,
-    batch_size: int | None = 1,
-    shuffle: bool | None = None,
-    sampler: Sampler | Iterable | None = None,
-    batch_sampler: Sampler[List] | Iterable[List] | None = None,
-    num_workers: int = 0
-)
-
-| Para          | Desc         |
-| ------------- | ------------ |
-| dataset       | 数据集       |
-| batch_size    | 批次大小     |
-| shuffle       | 是否打乱数据 |
-| sampler       | 样本抽样器   |
-| batch_sampler | 批次抽样器   |
-| num_workers   | 工作线程数   |
+## PyTorch数据类型
 
 
 
-
-torch.no_grad
-
-torch.save
-(function) def save(
-    obj: object,
-    f: FILE_LIKE,
-    pickle_module: Any = pickle,
-    pickle_protocol: int = DEFAULT_PROTOCOL,
-    _use_new_zipfile_serialization: bool = True,
-    _disable_byteorder_record: bool = False
-) -> None
-
-torch.load
-(function) def load(
-    f: FILE_LIKE,
-    map_location: MAP_LOCATION = None,
-    pickle_module: Any = None,
-    *,
-    weights_only: bool = False,
-    mmap: bool | None = None,
-    **pickle_load_args: Any
-) -> Any
+| Data Type                | dtype                       | CPU Tensor                       | GPU Tensor                |
+| ------------------------ | --------------------------- | -------------------------------- | ------------------------- |
+| Boolean                  | torch.bool                  | torch.BoolTensor                 | torch.cuda.BoolTensor     |
+| 8-bit integer (unsigned) | torch.uint8                 | torch.ByteTensor                 | torch.cuda.ByteTensor     |
+| 8-bit integer (signed)   | torch.int8                  | torch.CharTensor                 | torch.cuda.CharTensor     |
+| 16-bit integer (signed)  | torch.int16, torch.short    | torch.ShortTensor                | torch.cuda.ShortTensor    |
+| 32-bit integer (signed)  | torch.int32, torch.int      | torch.IntTensor                  | torch.cuda.IntTensor      |
+| 64-bit integer (signed)  | torch.int64, torch.long     | torch.LongTensor                 | torch.cuda.LongTensor     |
+| 16-bit floating point    | torch.float16, torch.half   | torch.HalfTensor                 | torch.cuda.HalfTensor     |
+| 16-bit floating point+   | torch.bfloat16              | torch.BFloat16Tensor             | torch.cuda.BFloat16Tensor |
+| 32-bit floating point    | torch.float32, torch.float  | torch.FloatTensor (torch.Tensor) | torch.cuda.FloatTensor    |
+| 64-bit floating point    | torch.float64, torch.double | torch.DoubleTensor               | torch.cuda.DoubleTensor   |

@@ -13,7 +13,6 @@ class Model(nn.Module):
         x = F.relu(self.conv1(x))
         return F.relu(self.conv2(x))
 
-
 ```
 
 (method) def to(
@@ -29,7 +28,26 @@ class Model(nn.Module):
 ) -> Dict[str, Any]
 
 
+torch.save
+(function) def save(
+    obj: object,
+    f: FILE_LIKE,
+    pickle_module: Any = pickle,
+    pickle_protocol: int = DEFAULT_PROTOCOL,
+    _use_new_zipfile_serialization: bool = True,
+    _disable_byteorder_record: bool = False
+) -> None
 
+torch.load
+(function) def load(
+    f: FILE_LIKE,
+    map_location: MAP_LOCATION = None,
+    pickle_module: Any = None,
+    *,
+    weights_only: bool = False,
+    mmap: bool | None = None,
+    **pickle_load_args: Any
+) -> Any
 
 torch.nn.Flatten
 class Flatten(
