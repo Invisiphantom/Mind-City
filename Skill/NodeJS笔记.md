@@ -12,7 +12,9 @@ npm install express --save
 
 | Para                    | Func             |
 | ----------------------- | ---------------- |
-| install                 | 安装模块         |
+| init                    | 初始化项目       |
+| install                 | 拉取模块依赖     |
+| install xxx             | 局部安装模块     |
 | install -g              | 全局安装模块     |
 | install --save(default) | 安装生产环境依赖 |
 | install --save-dev      | 安装开发环境依赖 |
