@@ -24,6 +24,7 @@ sudo mysql -u root -p
 [PostgreSQL入门](https://www.bilibili.com/video/BV1Mi4y1K7HS/)
 ```bash
 sudo apt install postgresql postgresql-contrib
+sudo apt install libecpg-dev
 systemctl status postgresql
 psql --version
 
