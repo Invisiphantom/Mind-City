@@ -110,76 +110,76 @@ J型指令: 用于跳转操作
 
 ![](img/RISC-V笔记-1.png)
 
-| RV64I   | Name                        | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                               |
-| ------- | --------------------------- | --- | ----------- | ------------- | ------------- | ----------------------------------------- |
-| add     | ADD                         | R   | 0110011     | 000           | 0000000       | x[rd] = x[rs1] + x[rs2]                   |
-| addw+   | ADD (+)                     | R   | 0111011     | 000           | 0000000       | x[rd] = sext((x[rs1] + x[rs2])[31:0])     |
-| sub     | SUB                         | R   | 0110011     | 000           | 0100000       | x[rd] = x[rs1] - x[rs2]                   |
-| subw+   | SUB (+)                     | R   | 0111011     | 000           | 0100000       | x[rd] = sext((x[rs1] - x[rs2])[31:0])     |
-| xor     | XOR                         | R   | 0110011     | 100           | 0000000       | x[rd] = x[rs1] ^ x[rs2]                   |
-| or      | OR                          | R   | 0110011     | 110           | 0000000       | x[rd] = x[rs1] \| x[rs2]                  |
-| and     | AND                         | R   | 0110011     | 111           | 0000000       | x[rd] = x[rs1] & x[rs2]                   |
-| sll     | Shift Left Logical          | R   | 0110011     | 001           | 0000000       | x[rd] = x[rs1] << x[rs2][4:0] [5:0]+      |
-| srl     | Shift Right Logical         | R   | 0110011     | 101           | 0000000       | x[rd] = x[rs1] >> x[rs2][4:0] [5:0]+      |
-| sra     | Shift Right Arith           | R   | 0110011     | 101           | 0100000       | x[rd] = x[rs1] >>> x[rs2][4:0] [5:0]+     |
-| sllw+   | Shift Left Logical (+)      | R   | 0111011     | 001           | 0000000       | x[rd] = sext((x[rs1] << x[rs2])[31:0])    |
-| srlw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0000000       | x[rd] = sext((x[rs1] >> x[rs2])[31:0])    |
-| sraw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0100000       | x[rd] = sext((x[rs1] >>> x[rs2])[31:0])   |
-| slt     | Set Less Than               | R   | 0110011     | 010           | 0000000       | x[rd] = (x[rs1] < x[rs2])?1:0             |
-| sltu    | Set Less Than (U)           | R   | 0110011     | 011           | 0000000       | x[rd] = (x[rs1] < x[rs2])?1:0             |
-| ------- |                             |     |             |               |               |                                           |
-| addi    | ADD Imm                     | I   | 0010011     | 000           |               | x[rd] = x[rs1] + imm                      |
-| addiw+  | ADD Imm (+)                 | I   | 0011011     | 000           |               | x[rd] = sext((x[rs1] + imm)[31:0])        |
-| xori    | XOR Imm                     | I   | 0010011     | 100           |               | x[rd] = x[rs1] ^ imm                      |
-| ori     | OR Imm                      | I   | 0010011     | 110           |               | x[rd] = x[rs1] \| imm                     |
-| andi    | AND Imm                     | I   | 0010011     | 111           |               | x[rd] = x[rs1] & imm                      |
-| slli    | Shift Left Logical Imm      | I   | 0010011     | 001           | 000000(0-)    | x[rd] = x[rs1] << imm[4:0] [5:0]+         |
-| srli    | Shift Right Logical Imm     | I   | 0010011     | 101           | 000000(0-)    | x[rd] = x[rs1] >> imm[4:0] [5:0]+         |
-| srai    | Shift Right Arith Imm       | I   | 0010011     | 101           | 010000(0-)    | x[rd] = x[rs1] >>> imm[4:0] [5:0]+        |
-| slliw+  | Shift Left Logical Imm (+)  | I   | 0011011     | 001           | 0000000       | x[rd] = sext((x[rs1] << imm[4:0])[31:0])  |
-| srliw+  | Shift Right Logical Imm (+) | I   | 0011011     | 101           | 0000000       | x[rd] = sext((x[rs1] >> imm[4:0])[31:0])  |
-| sraiw+  | Shift Right Arith Imm (+)   | I   | 0011011     | 101           | 0100000       | x[rd] = sext((x[rs1] >>> imm[4:0])[31:0]) |
-| slti    | Set Less Than Imm           | I   | 0010011     | 010           |               | x[rd] = (x[rs1] < imm)?1:0                |
-| sltiu   | Set Less Than Imm (U)       | I   | 0010011     | 011           |               | x[rd] = (x[rs1] < imm)?1:0                |
-| ------- |                             |     |             |               |               |                                           |
-| lb      | Load Byte                   | I   | 0000011     | 000           |               | x[rd] = M[x[rs1] + imm][7:0]              |
-| lh      | Load Half                   | I   | 0000011     | 001           |               | x[rd] = M[x[rs1] + imm][15:0]             |
-| lw      | Load Word                   | I   | 0000011     | 010           |               | x[rd] = M[x[rs1] + imm][31:0]             |
-| ld+     | Load Doubleword             | I   | 0000011     | 011           |               | x[rd] = M[x[rs1] + imm][63:0]             |
-| lbu     | Load Byte (U)               | I   | 0000011     | 100           |               | x[rd] = M[x[rs1] + imm][7:0]              |
-| lhu     | Load Half (U)               | I   | 0000011     | 101           |               | x[rd] = M[x[rs1] + imm][15:0]             |
-| lwu+    | Load Word (U)               | I   | 0000011     | 110           |               | x[rd] = M[x[rs1] + imm][31:0]             |
-| ------- |                             |     |             |               |               |                                           |
-| sb      | Store Byte                  | S   | 0100011     | 000           |               | M[x[rs1] + imm][7:0] = x[rs2][7:0]        |
-| sh      | Store Half                  | S   | 0100011     | 001           |               | M[x[rs1] + imm][15:0] = x[rs2][15:0]      |
-| sw      | Store Word                  | S   | 0100011     | 010           |               | M[x[rs1] + imm][31:0] = x[rs2][31:0]      |
-| sd+     | Store Doubleword            | S   | 0100011     | 011           |               | M[x[rs1] + imm][63:0] = x[rs2][63:0]      |
-| ------- |                             |     |             |               |               |                                           |
-| beq     | Branch ==                   | B   | 1100011     | 000           |               | if (x[rs1] == x[rs2]) PC += imm           |
-| bne     | Branch !=                   | B   | 1100011     | 001           |               | if (x[rs1] != x[rs2]) PC += imm           |
-| blt     | Branch <                    | B   | 1100011     | 100           |               | if (x[rs1] <  x[rs2]) PC += imm           |
-| bge     | Branch >=                   | B   | 1100011     | 101           |               | if (x[rs1] >= x[rs2]) PC += imm           |
-| bltu    | Branch <  (U)               | B   | 1100011     | 110           |               | if (x[rs1] <  x[rs2]) PC += imm           |
-| bgeu    | Branch >= (U)               | B   | 1100011     | 111           |               | if (x[rs1] >= x[rs2]) PC += imm           |
-| ------- |                             |     |             |               |               |                                           |
-| jal     | Jump And Link               | J   | 1101111     |               |               | x[rd] = PC + 4; PC += imm                 |
-| jalr    | Jump And Link Register      | I   | 1100111     | 000           |               | x[rd] = PC + 4; PC = x[rs1] + imm         |
-| ------- |                             |     |             |               |               |                                           |
-| lui     | Load Upper Imm              | U   | 0110111     |               |               | x[rd] = imm << 12                         |
-| auipc   | Add Upper Imm to PC         | U   | 0010111     |               |               | x[rd] = PC + (imm << 12)                  |
-| ------- |                             |     |             |               |               |                                           |
-| fence   | Fence Memory                | I   | 0001111     | 000           |               | Fence(pred, succ)                         |
-| fence.i | Fence Instruction           | I   | 0001111     | 001           |               | Fence(Store, Fetch)                       |
-| ------- |                             |     |             |               |               |                                           |
-| ecall   | Environment Call            | I   | 1110011     | 000           |               | RaiseExcep(EnvCall)                       |
-| ebreak  | Environment Breakpoint      | I   | 1110011     | 000           |               | RaiseExcep(Breakpoint)                    |
-| ------- |                             |     |             |               |               |                                           |
-| csrrw   | CSR Read & Write            | I   | 1110011     | 001           |               | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]         |
-| csrrs   | CSR Read & Set              | I   | 1110011     | 010           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1]       |
-| csrrc   | CSR Read & Clear            | I   | 1110011     | 011           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1]       |
-| csrrwi  | CSR Read & Write Imm        | I   | 1110011     | 101           |               | x[rd]=CSRs[csr]; CSRs[csr]=zimm           |
-| csrrsi  | CSR Read & Set Imm          | I   | 1110011     | 110           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm         |
-| csrrci  | CSR Read & Clear Imm        | I   | 1110011     | 111           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm         |
+| RV64I   | Name                        | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                                     |
+| ------- | --------------------------- | --- | ----------- | ------------- | ------------- | ----------------------------------------------- |
+| add     | ADD                         | R   | 0110011     | 000           | 0000000       | x[rd] = x[rs1] + x[rs2]                         |
+| addw+   | ADD (+)                     | R   | 0111011     | 000           | 0000000       | x[rd] = sext((x[rs1] + x[rs2])[31:0])           |
+| sub     | SUB                         | R   | 0110011     | 000           | 0100000       | x[rd] = x[rs1] - x[rs2]                         |
+| subw+   | SUB (+)                     | R   | 0111011     | 000           | 0100000       | x[rd] = sext((x[rs1] - x[rs2])[31:0])           |
+| xor     | XOR                         | R   | 0110011     | 100           | 0000000       | x[rd] = x[rs1] ^ x[rs2]                         |
+| or      | OR                          | R   | 0110011     | 110           | 0000000       | x[rd] = x[rs1] \| x[rs2]                        |
+| and     | AND                         | R   | 0110011     | 111           | 0000000       | x[rd] = x[rs1] & x[rs2]                         |
+| sll     | Shift Left Logical          | R   | 0110011     | 001           | 0000000       | x[rd] = x[rs1] << x[rs2][4:0]                   |
+| srl     | Shift Right Logical         | R   | 0110011     | 101           | 0000000       | x[rd] = x[rs1] >> x[rs2][4:0]                   |
+| sra     | Shift Right Arith           | R   | 0110011     | 101           | 0100000       | x[rd] = x[rs1] >>> x[rs2][4:0]                  |
+| sllw+   | Shift Left Logical (+)      | R   | 0111011     | 001           | 0000000       | x[rd] = sext((x[rs1] << x[rs2][4:0])[31:0])     |
+| srlw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0000000       | x[rd] = sext((x[rs1] >> x[rs2])[31:0])          |
+| sraw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0100000       | x[rd] = sext((x[rs1] >>> x[rs2])[31:0])         |
+| slt     | Set Less Than               | R   | 0110011     | 010           | 0000000       | x[rd] = (x[rs1] < x[rs2])?1:0                   |
+| sltu    | Set Less Than (U)           | R   | 0110011     | 011           | 0000000       | x[rd] = (x[rs1] < x[rs2])?1:0                   |
+| ------- |                             |     |             |               |               |                                                 |
+| addi    | ADD Imm                     | I   | 0010011     | 000           |               | x[rd] = x[rs1] + imm                            |
+| addiw+  | ADD Imm (+)                 | I   | 0011011     | 000           |               | x[rd] = sext((x[rs1] + imm)[31:0])              |
+| xori    | XOR Imm                     | I   | 0010011     | 100           |               | x[rd] = x[rs1] ^ imm                            |
+| ori     | OR Imm                      | I   | 0010011     | 110           |               | x[rd] = x[rs1] \| imm                           |
+| andi    | AND Imm                     | I   | 0010011     | 111           |               | x[rd] = x[rs1] & imm                            |
+| slli    | Shift Left Logical Imm      | I   | 0010011     | 001           | 000000        | x[rd] = x[rs1] << imm[5:0]                      |
+| srli    | Shift Right Logical Imm     | I   | 0010011     | 101           | 000000        | x[rd] = x[rs1] >> imm[5:0]                      |
+| srai    | Shift Right Arith Imm       | I   | 0010011     | 101           | 010000        | x[rd] = x[rs1] >>> imm[5:0]                     |
+| slliw+  | Shift Left Logical Imm (+)  | I   | 0011011     | 001           | 0000000       | x[rd] = sext((x[rs1] << imm[4:0])[31:0])        |
+| srliw+  | Shift Right Logical Imm (+) | I   | 0011011     | 101           | 0000000       | x[rd] = sext((x[rs1][31:0] >> imm[4:0])[31:0])  |
+| sraiw+  | Shift Right Arith Imm (+)   | I   | 0011011     | 101           | 0100000       | x[rd] = sext((x[rs1][31:0] >>> imm[4:0])[31:0]) |
+| slti    | Set Less Than Imm           | I   | 0010011     | 010           |               | x[rd] = (x[rs1] < imm)?1:0                      |
+| sltiu   | Set Less Than Imm (U)       | I   | 0010011     | 011           |               | x[rd] = (x[rs1] < imm)?1:0                      |
+| ------- |                             |     |             |               |               |                                                 |
+| lb      | Load Byte                   | I   | 0000011     | 000           |               | x[rd] = M[x[rs1] + imm][7:0]                    |
+| lh      | Load Half                   | I   | 0000011     | 001           |               | x[rd] = M[x[rs1] + imm][15:0]                   |
+| lw      | Load Word                   | I   | 0000011     | 010           |               | x[rd] = M[x[rs1] + imm][31:0]                   |
+| ld+     | Load Doubleword             | I   | 0000011     | 011           |               | x[rd] = M[x[rs1] + imm][63:0]                   |
+| lbu     | Load Byte (U)               | I   | 0000011     | 100           |               | x[rd] = M[x[rs1] + imm][7:0]                    |
+| lhu     | Load Half (U)               | I   | 0000011     | 101           |               | x[rd] = M[x[rs1] + imm][15:0]                   |
+| lwu+    | Load Word (U)               | I   | 0000011     | 110           |               | x[rd] = M[x[rs1] + imm][31:0]                   |
+| ------- |                             |     |             |               |               |                                                 |
+| sb      | Store Byte                  | S   | 0100011     | 000           |               | M[x[rs1] + imm][7:0] = x[rs2][7:0]              |
+| sh      | Store Half                  | S   | 0100011     | 001           |               | M[x[rs1] + imm][15:0] = x[rs2][15:0]            |
+| sw      | Store Word                  | S   | 0100011     | 010           |               | M[x[rs1] + imm][31:0] = x[rs2][31:0]            |
+| sd+     | Store Doubleword            | S   | 0100011     | 011           |               | M[x[rs1] + imm][63:0] = x[rs2][63:0]            |
+| ------- |                             |     |             |               |               |                                                 |
+| beq     | Branch ==                   | B   | 1100011     | 000           |               | if (x[rs1] == x[rs2]) PC += imm                 |
+| bne     | Branch !=                   | B   | 1100011     | 001           |               | if (x[rs1] != x[rs2]) PC += imm                 |
+| blt     | Branch <                    | B   | 1100011     | 100           |               | if (x[rs1] <  x[rs2]) PC += imm                 |
+| bge     | Branch >=                   | B   | 1100011     | 101           |               | if (x[rs1] >= x[rs2]) PC += imm                 |
+| bltu    | Branch <  (U)               | B   | 1100011     | 110           |               | if (x[rs1] <  x[rs2]) PC += imm                 |
+| bgeu    | Branch >= (U)               | B   | 1100011     | 111           |               | if (x[rs1] >= x[rs2]) PC += imm                 |
+| ------- |                             |     |             |               |               |                                                 |
+| jal     | Jump And Link               | J   | 1101111     |               |               | x[rd] = PC + 4; PC += imm                       |
+| jalr    | Jump And Link Register      | I   | 1100111     | 000           |               | x[rd] = PC + 4; PC = x[rs1] + imm               |
+| ------- |                             |     |             |               |               |                                                 |
+| lui     | Load Upper Imm              | U   | 0110111     |               |               | x[rd] = imm << 12                               |
+| auipc   | Add Upper Imm to PC         | U   | 0010111     |               |               | x[rd] = PC + (imm << 12)                        |
+| ------- |                             |     |             |               |               |                                                 |
+| fence   | Fence Memory                | I   | 0001111     | 000           |               | Fence(pred, succ)                               |
+| fence.i | Fence Instruction           | I   | 0001111     | 001           |               | Fence(Store, Fetch)                             |
+| ------- |                             |     |             |               |               |                                                 |
+| ecall   | Environment Call            | I   | 1110011     | 000           |               | RaiseExcep(EnvCall)                             |
+| ebreak  | Environment Breakpoint      | I   | 1110011     | 000           |               | RaiseExcep(Breakpoint)                          |
+| ------- |                             |     |             |               |               |                                                 |
+| csrrw   | CSR Read & Write            | I   | 1110011     | 001           |               | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]               |
+| csrrs   | CSR Read & Set              | I   | 1110011     | 010           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1]             |
+| csrrc   | CSR Read & Clear            | I   | 1110011     | 011           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1]             |
+| csrrwi  | CSR Read & Write Imm        | I   | 1110011     | 101           |               | x[rd]=CSRs[csr]; CSRs[csr]=zimm                 |
+| csrrsi  | CSR Read & Set Imm          | I   | 1110011     | 110           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm               |
+| csrrci  | CSR Read & Clear Imm        | I   | 1110011     | 111           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm               |
 
 
 | RVPI       | Name               | [31:25] | [24:20] | [19:15] | [14:12] | [11:7] | [6:0]   |
@@ -217,8 +217,8 @@ J型指令: 用于跳转操作
 | fsqrt.s    | S Floating Sqrt             | R   | 1010011     |               | 0001100       | 00000      | f[rd] = sqrt(f[rs1])                          |
 | fmadd.s    | S Floating Multiply-Add     | R4  | 1000011     |               | [rs3]00       |            | f[rd] = f[rs1] * f[rs2] + f[rs3]              |
 | fmsub.s    | S Floating Multiply-Sub     | R4  | 1000111     |               | [rs3]00       |            | f[rd] = f[rs1] * f[rs2] - f[rs3]              |
-| fnmsub.s   | S Floating Neg-Multiply-Sub | R4  | 1001011     |               | [rs3]01       |            | f[rd] = -f[rs1] * f[rs2] + f[rs3]             |
-| fnmadd.s   | S Floating Neg-Multiply-Add | R4  | 1001111     |               | [rs3]01       |            | f[rd] = -f[rs1] * f[rs2] - f[rs3]             |
+| fnmsub.s   | S Floating Neg-Multiply-Sub | R4  | 1001011     |               | [rs3]00       |            | f[rd] = -f[rs1] * f[rs2] + f[rs3]             |
+| fnmadd.s   | S Floating Neg-Multiply-Add | R4  | 1001111     |               | [rs3]00       |            | f[rd] = -f[rs1] * f[rs2] - f[rs3]             |
 | -------    |                             |     |             |               |               |            |                                               |
 | fsgnj.s    | S Floating Sign Inject      | R   | 1010011     | 000           | 0010000       |            | f[rd] = {f[rs2][31], f[rs1][30:0]}            |
 | fsgnjn.s   | S Floating Sign Inject Neg  | R   | 1010011     | 001           | 0010000       |            | f[rd] = {~f[rs2][31], f[rs1][30:0]}           |
