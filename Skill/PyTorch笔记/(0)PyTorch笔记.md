@@ -1,3 +1,25 @@
+## Miniconda安装
+
+```bash
+mkdir -p ~/miniconda3
+wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
+bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
+rm -rf ~/miniconda3/miniconda.sh
+~/miniconda3/bin/conda init bash
+
+conda remove --name Py --all
+conda create --name Py python=3.11
+conda activate Py
+
+conda remove --name PyT --all
+conda create --name PyT python=3.11
+conda activate PyT
+
+conda install numpy pandas matplotlib jupyter seaborn scikit-learn
+pip install nltk torchviz 
+sudo apt install graphviz
+```
+
 ## PyTorch安装
 
 https://pytorch.org/get-started/locally/
@@ -37,6 +59,7 @@ https://pytorch.org/docs/stable/torch.html
 | torchtext                | 文本数据集的工具包   |
 | torchvision              | 图像数据集的工具包   |
 | torchvision.transforms   | 用于图像数据的预处理 |
+| torchviz                 | 可视化神经网络       |
 
 ```python
 import torch
