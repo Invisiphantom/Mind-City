@@ -26,6 +26,9 @@ for params in model.parameters():
     total_params += params.numel()
 print(model)
 print(f"Total number of parameters: {total_params}")
+
+for name, param in model.named_parameters():
+    print(f"Layer: {name}\n Size: {param.size()}\n Values: {param[:2]}\n")
 ```
 
 
