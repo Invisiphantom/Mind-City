@@ -145,7 +145,9 @@ nn.Conv2d(in_channels=1, out_channels=32, kernel_size=3, stride=1, padding=1)
 ```
 
 ## nn.MaxPool2d
-最大池化层
+最大汇聚层
+降低卷积层对位置的敏感性
+同时降低对空间降采样表示的敏感性
 ```python
 class MaxPool2d(
     kernel_size: _size_any_t,          # 池化核大小
