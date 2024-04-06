@@ -123,8 +123,8 @@ J型指令: 用于跳转操作
 | srl     | Shift Right Logical         | R   | 0110011     | 101           | 0000000       | x[rd] = x[rs1] >> x[rs2][4:0]                   |
 | sra     | Shift Right Arith           | R   | 0110011     | 101           | 0100000       | x[rd] = x[rs1] >>> x[rs2][4:0]                  |
 | sllw+   | Shift Left Logical (+)      | R   | 0111011     | 001           | 0000000       | x[rd] = sext((x[rs1] << x[rs2][4:0])[31:0])     |
-| srlw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0000000       | x[rd] = sext((x[rs1] >> x[rs2])[31:0])          |
-| sraw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0100000       | x[rd] = sext((x[rs1] >>> x[rs2])[31:0])         |
+| srlw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0000000       | x[rd] = sext((x[rs1] >> x[rs2][4:0])[31:0])     |
+| sraw+   | Shift Left Logical (+)      | R   | 0111011     | 101           | 0100000       | x[rd] = sext((x[rs1] >>> x[rs2][4:0])[31:0])    |
 | slt     | Set Less Than               | R   | 0110011     | 010           | 0000000       | x[rd] = (x[rs1] < x[rs2])?1:0                   |
 | sltu    | Set Less Than (U)           | R   | 0110011     | 011           | 0000000       | x[rd] = (x[rs1] < x[rs2])?1:0                   |
 | ------- |                             |     |             |               |               |                                                 |
@@ -142,9 +142,9 @@ J型指令: 用于跳转操作
 | slti    | Set Less Than Imm           | I   | 0010011     | 010           |               | x[rd] = (x[rs1] < imm)?1:0                      |
 | sltiu   | Set Less Than Imm (U)       | I   | 0010011     | 011           |               | x[rd] = (x[rs1] < imm)?1:0                      |
 | ------- |                             |     |             |               |               |                                                 |
-| lb      | Load Byte                   | I   | 0000011     | 000           |               | x[rd] = M[x[rs1] + imm][7:0]                    |
-| lh      | Load Half                   | I   | 0000011     | 001           |               | x[rd] = M[x[rs1] + imm][15:0]                   |
-| lw      | Load Word                   | I   | 0000011     | 010           |               | x[rd] = M[x[rs1] + imm][31:0]                   |
+| lb      | Load Byte                   | I   | 0000011     | 000           |               | x[rd] = sext(M[x[rs1] + imm][7:0])              |
+| lh      | Load Half                   | I   | 0000011     | 001           |               | x[rd] = sext(M[x[rs1] + imm][15:0])             |
+| lw      | Load Word                   | I   | 0000011     | 010           |               | x[rd] = sext(M[x[rs1] + imm][31:0])             |
 | ld+     | Load Doubleword             | I   | 0000011     | 011           |               | x[rd] = M[x[rs1] + imm][63:0]                   |
 | lbu     | Load Byte (U)               | I   | 0000011     | 100           |               | x[rd] = M[x[rs1] + imm][7:0]                    |
 | lhu     | Load Half (U)               | I   | 0000011     | 101           |               | x[rd] = M[x[rs1] + imm][15:0]                   |
@@ -192,20 +192,20 @@ J型指令: 用于跳转操作
 
 
 
-| RV64M  | Name               | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                           |
-| ------ | ------------------ | --- | ----------- | ------------- | ------------- | ------------------------------------- |
-| mul    | Multiply           | R   | 0110011     | 000           | 0000001       | x[rd] = x[rs1] * x[rs2]               |
-| mulw+  | Multiply (+)       | R   | 0111011     | 000           | 0000001       | x[rd] = sext((x[rs1] * x[rs2])[31:0]) |
-| mulh   | Multiply High      | R   | 0110011     | 001           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN       |
-| mulhsu | Multiply High (SU) | R   | 0110011     | 010           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN       |
-| mulhu  | Multiply High (U)  | R   | 0110011     | 011           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN       |
-| div    | Divide             | R   | 0110011     | 100           | 0000001       | x[rd] = x[rs1] / x[rs2]               |
-| divw+  | Divide (+)         | R   | 0111011     | 100           | 0000001       | x[rd] = sext((x[rs1] / x[rs2])[31:0]) |
-| divu   | Divide (U)         | R   | 0110011     | 101           | 0000001       | x[rd] = x[rs1] / x[rs2]               |
-| rem    | Remainder          | R   | 0110011     | 110           | 0000001       | x[rd] = x[rs1] % x[rs2]               |
-| remw+  | Remainder (+)      | R   | 0111011     | 110           | 0000001       | x[rd] = sext((x[rs1] % x[rs2])[31:0]) |
-| remu   | Remainder (U)      | R   | 0110011     | 111           | 0000001       | x[rd] = x[rs1] % x[rs2]               |
-| remuw+ | Remainder (U) (+)  | R   | 0111011     | 111           | 0000001       | x[rd] = sext((x[rs1] % x[rs2])[31:0]) |
+| RV64M  | Name               | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                                 |
+| ------ | ------------------ | --- | ----------- | ------------- | ------------- | ------------------------------------------- |
+| mul    | Multiply           | R   | 0110011     | 000           | 0000001       | x[rd] = x[rs1] * x[rs2]                     |
+| mulw+  | Multiply (+)       | R   | 0111011     | 000           | 0000001       | x[rd] = sext((x[rs1] * x[rs2])[31:0])       |
+| mulh   | Multiply High      | R   | 0110011     | 001           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN             |
+| mulhsu | Multiply High (SU) | R   | 0110011     | 010           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN             |
+| mulhu  | Multiply High (U)  | R   | 0110011     | 011           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN             |
+| div    | Divide             | R   | 0110011     | 100           | 0000001       | x[rd] = x[rs1] / x[rs2]                     |
+| divw+  | Divide (+)         | R   | 0111011     | 100           | 0000001       | x[rd] = sext((x[rs1] / x[rs2])[31:0])       |
+| divu   | Divide (U)         | R   | 0110011     | 101           | 0000001       | x[rd] = x[rs1] / x[rs2]                     |
+| rem    | Remainder          | R   | 0110011     | 110           | 0000001       | x[rd] = x[rs1] % x[rs2]                     |
+| remw+  | Remainder (+)      | R   | 0111011     | 110           | 0000001       | x[rd] = sext((x[rs1][31:0] % x[rs2][31:0])) |
+| remu   | Remainder (U)      | R   | 0110011     | 111           | 0000001       | x[rd] = x[rs1] % x[rs2]                     |
+| remuw+ | Remainder (U) (+)  | R   | 0111011     | 111           | 0000001       | x[rd] = sext((x[rs1][31:0] % x[rs2][31:0])) |
 
 
 | RV64F      | Name                        | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | rs2[24:20] | Description                                   |
