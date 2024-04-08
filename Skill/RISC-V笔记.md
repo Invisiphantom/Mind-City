@@ -2,22 +2,6 @@ RISC-V中文手册
 
 https://github.com/Tan-YiFan/rvcpu
 
-ISA设计的七种衡量标准
-1. 成本(美元硬币)
-2. 简洁性(轮子)
-3. 性能(速度计)
-4. 架构与实现分离(分开半圆)
-5. 提升空间(手风琴)
-6. 程序大小(箭头)
-7. 易于编程/编译/链接(abc)
-
-
-R型指令: 用于寄存器-寄存器操作
-I型指令: 用于短立即数, 读存操作
-S型指令: 用于写存操作
-B型指令: 用于分支操作
-U型指令: 用于长立即数
-J型指令: 用于跳转操作
 
 
 
@@ -104,8 +88,12 @@ J型指令: 用于跳转操作
 | mstatus  | Machine Status            | 机器状态     |
 
 
-
-
+R型指令: 用于寄存器-寄存器操作
+I型指令: 用于短立即数, 读存操作
+S型指令: 用于写存操作
+B型指令: 用于分支操作
+U型指令: 用于长立即数
+J型指令: 用于跳转操作
 
 
 ![](img/RISC-V笔记-1.png)
@@ -200,7 +188,7 @@ J型指令: 用于跳转操作
 | mulhsu | Multiply High (SU) | R   | 0110011     | 010           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN             |
 | mulhu  | Multiply High (U)  | R   | 0110011     | 011           | 0000001       | x[rd] = (x[rs1] * x[rs2])>>XLEN             |
 | div    | Divide             | R   | 0110011     | 100           | 0000001       | x[rd] = x[rs1] / x[rs2]                     |
-| divw+  | Divide (+)         | R   | 0111011     | 100           | 0000001       | x[rd] = sext((x[rs1] / x[rs2])[31:0])       |
+| divw+  | Divide (+)         | R   | 0111011     | 100           | 0000001       | x[rd] = sext((x[rs1][31:0] / x[rs2][31:0])) |
 | divu   | Divide (U)         | R   | 0110011     | 101           | 0000001       | x[rd] = x[rs1] / x[rs2]                     |
 | rem    | Remainder          | R   | 0110011     | 110           | 0000001       | x[rd] = x[rs1] % x[rs2]                     |
 | remw+  | Remainder (+)      | R   | 0111011     | 110           | 0000001       | x[rd] = sext((x[rs1][31:0] % x[rs2][31:0])) |
@@ -226,14 +214,14 @@ J型指令: 用于跳转操作
 | fmin.s     | S Floating Min              | R   | 1010011     | 000           | 0010100       |            | f[rd] = min(f[rs1], f[rs2])                   |
 | fmax.s     | S Floating Max              | R   | 1010011     | 001           | 0010100       |            | f[rd] = max(f[rs1], f[rs2])                   |
 | -------    |                             |     |             |               |               |            |                                               |
-| fcvt.s.w   | S Floating <- W Int         | R   | 1010011     |               | 1101000       | 00000      | f[rd] = (float)x[rs1][31:0]                   |
-| fcvt.s.wu  | S Floating <- W Int (U)     | R   | 1010011     |               | 1101000       | 00001      | f[rd] = (float)x[rs1][31:0]                   |
-| fcvt.s.l+  | S Floating <- L Int         | R   | 1010011     |               | 1101000       | 00010      | f[rd] = (float)x[rs1][63:0]                   |
-| fcvt.s.lu+ | S Floating <- L Int (U)     | R   | 1010011     |               | 1101000       | 00011      | f[rd] = (float)x[rs1][63:0]                   |
-| fcvt.w.s   | W Int <- S Floating         | R   | 1010011     |               | 1100000       | 00000      | x[rd] = (int32_t)f[rs1]                       |
-| fcvt.wu.s  | W Int <- S Floating (U)     | R   | 1010011     |               | 1100000       | 00001      | x[rd] = (uint32_t)f[rs1]                      |
-| fcvt.l.s+  | L Int <- S Floating         | R   | 1010011     |               | 1100000       | 00010      | x[rd] = (int64_t)f[rs1]                       |
-| fcvt.lu.s+ | L Int <- S Floating (U)     | R   | 1010011     |               | 1100000       | 00011      | x[rd] = (uint64_t)f[rs1]                      |
+| fcvt.s.w   | S Floating <- W Int         | R   | 1010011     |               | 1101000       | 00000      | f[rd] = (float)sx[rs1][31:0]                  |
+| fcvt.s.wu  | S Floating <- W Int (U)     | R   | 1010011     |               | 1101000       | 00001      | f[rd] = (float)ux[rs1][31:0]                  |
+| fcvt.s.l+  | S Floating <- L Int         | R   | 1010011     |               | 1101000       | 00010      | f[rd] = (float)sx[rs1][63:0]                  |
+| fcvt.s.lu+ | S Floating <- L Int (U)     | R   | 1010011     |               | 1101000       | 00011      | f[rd] = (float)ux[rs1][63:0]                  |
+| fcvt.w.s   | W Int <- S Floating         | R   | 1010011     |               | 1100000       | 00000      | sx[rd][31:0] = (int32_t)f[rs1]                |
+| fcvt.wu.s  | W Int <- S Floating (U)     | R   | 1010011     |               | 1100000       | 00001      | ux[rd][31:0] = (uint32_t)f[rs1]               |
+| fcvt.l.s+  | L Int <- S Floating         | R   | 1010011     |               | 1100000       | 00010      | sx[rd][63:0] = (int64_t)f[rs1]                |
+| fcvt.lu.s+ | L Int <- S Floating (U)     | R   | 1010011     |               | 1100000       | 00011      | ux[rd][63:0] = (uint64_t)f[rs1]               |
 | -------    |                             |     |             |               |               |            |                                               |
 | fle.s      | S Floating <=               | R   | 1010011     | 000           | 1010000       |            | f[rd] = (f[rs1] <= f[rs2])?1:0                |
 | flt.s      | S Floating <                | R   | 1010011     | 001           | 1010000       |            | f[rd] = (f[rs1] <  f[rs2])?1:0                |
@@ -264,17 +252,17 @@ J型指令: 用于跳转操作
 | fmin.d     | D Floating Min              | R   | 1010011     | 000           | 0010101       |            | f[rd] = min(f[rs1], f[rs2])                   |
 | fmax.d     | D Floating Max              | R   | 1010011     | 001           | 0010101       |            | f[rd] = max(f[rs1], f[rs2])                   |
 | -------    |                             |     |             |               |               |            |                                               |
-| fcvt.d.s   | D Floating <- S Floating    | R   | 1010011     |               | 0101000       | 00000      | f[rd] = (double)f[rs1]                        |
-| fcvt.s.d   | S Floating <- D Floating    | R   | 1010011     |               | 0100000       | 00000      | f[rd] = (float)f[rs1]                         |
+| fcvt.d.s   | D Floating <- S Floating    | R   | 1010011     |               | 0100001       | 00000      | f[rd] = (double)f[rs1]                        |
+| fcvt.s.d   | S Floating <- D Floating    | R   | 1010011     |               | 0100000       | 00001      | f[rd] = (float)f[rs1]                         |
 | -------    |                             |     |             |               |               |            |                                               |
-| fcvt.d.w   | D Floating <- W Int         | R   | 1010011     |               | 1101000       | 00000      | f[rd] = (double)x[rs1][31:0]                  |
-| fcvt.d.wu  | D Floating <- W Int (U)     | R   | 1010011     |               | 1101000       | 00001      | f[rd] = (double)x[rs1][31:0]                  |
-| fcvt.d.l+  | D Floating <- L Int         | R   | 1010011     |               | 1101000       | 00010      | f[rd] = (double)x[rs1][63:0]                  |
-| fcvt.d.lu+ | D Floating <- L Int (U)     | R   | 1010011     |               | 1101000       | 00011      | f[rd] = (double)x[rs1][63:0]                  |
-| fcvt.w.d   | W Int <- D Floating         | R   | 1010011     |               | 1100000       | 00000      | x[rd] = (int32_t)f[rs1]                       |
-| fcvt.wu.d  | W Int <- D Floating (U)     | R   | 1010011     |               | 1100000       | 00001      | x[rd] = (uint32_t)f[rs1]                      |
-| fcvt.l.d+  | L Int <- D Floating         | R   | 1010011     |               | 1100000       | 00010      | x[rd] = (int64_t)f[rs1]                       |
-| fcvt.lu.d+ | L Int <- D Floating (U)     | R   | 1010011     |               | 1100000       | 00011      | x[rd] = (uint64_t)f[rs1]                      |
+| fcvt.d.w   | D Floating <- W Int         | R   | 1010011     |               | 1101001       | 00000      | f[rd] = (double)x[rs1][31:0]                  |
+| fcvt.d.wu  | D Floating <- W Int (U)     | R   | 1010011     |               | 1101001       | 00001      | f[rd] = (double)x[rs1][31:0]                  |
+| fcvt.d.l+  | D Floating <- L Int         | R   | 1010011     |               | 1101001       | 00010      | f[rd] = (double)x[rs1][63:0]                  |
+| fcvt.d.lu+ | D Floating <- L Int (U)     | R   | 1010011     |               | 1101001       | 00011      | f[rd] = (double)x[rs1][63:0]                  |
+| fcvt.w.d   | W Int <- D Floating         | R   | 1010011     |               | 1100001       | 00000      | x[rd] = (int32_t)f[rs1]                       |
+| fcvt.wu.d  | W Int <- D Floating (U)     | R   | 1010011     |               | 1100001       | 00001      | x[rd] = (uint32_t)f[rs1]                      |
+| fcvt.l.d+  | L Int <- D Floating         | R   | 1010011     |               | 1100001       | 00010      | x[rd] = (int64_t)f[rs1]                       |
+| fcvt.lu.d+ | L Int <- D Floating (U)     | R   | 1010011     |               | 1100001       | 00011      | x[rd] = (uint64_t)f[rs1]                      |
 | -------    |                             |     |             |               |               |            |                                               |
 | fle.d      | D Floating <=               | R   | 1010011     | 000           | 1010001       |            | f[rd] = (f[rs1] <= f[rs2])?1:0                |
 | flt.d      | D Floating <                | R   | 1010011     | 001           | 1010001       |            | f[rd] = (f[rs1] <  f[rs2])?1:0                |
