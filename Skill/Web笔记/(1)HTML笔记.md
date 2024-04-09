@@ -8,9 +8,10 @@ https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference
 | <h4>     | 四级标题 |
 | <h5>     | 五级标题 |
 | <h6>     | 六级标题 |
+| <span>   | 文本容器 |
 | <p>      | 段落     |
-| <em>     | 斜体     |
-| <strong> | 加粗     |
+| <input>  | 输入框   |
+| <button> | 按钮     |
 
 
 | 列表标签 | 描述     |
