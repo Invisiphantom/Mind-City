@@ -16,6 +16,10 @@ OpenGL教程: [LearnOpenGL](https://learnopengl.com/Getting-started/OpenGL)
 [OpenGL ES 2.0 知识串讲（1）――OpenGL ES 2.0 概括 (geekfaner.com)](http://geekfaner.com/shineengine/blog2_OpenGLESv2_1.html)
 [OpenGL矩阵变换的数学推导-腾讯云开发者社区-腾讯云 (tencent.com)](https://cloud.tencent.com/developer/article/1389550)
 
+[MIT6.837-2012 | Assignments](https://ocw.mit.edu/courses/6-837-computer-graphics-fall-2012/pages/assignments/)
+[Curves-and-Surfaces | Solution](https://github.com/andrewmo2014/Curves-and-Surfaces)
+[Curves-and-Surfaces | Solution](https://github.com/jul1u5/6.837)
+[Curves-and-Surfaces | Solution](https://youtu.be/gm6CuvDbEDM)
 
 | 图形库  | 介绍                                                 |
 | ------- | ---------------------------------------------------- |
@@ -42,6 +46,7 @@ OpenGL教程: [LearnOpenGL](https://learnopengl.com/Getting-started/OpenGL)
 sudo apt install build-essential g++ gdb
 sudo apt install libgl-dev libglfw3-dev
 sudo apt install glslang-tools
+sudo apt install freeglut3-dev xorg-dev libxrandr-dev libsdl2-dev
 ```
 
 https://glad.dav1d.de/
