@@ -76,16 +76,65 @@ https://github.com/Tan-YiFan/rvcpu
 | f31  | ft11 | FP Temporary                      |
 
 
-| CSR      | 全称                      | 功能         |
-| -------- | ------------------------- | ------------ |
-| mtvec    | Machine Trap Vector       | 异常处理入口 |
-| mepc     | Machine Exception PC      | 异常指令地址 |
-| mcause   | Machine Cause             | 异常原因     |
-| mie      | Machine Interrupt Enable  | 中断使能     |
-| mip      | Machine Interrupt Pending | 中断挂起     |
-| mtval    | Machine Trap Value        | 异常值       |
-| mscratch | Machine Scratch           | 机器暂存     |
-| mstatus  | Machine Status            | 机器状态     |
+| Inter/Excep | Excep Code | mcause Description             |
+| ----------- | ---------- | ------------------------------ |
+| 1           | 0001       | Supervisor software interrupt  |
+| 1           | 0011       | Machine software interrupt     |
+| 1           | 0101       | Supervisor timer interrupt     |
+| 1           | 0111       | Machine timer interrupt        |
+| 1           | 1001       | Supervisor external interrupt  |
+| 1           | 1011       | Machine external interrupt     |
+| ----------- | ---------- | -----------------------------  |
+| 0           | 0000       | Instruction address misaligned |
+| 0           | 0001       | Instruction access fault       |
+| 0           | 0010       | Illegal instruction            |
+| 0           | 0011       | Breakpoint                     |
+| 0           | 0100       | Load address misaligned        |
+| 0           | 0101       | Load access fault              |
+| 0           | 0110       | Store address misaligned       |
+| 0           | 0111       | Store access fault             |
+| 0           | 1000       | Environment call from U-mode   |
+| 0           | 1001       | Environment call from S-mode   |
+| 0           | 1011       | Environment call from M-mode   |
+| 0           | 1100       | Instruction page fault         |
+| 0           | 1101       | Load page fault                |
+| 0           | 1111       | Store page fault               |
+
+
+| CSR          | 全称                       | 功能         |
+| ------------ | -------------------------- | ------------ |
+| mepc         | Machine Exception PC       | 异常发生地址 |
+| mtvec        | Machine Trap Vector        | 异常处理地址 |
+| mcause       | Machine Exception Cause    | 异常发生原因 |
+| mtval        | Machine Trap Value         | 异常附加信息 |
+| mstatus      | Machine Status             | 全局状态     |
+| mstatus.MIE  | Machine Interrupt Enable   | 全局中断使能 |
+| mstatus.MPIE | Machine Previous IE        | 全局中断旧值 |
+| mstatus.MPP  | Machine Previous Privilege | 全局特权旧值 |
+| mie          | Machine Interrupt Enable   | 中断使能     |
+| mip          | Machine Interrupt Pending  | 中断挂起     |
+| mscratch     | Machine Scratch            | 机器暂存     |
+
+
+
+| RVPI       | Name               | [31:25] | [24:20] | [19:15] | [14:12] | [11:7] | [6:0]   |
+| ---------- | ------------------ | ------- | ------- | ------- | ------- | ------ | ------- |
+| sret       | Supervisor Return  | 0001000 | 00010   | 00000   | 000     | 00000  | 1110011 |
+| mret       | Machine Return     | 0011000 | 00010   | 00000   | 000     | 00000  | 1110011 |
+| wfi        | Wait For Interrupt | 0001000 | 00101   | 00000   | 000     | 00000  | 1110011 |
+| sfence.vma | SFENCE VMA         | 0001001 | rs2     | rs1     | 000     | 00000  | 1110011 |
+
+
+| RV64I  | Name                 | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                         |
+| ------ | -------------------- | --- | ----------- | ------------- | ------------- | ----------------------------------- |
+| csrrw  | CSR Read & Write     | I   | 1110011     | 001           |               | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]   |
+| csrrs  | CSR Read & Set       | I   | 1110011     | 010           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1] |
+| csrrc  | CSR Read & Clear     | I   | 1110011     | 011           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1] |
+| csrrwi | CSR Read & Write Imm | I   | 1110011     | 101           |               | x[rd]=CSRs[csr]; CSRs[csr]=zimm     |
+| csrrsi | CSR Read & Set Imm   | I   | 1110011     | 110           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm   |
+| csrrci | CSR Read & Clear Imm | I   | 1110011     | 111           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm   |
+
+
 
 
 R型指令: 用于寄存器-寄存器操作
@@ -162,21 +211,6 @@ J型指令: 用于跳转操作
 | ecall   | Environment Call            | I   | 1110011     | 000           |               | RaiseExcep(EnvCall)                             |
 | ebreak  | Environment Breakpoint      | I   | 1110011     | 000           |               | RaiseExcep(Breakpoint)                          |
 | ------- |                             |     |             |               |               |                                                 |
-| csrrw   | CSR Read & Write            | I   | 1110011     | 001           |               | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]               |
-| csrrs   | CSR Read & Set              | I   | 1110011     | 010           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1]             |
-| csrrc   | CSR Read & Clear            | I   | 1110011     | 011           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1]             |
-| csrrwi  | CSR Read & Write Imm        | I   | 1110011     | 101           |               | x[rd]=CSRs[csr]; CSRs[csr]=zimm                 |
-| csrrsi  | CSR Read & Set Imm          | I   | 1110011     | 110           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm               |
-| csrrci  | CSR Read & Clear Imm        | I   | 1110011     | 111           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm               |
-
-
-| RVPI       | Name               | [31:25] | [24:20] | [19:15] | [14:12] | [11:7] | [6:0]   |
-| ---------- | ------------------ | ------- | ------- | ------- | ------- | ------ | ------- |
-| sret       | Supervisor Return  | 0001000 | 00010   | 00000   | 000     | 00000  | 1110011 |
-| mret       | Machine Return     | 0011000 | 00010   | 00000   | 000     | 00000  | 1110011 |
-| wfi        | Wait For Interrupt | 0001000 | 00101   | 00000   | 000     | 00000  | 1110011 |
-| sfence.vma | SFENCE VMA         | 0001001 | rs2     | rs1     | 000     | 00000  | 1110011 |
-
 
 
 
