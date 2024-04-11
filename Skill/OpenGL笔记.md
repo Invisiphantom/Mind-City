@@ -42,16 +42,23 @@ OpenGL教程: [LearnOpenGL](https://learnopengl.com/Getting-started/OpenGL)
 
 ## OpenGL配置
 
+https://glad.dav1d.de/
+选择最新版本gl, 勾选"Local Files", 然后生成并下载glad.zip
+https://premake.github.io/download/
+https://github.com/SpartanJ/SOIL2
 ```bash
 sudo apt install build-essential g++ gdb
-sudo apt install libgl-dev libglfw3-dev
+sudo apt install libgl-dev libglfw3-dev libglm-dev libsoil-dev libglew-dev
 sudo apt install glslang-tools
-sudo apt install freeglut3-dev xorg-dev libxrandr-dev libsdl2-dev
+wget https://glad.dav1d.de/generated/tmpk57okme6glad/glad.zip 
+unzip glad.zip -d glad
+sudo mv glad /usr/local/include/
+wget https://github.com/premake/premake-core/releases/download/v5.0.0-beta2/premake-5.0.0-beta2-linux.tar.gz
+sudo tar -xvf premake-5.0.0-beta2-linux.tar.gz -C /usr/local/bin/
+sudo mv src/SOIL2/ /usr/local/include
+sudo mv libsoil2-debug.* /usr/local/lib/
 ```
 
-https://glad.dav1d.de/
-选择4.1版本gl, 勾选"Local Files", 然后生成并下载glad.zip
-`sudo mv glad /usr/local/include/`
 
 VSCode插件
 Shader languages support for VS Code
@@ -315,26 +322,22 @@ void main(void)
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
 
-#include <iostream>
-#include <fstream>
 #include <string>
+#include <fstream>
 
 using namespace std;
 
-void framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+void u_framebuffer_size_callback(GLFWwindow *window, int width, int height)
+{
     glViewport(0, 0, width, height);
 }
 
-void processInput(GLFWwindow* window) {
-    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
-        glfwSetWindowShouldClose(window, true);
-    }
-}
-
-string readShaderSource(const char* filePath) {
+string u_readShaderCode(const char *filePath)
+{
     string sourceCode;
     ifstream fileStream(filePath, ios::in);
-    while (!fileStream.eof()) {
+    while (!fileStream.eof())
+    {
         string line = "";
         getline(fileStream, line);
         sourceCode.append(line + "\n");
@@ -343,70 +346,76 @@ string readShaderSource(const char* filePath) {
     return sourceCode;
 }
 
+GLuint u_createShaderProgram()
+{
+    string vShaderStr = u_readShaderCode("demo.vert");
+    string fShaderStr = u_readShaderCode("demo.frag");
 
-GLuint createShaderProgram() {
-    string vShaderStr = readShaderSource("demo.vert");
-    string fShaderStr = readShaderSource("demo.frag");
-
-    const char* vshaderSource = vShaderStr.c_str();
-    const char* fshaderSource = fShaderStr.c_str();
+    const char *vShaderCode = vShaderStr.c_str();
+    const char *fShaderCode = fShaderStr.c_str();
 
     GLuint vShader = glCreateShader(GL_VERTEX_SHADER);
     GLuint fShader = glCreateShader(GL_FRAGMENT_SHADER);
 
-    glShaderSource(vShader, 1, &vshaderSource, nullptr);
-    glShaderSource(fShader, 1, &fshaderSource, nullptr);
+    glShaderSource(vShader, 1, &vShaderCode, nullptr);
+    glShaderSource(fShader, 1, &fShaderCode, nullptr);
     glCompileShader(vShader);
     glCompileShader(fShader);
 
-    GLuint vfProgram = glCreateProgram();
-    glAttachShader(vfProgram, vShader);
-    glAttachShader(vfProgram, fShader);
-    glLinkProgram(vfProgram);
+    GLuint program = glCreateProgram();
+    glAttachShader(program, vShader);
+    glAttachShader(program, fShader);
+    glLinkProgram(program);
 
     glDeleteShader(vShader);
     glDeleteShader(fShader);
-
-    return vfProgram;
+    return program;
 }
 
-#define numVAOs 1
-GLuint renderingProgram;
-GLuint vao[numVAOs];
+void u_processInput(GLFWwindow *window)
+{
+    if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)
+    {
+        glfwSetWindowShouldClose(window, true);
+    }
+}
 
-int main() {
+int main()
+{
     glfwInit();
     glfwInitHint(GLFW_VERSION_MAJOR, 4);
     glfwInitHint(GLFW_VERSION_MINOR, 1);
     glfwInitHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
 
-    GLFWwindow* window = glfwCreateWindow(800, 600, "Learn OpenGL", nullptr, nullptr);
+    GLFWwindow *window = glfwCreateWindow(800, 600, "Demo", nullptr, nullptr);
     glfwMakeContextCurrent(window);
-    glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+    glfwSetFramebufferSizeCallback(window, u_framebuffer_size_callback);
 
     gladLoadGLLoader((GLADloadproc)glfwGetProcAddress);
 
     glfwSwapInterval(1);
 
-    renderingProgram = createShaderProgram();
-    glGenVertexArrays(numVAOs, vao);
+    const int numVAOs = 1;
+    GLuint vao[numVAOs];
     glBindVertexArray(vao[0]);
+    GLuint program = u_createShaderProgram();
 
-    while (!glfwWindowShouldClose(window)) {
-        processInput(window);
+    while (!glfwWindowShouldClose(window))
+    {
+        u_processInput(window);
 
         glClear(GL_DEPTH_BUFFER_BIT);
         glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
-        glUseProgram(renderingProgram);
+        glUseProgram(program);
         glDrawArrays(GL_TRIANGLES, 0, 3);
 
         glfwSwapBuffers(window);
         glfwPollEvents();
     }
 
-    glDeleteProgram(renderingProgram);
+    glDeleteProgram(program);
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;
