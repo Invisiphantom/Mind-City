@@ -76,51 +76,87 @@ https://github.com/Tan-YiFan/rvcpu
 | f31  | ft11 | FP Temporary                      |
 
 
-| Inter/Excep | Excep Code | mcause Description             |
-| ----------- | ---------- | ------------------------------ |
-| 1           | 0001       | Supervisor software interrupt  |
-| 1           | 0011       | Machine software interrupt     |
-| 1           | 0101       | Supervisor timer interrupt     |
-| 1           | 0111       | Machine timer interrupt        |
-| 1           | 1001       | Supervisor external interrupt  |
-| 1           | 1011       | Machine external interrupt     |
-| ----------- | ---------- | -----------------------------  |
-| 0           | 0000       | Instruction address misaligned |
-| 0           | 0001       | Instruction access fault       |
-| 0           | 0010       | Illegal instruction            |
-| 0           | 0011       | Breakpoint                     |
-| 0           | 0100       | Load address misaligned        |
-| 0           | 0101       | Load access fault              |
-| 0           | 0110       | Store address misaligned       |
-| 0           | 0111       | Store access fault             |
-| 0           | 1000       | Environment call from U-mode   |
-| 0           | 1001       | Environment call from S-mode   |
-| 0           | 1011       | Environment call from M-mode   |
-| 0           | 1100       | Instruction page fault         |
-| 0           | 1101       | Load page fault                |
-| 0           | 1111       | Store page fault               |
+| Inter/Excep | Excep Code | Binary | mcause Description             |
+| ----------- | ---------- | ------ | ------------------------------ |
+| 1           | 0          | 0000   | User software interrupt        |
+| 1           | 1          | 0001   | Supervisor software interrupt  |
+| 1           | 2          | 0010   | Reserved                       |
+| 1           | 3          | 0011   | Machine software interrupt     |
+| ----------- | ---------- | ------ | ------------------------------ |
+| 1           | 4          | 0100   | User timer interrupt           |
+| 1           | 5          | 0101   | Supervisor timer interrupt     |
+| 1           | 6          | 0110   | Reserved                       |
+| 1           | 7          | 0111   | Machine timer interrupt        |
+| ----------- | ---------- | ------ | ------------------------------ |
+| 1           | 8          | 1000   | User external interrupt        |
+| 1           | 9          | 1001   | Supervisor external interrupt  |
+| 1           | 10         | 1010   | Reserved                       |
+| 1           | 11         | 1011   | Machine external interrupt     |
+| ----------- | ---------- | ------ | ------------------------------ |
+| 0           | 0          | 0000   | Instruction address misaligned |
+| 0           | 1          | 0001   | Instruction access fault       |
+| 0           | 2          | 0010   | Illegal instruction            |
+| 0           | 3          | 0011   | Breakpoint                     |
+| 0           | 4          | 0100   | Load address misaligned        |
+| 0           | 5          | 0101   | Load access fault              |
+| 0           | 6          | 0110   | Store/AMO address misaligned   |
+| 0           | 7          | 0111   | Store/AMO access fault         |
+| 0           | 8          | 1000   | Environment call from U-mode   |
+| 0           | 9          | 1001   | Environment call from S-mode   |
+| 0           | 10         | 1010   | Reserved                       |
+| 0           | 11         | 1011   | Environment call from M-mode   |
+| 0           | 12         | 1100   | Instruction page fault         |
+| 0           | 13         | 1101   | Load page fault                |
+| 0           | 14         | 1110   | Reserved                       |
+| 0           | 15         | 1111   | Store/AMO page fault           |
 
 
-| CSR          | 全称                       | 功能         |
-| ------------ | -------------------------- | ------------ |
-| mepc         | Machine Exception PC       | 异常发生地址 |
-| mtvec        | Machine Trap Vector        | 异常处理地址 |
-| mcause       | Machine Exception Cause    | 异常发生原因 |
-| mtval        | Machine Trap Value         | 异常附加信息 |
-| mstatus      | Machine Status             | 全局状态     |
-| mstatus.MIE  | Machine Interrupt Enable   | 全局中断使能 |
-| mstatus.MPIE | Machine Previous IE        | 全局中断旧值 |
-| mstatus.MPP  | Machine Previous Privilege | 全局特权旧值 |
-| mie          | Machine Interrupt Enable   | 中断使能     |
-| mip          | Machine Interrupt Pending  | 中断挂起     |
-| mscratch     | Machine Scratch            | 机器暂存     |
+[详解RISC-V中断](https://www.cnblogs.com/harrypotterjackson/p/17548837.html)
+
+| Abbre | Description                                   |
+| ----- | --------------------------------------------- |
+| WIRI  | Reserved Writes Ignored, Reads Ignore Values  |
+| WPRI  | Reserved Writes Preserve, Reads Ignore Values |
+| WLRL  | Writes Legal Values, Reads Legal Values       |
+| WARL  | Writes Any Values, Reads Legal Values         |
+
+
+| [63] | [62:36] | [35:34]  | [33:32]  | [31:23] | [22] | [21] | [20] | [19] | [18] | [17] | [16:15] | [14:13] |
+| ---- | ------- | -------- | -------- | ------- | ---- | ---- | ---- | ---- | ---- | ---- | ------- | ------- |
+| SD   |         | SXL[1:0] | UXL[1:0] |         | TSR  | TW   | TVM  | MXR  | SUM  | MPRV | XS[1:0] | FS[1:0] |
+
+| [12:11]  | [10:9] | [8] |
+| -------- | ------ | --- |
+| MPP[1:0] |        | SPP |
+
+| [7]  | [6] | [5]  | [4]  |
+| ---- | --- | ---- | ---- |
+| MPIE |     | SPIE | UPIE |
+
+| [3] | [2] | [1] | [0] |
+| --- | --- | --- | --- |
+| MIE |     | SIE | UIE |
+
+| CSR(Control and Status Register) | 全称                      | 功能           |
+| -------------------------------- | ------------------------- | -------------- |
+| mepc                             | Machine Exception PC      | 异常发生地址   |
+| mtvec                            | Machine Trap Vector       | 异常处理地址   |
+| mcause                           | Machine Exception Cause   | 异常发生原因   |
+| mtval                            | Machine Trap Value        | 异常附加信息   |
+| mstatus                          | Machine Status            | 全局状态       |
+| mstatus.xIE                      | x-Mode Interrupt Enable   | 启用中断功能   |
+| mstatus.xPIE                     | x-Mode Previous IE        | 之前的中断状态 |
+| mstatus.xPP                      | x-Mode Previous Privilege | 之前的特权状态 |
+| mie                              | Machine Interrupt Enable  | 中断使能       |
+| mip                              | Machine Interrupt Pending | 中断挂起       |
+| mscratch                         | Machine Scratch           | 暂存基地址     |
 
 
 
 | RVPI       | Name               | [31:25] | [24:20] | [19:15] | [14:12] | [11:7] | [6:0]   |
 | ---------- | ------------------ | ------- | ------- | ------- | ------- | ------ | ------- |
-| sret       | Supervisor Return  | 0001000 | 00010   | 00000   | 000     | 00000  | 1110011 |
-| mret       | Machine Return     | 0011000 | 00010   | 00000   | 000     | 00000  | 1110011 |
+| sret       | S-Mode Return      | 0001000 | 00010   | 00000   | 000     | 00000  | 1110011 |
+| mret       | M-Mode Return      | 0011000 | 00010   | 00000   | 000     | 00000  | 1110011 |
 | wfi        | Wait For Interrupt | 0001000 | 00101   | 00000   | 000     | 00000  | 1110011 |
 | sfence.vma | SFENCE VMA         | 0001001 | rs2     | rs1     | 000     | 00000  | 1110011 |
 
