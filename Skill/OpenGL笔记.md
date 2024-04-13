@@ -48,15 +48,25 @@ https://premake.github.io/download/
 https://github.com/SpartanJ/SOIL2
 ```bash
 sudo apt install build-essential g++ gdb
-sudo apt install libgl-dev libglfw3-dev libglm-dev libsoil-dev libglew-dev
+sudo apt install libgl-dev libglfw3-dev libglm-dev libsoil-dev libglew-dev libsdl2-dev
 sudo apt install glslang-tools
+
 wget https://glad.dav1d.de/generated/tmpk57okme6glad/glad.zip 
 unzip glad.zip -d glad
 sudo mv glad /usr/local/include/
+
 wget https://github.com/premake/premake-core/releases/download/v5.0.0-beta2/premake-5.0.0-beta2-linux.tar.gz
 sudo tar -xvf premake-5.0.0-beta2-linux.tar.gz -C /usr/local/bin/
+
+git clone https://github.com/SpartanJ/SOIL2.git
+cd SOIL2 && premake5 gmake2
+cd make/linux/ && make -j4
+cd ../..
 sudo mv src/SOIL2/ /usr/local/include
+cd lib/linux/
 sudo mv libsoil2-debug.* /usr/local/lib/
+
+glxinfo | grep "OpenGL version"
 ```
 
 
@@ -94,62 +104,95 @@ GLSL Lint
 
 
 
-| glad函数                             | 功能           |
+| glad Function                        | Desc           |
 | ------------------------------------ | -------------- |
 | `int gladLoadGLLoader(GLADloadproc)` | 加载OpenGL函数 |
 
 
-| glfw函数                                                                                                          | 功能                         |
-| ----------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `int glfwInit()`                                                                                                  | 初始化glfw库                 |
-| `void glfwWindowHint(int hint, int value)`                                                                        | 配置glfw参数                 |
-| `void glfwTerminate()`                                                                                            | 终止glfw库                   |
-| ----------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `GLFWwindow *glfwCreateWindow(int width, int height, const char *title, GLFWmonitor *monitor, GLFWwindow *share)` | 创建窗口                     |
-| `void glfwMakeContextCurrent(GLFWwindow *window)`                                                                 | 指定窗口上下文               |
-| `GLFWframebuffersizefun glfwSetFramebufferSizeCallback(GLFWwindow *window, GLFWframebuffersizefun callback)`      | 设置帧缓冲区回调函数         |
-| `void glfwDestroyWindow(GLFWwindow *window)`                                                                      | 销毁窗口                     |
-| ----------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `GLFWglproc glfwGetProcAddress(const char *procname)`                                                             | 获取OpenGL函数指针           |
-| ----------------------------------------------------------------------------------------------------------------- | ---------------------------- |
-| `void glfwSwapInterval(int interval)`                                                                             | 设置垂直同步                 |
-| `int glfwWindowShouldClose(GLFWwindow *window)`                                                                   | 检测窗口是否应该关闭         |
-| `void glfwSetWindowShouldClose(GLFWwindow *window, int value)`                                                    | 设置窗口是否应该关闭         |
-| `void glfwSwapBuffers(GLFWwindow *window)`                                                                        | 交换渲染缓冲区               |
-| `void glfwPollEvents()`                                                                                           | 处理窗口事件                 |
-| `int glfwGetKey(GLFWwindow *window, int key)`                                                                     | 获取窗口关键字               |
+| glfw Function                                                              | Desc                 |
+| -------------------------------------------------------------------------- | -------------------- |
+| `int glfwInit()`                                                           | 初始化glfw库         |
+| `void glfwWindowHint(int hint, int value)`                                 | 配置glfw参数         |
+| `void glfwTerminate()`                                                     | 终止glfw库           |
+| ------------------------------------------------------------------------   | -----------------    |
+| `GLFWwindow *glfwCreateWindow(int width, int height, const char *title)`   | 创建窗口             |
+| `void glfwMakeContextCurrent(GLFWwindow *window)`                          | 指定窗口上下文       |
+| `void glfwGetFramebufferSize(GLFWwindow *window, int *width, int *height)` | 获取窗口帧缓冲区大小 |
+| `void glfwDestroyWindow(GLFWwindow *window)`                               | 销毁窗口             |
+| ------------------------------------------------------------------------   | -----------------    |
+| `GLFWglproc glfwGetProcAddress(const char *procname)`                      | 获取OpenGL函数指针   |
+| ------------------------------------------------------------------------   | -----------------    |
+| `void glfwSwapInterval(int interval)`                                      | 设置垂直同步         |
+| `void glfwSwapBuffers(GLFWwindow *window)`                                 | 交换渲染缓冲区       |
+| `void glfwPollEvents()`                                                    | 处理窗口事件         |
 
 
-void glGetAttachedShaders(	GLuint program,
- 	GLsizei maxCount,
- 	GLsizei *count,
- 	GLuint *shaders);
 
-| gl函数                                                                                              | 功能                  |
-| --------------------------------------------------------------------------------------------------- | --------------------- |
-| `GLenum glGetError(void)`                                                                           | 获取错误代码          |
-| `void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)`                                  | 设置视窗位置与大小    |
-| `void glClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)`                        | 设置清空颜色缓冲区    |
-| `void glClear(GLbitfield mask)`                                                                     | 清空缓冲区            |
-| --------------------------------------------------------------------------------------------------- | --------------------- |
-| `GLuint glCreateShader(GLenum shaderType);`                                                         | 创建着色器            |
-| `void glShaderSource(GLuint shader, GLsizei count, GLchar **string, const GLint *length=NULL)`      | 设置着色器源码        |
-| `void glCompileShader(GLuint shader)`                                                               | 编译着色器源码        |
-| `void glGetShaderiv(GLuint shader, GLenum pname, GLint *params)`                                    | 查询着色器状态        |
-| `void glGetShaderInfoLog(GLuint shader, GLsizei maxLength, GLsizei *length, GLchar *infoLog)`       | 获取着色器错误日志    |
-| `void glDeleteShader(GLuint shader)`                                                                | 删除着色器            |
-| --------------------------------------------------------------------------------------------------- | --------------------- |
-| `GLuint glCreateProgram()`                                                                          | 创建程序              |
-| `void glAttachShader(GLuint program, GLuint shader)`                                                | 绑定程序与着色器      |
-| `void glLinkProgram(GLuint program)`                                                                | 链接生成可执行程序    |
-| `void glGetProgramiv(GLuint program, GLenum pname, GLint *params)`                                  | 查询程序状态          |
-| `void glGetProgramInfoLog(GLuint program, GLsizei maxLength, GLsizei *length, GLchar *infoLog)`     | 获取程序错误日志      |
-| `void glUseProgram(GLuint program)`                                                                 | 激活程序              |
-| `void glDeleteProgram(GLuint program)`                                                              | 删除程序              |
-| --------------------------------------------------------------------------------------------------- | --------------------- |
-| `void glGenVertexArrays(GLsizei n, GLuint *arrays)`                                                 | 创建顶点数组对象      |
-| `void glGenBuffers(GLsizei n, GLuint *buffers)`                                                     | 创建缓冲区对象        |
-| `void glDrawArrays(GLenum mode, GLint first, GLsizei count)`                                        | 绘制图元              |
+VBO: 向GPU传递顶点数据
+VAO: 向GPU解释顶点数据
+
+1. 编译program
+2. 创建缓冲区并绑定
+3. 构造PVMR矩阵
+4. 绘制图元
+
+
+
+| gl Function                                                                                         | Desc                           |
+| --------------------------------------------------------------------------------------------------- | ------------------------------ |
+| `GLenum glGetError(void)`                                                                           | 获取错误代码                   |
+| `void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)`                                  | 设置视窗位置与大小             |
+| `void glClearColor(GLfloat red, GLfloat green, GLfloat blue, GLfloat alpha)`                        | 设置清空颜色缓冲区             |
+| `void glClear(GLbitfield mask)`                                                                     | 清空缓冲区                     |
+| --------------------------------------------------------------------------------------------------- | ---------------------          |
+| `GLuint glCreateShader(GLenum shaderType);`                                                         | 创建着色器                     |
+| `void glShaderSource(GLuint shader, GLsizei count, GLchar **string, const GLint *length=NULL)`      | 设置着色器源码                 |
+| `void glCompileShader(GLuint shader)`                                                               | 编译着色器源码                 |
+| `void glGetShaderiv(GLuint shader, GLenum pname, GLint *params)`                                    | 查询着色器状态                 |
+| `void glGetShaderInfoLog(GLuint shader, GLsizei maxLength, GLsizei *length, GLchar *infoLog)`       | 获取着色器错误日志             |
+| `void glDeleteShader(GLuint shader)`                                                                | 删除着色器                     |
+| --------------------------------------------------------------------------------------------------- | ---------------------          |
+| `GLuint glCreateProgram()`                                                                          | 创建程序                       |
+| `void glAttachShader(GLuint program, GLuint shader)`                                                | 绑定程序与着色器               |
+| `void glLinkProgram(GLuint program)`                                                                | 链接生成可执行程序             |
+| `void glGetProgramiv(GLuint program, GLenum pname, GLint *params)`                                  | 查询程序状态                   |
+| `void glGetProgramInfoLog(GLuint program, GLsizei maxLength, GLsizei *length, GLchar *infoLog)`     | 获取程序错误日志               |
+| `void glUseProgram(GLuint program)`                                                                 | 激活程序                       |
+| `void glDeleteProgram(GLuint program)`                                                              | 删除程序                       |
+| --------------------------------------------------------------------------------------------------- | ---------------------          |
+| `void glGenVertexArrays(GLsizei n, GLuint *arrays)`                                                 | 创建VAO                        |
+| `void glBindVertexArray(GLuint array)`                                                              | 激活VAO                        |
+| `void glGenBuffers(GLsizei n, GLuint *buffers)`                                                     | 创建VBO                        |
+| `void glBindBuffer(GLenum target, GLuint buffer)`                                                   | 激活VBO                        |
+| `void glBufferData(GLenum target,	GLsizeiptr size, const void* data, GLenum usage);`                | 填充VBO数据                    |
+| --------------------------------------------------------------------------------------------------- | ---------------------          |
+| `GLint glGetUniformLocation(GLuint program, const GLchar *name)`                                    | 获取uniform变量位置            |
+| `void glUniform1f(GLint location, GLfloat v0)`                                                      | 设置uniform变量值              |
+| `void glUniformMatrix4fv(GLint location, GLsizei count, GLboolean transpose, const GLfloat *value)` | 设置uniform矩阵值              |
+| `void glVertexAttribPointer(GLuint index, GLint size, GLenum type,                                  | 将缓冲区[stride*i+offset:size] |
+| GLboolean normalized, GLsizei stride, const void *offset)`                                          | -关联到index属性               |
+| `glEnableVertexAttribArray(GLuint index)`                                                           | 启用index属性                  |
+| `glEnable(GL_DEPTH_TEST)  glDepthFunc(GL_LEQUAL)`                                                   | 设置深度测试                   |
+| `void glDrawArrays(GLenum mode, GLint first, GLsizei count)`                                        | 绘制图元                       |
+| `glDrawArraysInstanced(GLenum mode, GLint first, GLsizei count, GLsizei instancecount)`             | 绘制实例化图元                 |
+
+
+
+| GLenum mode           | Description |
+| --------------------- | ----------- |
+| GL_TRIANGLES          | 三角形      |
+| GL_TRIANGLE_STRIP     | 三角形带    |
+| GL_TRIANGLE_FAN       | 三角形扇    |
+| GL_TRIANGLE_ADJACENCY | 三角形邻接  |
+| GL_LINES              | 线段        |
+| GL_LINE_STRIP         | 线段带      |
+| GL_LINE_LOOP          | 线段环      |
+| GL_LINES_ADJACENCY    | 线段邻接    |
+| GL_POINTS             | 点          |
+| GL_PATCHES            | 曲面        |
+
+
+
 
 | GLenum shaderType           | 文件名 | 着色器类型         |
 | --------------------------- | ------ | ------------------ |
@@ -160,13 +203,27 @@ void glGetAttachedShaders(	GLuint program,
 | `GL_FRAGMENT_SHADER`        | .frag  | 片段着色器         |
 | `GL_COMPUTE_SHADER`         | .comp  | 计算着色器         |
 
-| GLenum mode  | 图元类型 |
-| ------------ | -------- |
-| GL_POINTS    | 点       |
-| GL_LINES     | 线段     |
-| GL_TRIANGLES | 三角形   |
-| GL_QUADS     | 四边形   |
-| GL_POLYGON   | 多边形   |
+
+
+## glm语法
+
+| glm Function                     | Desc         |
+| -------------------------------- | ------------ |
+| value_ptr                        | 数据指针     |
+| vec3                             | 三维向量     |
+| normalize(vec3)                  | 单位向量     |
+| dot(vec3,vec3)                   | 点乘         |
+| cross(vec3,vec3)                 | 叉乘         |
+| mat4                             | 四维矩阵     |
+| transpose(mat4)                  | 矩阵转置     |
+| translate(x,y,z)                 | 平移矩阵     |
+| scale(x,y,z)                     | 缩放矩阵     |
+| rotate(mat4,θ,x,y,z)             | 旋转矩阵     |
+| perspective(fov,aspect,near,far) | 透视投影矩阵 |
+| lookAt(eye,center,up)            | 观察矩阵     |
+
+GLSL::mat4以列为单位读入值, 前4个参数为第1列
+
 
 ## GLSL语法
 
@@ -179,6 +236,7 @@ void glGetAttachedShaders(	GLuint program,
 | int/ivec2/ivec3/ivec4  | 整型     |
 | float/vec2/vec3/vec4   | 浮点型   |
 | mat2/mat3/mat4         | 矩阵     |
+
 
 ### Vertex Shader
 
