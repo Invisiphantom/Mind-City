@@ -137,39 +137,70 @@ https://github.com/Tan-YiFan/rvcpu
 | --- | --- | --- | --- |
 | MIE |     | SIE | UIE |
 
-| CSR(Control and Status Register) | 全称                      | 功能           |
-| -------------------------------- | ------------------------- | -------------- |
-| mepc                             | Machine Exception PC      | 异常发生地址   |
-| mtvec                            | Machine Trap Vector       | 异常处理地址   |
-| mcause                           | Machine Exception Cause   | 异常发生原因   |
-| mtval                            | Machine Trap Value        | 异常附加信息   |
-| mstatus                          | Machine Status            | 全局状态       |
-| mstatus.xIE                      | x-Mode Interrupt Enable   | 启用中断功能   |
-| mstatus.xPIE                     | x-Mode Previous IE        | 之前的中断状态 |
-| mstatus.xPP                      | x-Mode Previous Privilege | 之前的特权状态 |
-| mie                              | Machine Interrupt Enable  | 中断使能       |
-| mip                              | Machine Interrupt Pending | 中断挂起       |
-| mscratch                         | Machine Scratch           | 暂存基地址     |
+ Control and Status Register
+| Num   | CSR          | 全称                      | 功能               |
+| ----- | ------------ | ------------------------- | ------------------ |
+| 0x300 | mstatus      | Machine Status            | 全局状态           |
+|       | mstatus.xIE  | x-Mode Interrupt Enable   | 启用中断功能       |
+|       | mstatus.xPIE | x-Mode Previous IE        | 之前的中断状态     |
+|       | mstatus.xPP  | x-Mode Previous Privilege | 之前的特权状态     |
+| 0x304 | mie          | Machine Interrupt Enable  | 中断使能           |
+| 0x305 | mtvec        | Machine Trap Vector       | 初始化异常处理地址 |
+| 0x340 | mscratch     | Machine Scratch           | 暂存基地址         |
+| 0x341 | mepc         | Machine Exception PC      | 保存异常发生地址   |
+| 0x342 | mcause       | Machine Exception Cause   | 异常发生原因       |
+| 0x343 | mtval        | Machine Trap Value        | 异常附加信息       |
+| 0x344 | mip          | Machine Interrupt Pending | 中断挂起           |
 
 
 
-| RVPI       | Name               | [31:25] | [24:20] | [19:15] | [14:12] | [11:7] | [6:0]   |
-| ---------- | ------------------ | ------- | ------- | ------- | ------- | ------ | ------- |
-| sret       | S-Mode Return      | 0001000 | 00010   | 00000   | 000     | 00000  | 1110011 |
-| mret       | M-Mode Return      | 0011000 | 00010   | 00000   | 000     | 00000  | 1110011 |
-| wfi        | Wait For Interrupt | 0001000 | 00101   | 00000   | 000     | 00000  | 1110011 |
-| sfence.vma | SFENCE VMA         | 0001001 | rs2     | rs1     | 000     | 00000  | 1110011 |
+| RV64I  | Name                 | FMT | CSR[31:20] | [19:15] | Funct3[14:12] | rd[11:7] | Opcode[6:0] | Description                         |
+| ------ | -------------------- | --- | ---------- | ------- | ------------- | -------- | ----------- | ----------------------------------- |
+| csrrw  | CSR Read & Write     | I   |            | rs1     | 001           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]   |
+| csrrs  | CSR Read & Set       | I   |            | rs1     | 010           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1] |
+| csrrc  | CSR Read & Clear     | I   |            | rs1     | 011           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1] |
+| csrrwi | CSR Read & Write Imm | I   |            | zimm    | 101           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=zimm     |
+| csrrsi | CSR Read & Set Imm   | I   |            | zimm    | 110           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm   |
+| csrrci | CSR Read & Clear Imm | I   |            | zimm    | 111           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm   |
 
 
-| RV64I  | Name                 | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                         |
-| ------ | -------------------- | --- | ----------- | ------------- | ------------- | ----------------------------------- |
-| csrrw  | CSR Read & Write     | I   | 1110011     | 001           |               | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]   |
-| csrrs  | CSR Read & Set       | I   | 1110011     | 010           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1] |
-| csrrc  | CSR Read & Clear     | I   | 1110011     | 011           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1] |
-| csrrwi | CSR Read & Write Imm | I   | 1110011     | 101           |               | x[rd]=CSRs[csr]; CSRs[csr]=zimm     |
-| csrrsi | CSR Read & Set Imm   | I   | 1110011     | 110           |               | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm   |
-| csrrci | CSR Read & Clear Imm | I   | 1110011     | 111           |               | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm   |
 
+| RVPI   | Name          | rw_CSR | [31:20]        | [19:15] | Funct3[14:12] | [11:7] | [6:0]   |
+| ------ | ------------- | ------ | -------------- | ------- | ------------- | ------ | ------- |
+| ecall  | Env Call      | 0x000  | 0000_0000_0000 | 00000   | 000           | 00000  | 1110011 |
+| ebreak | Env Break     | 0x001  | 0000_0000_0001 | 00000   | 000           | 00000  | 1110011 |
+| sret   | S-Mode Return | 0x102  | 0001_0000_0010 | 00000   | 000           | 00000  | 1110011 |
+| mret   | M-Mode Return | 0x302  | 0011_0000_0010 | 00000   | 000           | 00000  | 1110011 |
+
+```bash
+trap_vector:
+	# save context(registers).
+	csrrw	t6, mscratch, t6	# swap t6 and mscratch
+	reg_save t6                 # base Memory Address
+
+	# Save the actual t6 register, which we swapped into mscratch
+	mv	t5, t6			        # t5 points to the context of current task
+	csrr	t6, mscratch		# read t6 back from mscratch
+	STORE	t6, 30*SIZE_REG(t5)	# save t6 with t5 as base
+
+	# Restore the context pointer into mscratch
+	csrw	mscratch, t5
+
+	# call the C trap handler in trap.c
+	csrr	a0, mepc
+	csrr	a1, mcause
+	call	trap_handler
+
+	# trap_handler will return the return address via a0.
+	csrw	mepc, a0
+
+	# restore context(registers).
+	csrr	t6, mscratch
+	reg_restore t6
+
+	# return to whatever we were doing before trap.
+	mret
+```
 
 
 
@@ -244,9 +275,7 @@ J型指令: 用于跳转操作
 | fence   | Fence Memory                | I   | 0001111     | 000           |               | Fence(pred, succ)                               |
 | fence.i | Fence Instruction           | I   | 0001111     | 001           |               | Fence(Store, Fetch)                             |
 | ------- |                             |     |             |               |               |                                                 |
-| ecall   | Environment Call            | I   | 1110011     | 000           |               | RaiseExcep(EnvCall)                             |
-| ebreak  | Environment Breakpoint      | I   | 1110011     | 000           |               | RaiseExcep(Breakpoint)                          |
-| ------- |                             |     |             |               |               |                                                 |
+
 
 
 

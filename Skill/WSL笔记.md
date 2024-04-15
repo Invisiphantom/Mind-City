@@ -1,5 +1,9 @@
+## clash配置
+
 https://apiv2.pptiok2020.com/apiv2/cxsjm8zuhcouxrbi?clash=1&extend=1
 https://xiguayun.pw/link/PwUlY64zoNUiCYzZ?clash=1
+
+## Ubuntu配置
 
 ```shell
 wsl --list
@@ -27,4 +31,20 @@ export all_proxy="sock5://$host_ip:7890"
 export ALL_PROXY="sock5://$host_ip:7890"
 
 alias apt='apt -o Acquire::http::proxy="http://$host_ip:7890/"'
+```
+
+
+## SSH服务器
+
+https://www.zerotier.com/download/
+https://my.zerotier.com/
+
+```bash
+sudo apt install openssh-server
+sudo service ssh start
+sudo service ssh status
+
+curl -s https://install.zerotier.com | sudo bash
+sudo zerotier-cli join 35c192ce9b6b3b60
+ssh ethan@192.168.196.1
 ```
