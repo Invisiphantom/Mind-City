@@ -3,6 +3,7 @@
 npm create vue@latest
 cd vue-project
 npm install
+npm install vue-router
 npm run dev
 ```
 

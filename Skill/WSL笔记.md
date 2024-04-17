@@ -48,3 +48,12 @@ curl -s https://install.zerotier.com | sudo bash
 sudo zerotier-cli join 35c192ce9b6b3b60
 ssh ethan@192.168.196.1
 ```
+
+```bash
+C:\Users\16770>
+ssh-keygen -t rsa
+
+cd ~/.ssh
+vi authorized_keys
+I id_rsa.pub
+```
