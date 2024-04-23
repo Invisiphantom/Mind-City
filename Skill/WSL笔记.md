@@ -27,8 +27,8 @@ unset color_prompt force_color_prompt
 host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
 export https_proxy="http://$host_ip:7890"
 export http_proxy="http://$host_ip:7890"
-export all_proxy="sock5://$host_ip:7890"
-export ALL_PROXY="sock5://$host_ip:7890"
+export all_proxy="socks5://$host_ip:7890"
+export ALL_PROXY="socks5://$host_ip:7890"
 
 alias apt='apt -o Acquire::http::proxy="http://$host_ip:7890/"'
 ```
@@ -55,7 +55,7 @@ C:\Users\16770>
 ssh-keygen -t rsa
 
 
-vi ~/.sshauthorized_keys
+vi ~/.ssh/authorized_keys
 C:\ProgramData\ssh\administrators_authorized_keys
 ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDsOPasY+BHAoHRLbC/qYXtXN16FkecK+p6kTdX8rOqjdBoywrKETffxtWTB+bc0qTP7twO3LP3942mn/8op/8mMz9D0B9EtQJV4fwJh/BXNvWrfg093tLYj9bAsi7SP1tyLgFc+al09a/istVWWmHczustorsxoH96mU4mUrm92iDj6/kvOFew3bP66mzKrYc3W52cOMbMEEQAyd42bBQOAo24mewu4dudYm2Dh+ISSgjILHAsfLS67FGPAoZbqE2ic/iq9G16WZjEGpyrou68FLK/Rzf5hJZ7VIa24Cn9WK3ZhWGW3EpiPtEu/4GgYD3pzIygqae5za2bgN144ucCRK+xmkVzq0gxIchSdvp2FdSB2cpUAK++WofkjWLC1tiJ2RMUtFYkFilCCnUd/XyLrFjtVH7iO6g0K/D15fhSKTGZuAO/LzQ37jakWowO2YFIiNPP+r5ZWvMAex0cJmRmrj4n4T0Q/sHTazU2udbeXjvyx28s9S18J82umlH/tDk= 16770@Ethan-Surface
 ```
