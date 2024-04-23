@@ -106,8 +106,11 @@ conda activate nerf-pytorch
 conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
 pip install imageio imageio-ffmpeg matplotlib configargparse tensorboard tqdm opencv-python
 https://drive.google.com/drive/folders/1jIr8dkvefrQmv737fFm2isiT6tqpbTbv
-vi configs/lego.txt         expname = lego_test
+
+# vi configs/lego.txt         expname = lego_test
 python run_nerf.py --config configs/lego.txt --render_only
+
+
 ```
 
 
