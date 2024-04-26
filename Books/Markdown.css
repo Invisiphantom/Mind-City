@@ -3,10 +3,12 @@ p {
     margin-bottom: 4px;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1, h2, h3, h5, h6 {
     margin-top: 48px;
     margin-bottom: 16px;
 }
+
+
 
 .cjk_fallback {
     font-size: 14px;
