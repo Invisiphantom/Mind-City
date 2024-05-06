@@ -1,6 +1,9 @@
 [Verilator文档](https://veripool.org/guide/latest/)
 
 ## Verilator环境配置
+
+https://github.com/chipsalliance/verible
+
 ```bash
 git clone https://github.com/verilator/verilator.git
 cd verilator
@@ -9,10 +12,15 @@ sudo apt install perl make autoconf g++ flex bison ccache gtkwave libsdl2-dev
 autoconf
 autoupdate
 ./configure
-make -j12 or -j4
-sudo make uninstall
+make -j12
 sudo make install
 verilator --version
+
+sudo apt install universal-ctags
+wget https://github.com/chipsalliance/verible/releases/download/v0.0-3644-g6882622d/verible-v0.0-3644-g6882622d-linux-static-x86_64.tar.gz
+tar -xvf verible-v0.0-3644-g6882622d-linux-static-x86_64.tar.gz
+sudo mv verible-v0.0-3644-g6882622d /usr/local/verible
+
 ```
 
 ## Verilator参数

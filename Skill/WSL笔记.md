@@ -33,6 +33,19 @@ export ALL_PROXY="socks5://$host_ip:7890"
 alias apt='apt -o Acquire::http::proxy="http://$host_ip:7890/"'
 ```
 
+```bash
+# .clang-format
+BasedOnStyle: WebKit
+ColumnLimit: 65
+BinPackParameters: false
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowAllArgumentsOnNextLine: false
+AllowShortBlocksOnASingleLine: Always
+AllowShortFunctionsOnASingleLine: All
+AllowShortIfStatementsOnASingleLine: AllIfsAndElse
+AlignAfterOpenBracket: AlwaysBreak
+```
+
 
 ## SSH服务器
 
