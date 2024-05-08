@@ -1,14 +1,7 @@
 # 2-1 搭建组件结构
 
-## 页面结构分析
-
-![1693707319247](assets/1693707319247.png)
-
-
-
-项目目录结构
-
-![1690788868219](assets\1690788868219.png)
+![](assets/1693707319247.png =500x)
+![](assets/1690788868219.png =300x)
 
 ## LayoutNav.vue
 
@@ -474,33 +467,24 @@ import LayoutFooter from "@/views/Layout/components/LayoutFooter.vue";
 
 # 2-2 阿里字体图标渲染
 
-> 字体图标采用的是阿里的字体图标库，样式文件已经准备好，在 `index.html`文件中引入即可
-
+https://www.iconfont.cn
+在 `index.html`文件中引入
 ```html
   <link rel="stylesheet" href="//at.alicdn.com/t/font_2143783_iq6z4ey5vu.css">
 ```
-阿里图标矢量图 
-
-https://www.iconfont.cn
-
-阿里图标引用讲解
-
-![1690789903308](assets\1690789903308.png)
-
-
 
 # 2-3 Header导航动态渲染
 
-![1693788143931](assets/1693788143931.png)
-**实现步骤**
+![](assets/1693788143931.png =500x)
+
+实现步骤
 
 1. 封装接口函数
 2. 调用接口函数
 3. v-for渲染模版
 
-**代码落地**
 
-## 创建apis/layout.js
+## apis/layout.js
 
 ```javascript
 import http from "@/utils/http";
@@ -543,19 +527,16 @@ onMounted(()=>{
 
 
 
-# 2-4 吸顶导航交互实现
+# 2-4 吸顶导航栏
 
-##  创建吸顶导航组件
-
-创建LayoutFixed.vue
+## LayoutFixed.vue
 
 ```vue
 <script setup>
-
 </script>
 
 <template>
-  <div class="app-header-sticky">
+  <div class="app-header-sticky" show>
     <div class="container">
       <RouterLink class="logo" to="/" />
       <!-- 导航区域 -->
@@ -572,26 +553,7 @@ onMounted(()=>{
         <li>
           <RouterLink to="/">服饰</RouterLink>
         </li>
-        <li>
-          <RouterLink to="/">母婴</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">个护</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">严选</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">数码</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">运动</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">杂项</RouterLink>
-        </li>
       </ul>
-
       <div class="right">
         <RouterLink to="/">品牌</RouterLink>
         <RouterLink to="/">专题</RouterLink>
@@ -688,37 +650,12 @@ onMounted(()=>{
 </style>
 ```
 
-看盒子效果,添加show样式
-
-```
-<template>
-  <div class="app-header-sticky show">
-    <div class="container">
-      <RouterLink class="logo" to="/" />
-      ...
-```
-
-
-
-
-
-
-
 ##  实现吸顶交互
 
-步骤1：安装依赖
+https://www.vueusejs.com/functions.html
+![](assets/1693788823049.png =550x)
 
-依赖官网官网：https://www.vueusejs.com/
-
-在Sensors里 可以看到监视滚动的函数 useScroll
-
-![1693788823049](assets/1693788823049.png)
-
-
-
-
-> 核心逻辑：根据滚动距离判断当前show类名是否显示，大于78显示，小于78，不显示
-
+核心逻辑：根据滚动距离判断当前show类名是否显示
 ```vue
 <script setup>
 import { useScroll } from '@vueuse/core'
@@ -740,24 +677,15 @@ const { y } = useScroll(window)
 
 # 2-5 Pinia优化重复请求
 
-优化设计
-
 ![1690812251670](assets\1690812251670.png)
 
-##  创建pinia/categoryStore.js
-
-categoryStore.js
+## 创建pinia/categoryStore.js
 
 ```javascript
-import { ref } from 'vue'
-import { defineStore } from 'pinia'
 import { getCategoryAPI } from '@/apis/layout'
 export const useCategoryStore = defineStore('category', () => {
-  // 导航列表的数据管理
-  // state 导航列表数据
   const categoryList = ref([])
 
-  // action 获取导航数据的方法
   const getCategory = async () => {
     const res = await getCategoryAPI()
     categoryList.value = res.result
@@ -771,73 +699,24 @@ export const useCategoryStore = defineStore('category', () => {
 })
 ```
 
+## 重构组件代码
 
-
-##  重构组件代码
-
-LayoutHeader.vue代码
-
+LayoutHeader.vue
 ```vue
 <script setup>
 import {useCategoryStore} from "@/stores/categoryStore";
 const categoryStore = useCategoryStore();
-
 </script>
-```
 
-模板
-
-```
 <li v-for="item in categoryStore.categoryList" :key="item.id">
   <RouterLink to="/">{{ item.name }}</RouterLink>
 </li>
 ```
 
-
-
-LayoutFixed.vue代码
-
+LayoutFixed.vue
 ```vue
 <script setup>
 import {useCategoryStore} from "@/stores/categoryStore";
 const categoryStore = useCategoryStore();
-
 </script>
 ```
-
-
-
-# 2-6 依赖导入优化
-
-重构vite.config.js
-
-```
-export default defineConfig({
-  plugins: [
-    vue(),
-    // 配置插件
-    AutoImport({
-      imports:["vue","vue-router","pinia"],
-      resolvers: [ElementPlusResolver()],
-    }),
-```
-
-重构categoryStore.js
-
-```
-import {getCategoryAPI} from "@/apis/layout";
-
-export const useCategoryStore = defineStore('category',()=>{
-    const categoryList = ref([]);
-    const getCategory = async () => {
-        let res = await getCategoryAPI();
-        categoryList.value = res.result;
-    }
-    return{
-        categoryList,
-        getCategory
-    }
-})
-```
-
-重构LayoutHeader.vue 与 LayoutFixed.vue

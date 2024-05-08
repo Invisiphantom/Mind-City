@@ -33,6 +33,11 @@ export ALL_PROXY="socks5://$host_ip:7890"
 alias apt='apt -o Acquire::http::proxy="http://$host_ip:7890/"'
 ```
 
+```bash
+git config --global user.name "Ethan Cao"
+git config --global user.email 1677035769@qq.com
+git config --global init.defaultBranch main
+```
 
 
 ## SSH服务器

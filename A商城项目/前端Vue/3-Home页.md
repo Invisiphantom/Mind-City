@@ -1,35 +1,20 @@
 # 3-1 需求分析及整体结构创建
-![image.png](https://cdn.nlark.com/yuque/0/2023/png/274425/1675417667651-eb841c73-5b36-48a5-a8ee-118dbeaaeb0d.png#averageHue=%23fcf8f8&clientId=u19c1ce9d-cad7-4&from=paste&height=458&id=u7e2d2595&name=image.png&originHeight=916&originWidth=1368&originalType=binary&ratio=1&rotation=0&showTitle=false&size=37531&status=done&style=none&taskId=uf8f39479-333b-4074-b888-53dc829c807&title=&width=684)
-
-1- 按照结构新增五个组件，准备最简单的模版，分别在Home模块的入口组件中引入
+![](https://cdn.nlark.com/yuque/0/2023/png/274425/1675417667651-eb841c73-5b36-48a5-a8ee-118dbeaaeb0d.png =400x)
 
 - HomeCategory
 - HomeBanner
 - HomeNew
 - HomeHot
 - HomeProduct
+
+Home/index.vue
 ```vue
 <script setup>
-
-</script>
-
-<template>
-分类
-</template>
-
-<style scoped>
-
-</style>
-```
-
-2- Home模块入口组件中引入并渲染
-```vue
-<script setup>
-import HomeCategory from "@/views/Home/components/HomeCategory.vue";
-import HomeBanner from "@/views/Home/components/HomeBanner.vue";
-import HomeNew from "@/views/Home/components/HomeNew.vue";
-import HomeHot from "@/views/Home/components/HomeHot.vue";
-import HomeProduct from "@/views/Home/components/HomeProduct.vue";
+import HomeCategory from "@/views/Home/components/HomeCategory.vue"
+import HomeBanner from "@/views/Home/components/HomeBanner.vue"
+import HomeNew from "@/views/Home/components/HomeNew.vue"
+import HomeHot from "@/views/Home/components/HomeHot.vue"
+import HomeProduct from "@/views/Home/components/HomeProduct.vue"
 </script>
 
 <template>
@@ -43,18 +28,14 @@ import HomeProduct from "@/views/Home/components/HomeProduct.vue";
 </template>
 
 <style scoped>
-
 </style>
 ```
 
+# 3-2-实现Category左侧分类
 
-
-#3-2-实现Category左侧分类
-
-1- HomeCategory静态代码
+静态代码HomeCategory.vue
 ```vue
 <script setup>
-
 </script>
 
 <template>
@@ -89,105 +70,105 @@ import HomeProduct from "@/views/Home/components/HomeProduct.vue";
 
 <style scoped lang='scss'>
 .home-category {
-  width: 250px;
-  height: 500px;
-  background: rgba(0, 0, 0, 0.8);
-  position: relative;
-  z-index: 99;
+  width: 250px
+  height: 500px
+  background: rgba(0, 0, 0, 0.8)
+  position: relative
+  z-index: 99
 
   .menu {
     li {
-      padding-left: 40px;
-      height: 55px;
-      line-height: 55px;
+      padding-left: 40px
+      height: 55px
+      line-height: 55px
 
       &:hover {
-        background: $xtxColor;
+        background: $xtxColor
       }
 
       a {
-        margin-right: 4px;
-        color: #fff;
+        margin-right: 4px
+        color: #fff
 
         &:first-child {
-          font-size: 16px;
+          font-size: 16px
         }
       }
 
       .layer {
-        width: 990px;
-        height: 500px;
-        background: rgba(255, 255, 255, 0.8);
-        position: absolute;
-        left: 250px;
-        top: 0;
-        display: none;
-        padding: 0 15px;
+        width: 990px
+        height: 500px
+        background: rgba(255, 255, 255, 0.8)
+        position: absolute
+        left: 250px
+        top: 0
+        display: none
+        padding: 0 15px
 
         h4 {
-          font-size: 20px;
-          font-weight: normal;
-          line-height: 80px;
+          font-size: 20px
+          font-weight: normal
+          line-height: 80px
 
           small {
-            font-size: 16px;
-            color: #666;
+            font-size: 16px
+            color: #666
           }
         }
 
         ul {
-          display: flex;
-          flex-wrap: wrap;
+          display: flex
+          flex-wrap: wrap
 
           li {
-            width: 310px;
-            height: 120px;
-            margin-right: 15px;
-            margin-bottom: 15px;
-            border: 1px solid #eee;
-            border-radius: 4px;
-            background: #fff;
+            width: 310px
+            height: 120px
+            margin-right: 15px
+            margin-bottom: 15px
+            border: 1px solid #eee
+            border-radius: 4px
+            background: #fff
 
             &:nth-child(3n) {
-              margin-right: 0;
+              margin-right: 0
             }
 
             a {
-              display: flex;
-              width: 100%;
-              height: 100%;
-              align-items: center;
-              padding: 10px;
+              display: flex
+              width: 100%
+              height: 100%
+              align-items: center
+              padding: 10px
 
               &:hover {
-                background: #e3f9f4;
+                background: #e3f9f4
               }
 
               img {
-                width: 95px;
-                height: 95px;
+                width: 95px
+                height: 95px
               }
 
               .info {
-                padding-left: 10px;
-                line-height: 24px;
-                overflow: hidden;
+                padding-left: 10px
+                line-height: 24px
+                overflow: hidden
 
                 .name {
-                  font-size: 16px;
-                  color: #666;
+                  font-size: 16px
+                  color: #666
                 }
 
                 .desc {
-                  color: #999;
+                  color: #999
                 }
 
                 .price {
-                  font-size: 22px;
-                  color: $priceColor;
+                  font-size: 22px
+                  color: $priceColor
 
                   i {
-                    font-size: 16px;
+                    font-size: 16px
                   }
                 }
               }
@@ -199,7 +180,7 @@ import HomeProduct from "@/views/Home/components/HomeProduct.vue";
       // 关键样式  hover状态下的layer盒子变成block
       &:hover {
         .layer {
-          display: block;
+          display: block
         }
       }
     }
@@ -207,11 +188,11 @@ import HomeProduct from "@/views/Home/components/HomeProduct.vue";
 }
 </style>
 ```
-2- HomeCategory动态数据绑定代码
+HomeCategory动态数据绑定
 ```vue
 <script setup>
-import {useCategoryStore} from "@/stores/categoryStore";
-const categoryStore = useCategoryStore();
+import {useCategoryStore} from "@/stores/categoryStore"
+const categoryStore = useCategoryStore()
 
 </script>
 
@@ -245,13 +226,10 @@ const categoryStore = useCategoryStore();
 </template>
 ```
 # 3-3 实现Banner轮播图
-## Banner轮播图组件
 
-重构HomeBanner.vue代码
-
+HomeBanner.vue
 ```vue
 <script setup>
-
 </script>
 
 <template>
@@ -266,27 +244,25 @@ const categoryStore = useCategoryStore();
 
 <style scoped lang='scss'>
 .home-banner {
-  width: 1240px;
-  height: 500px;
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 98;
+  width: 1240px
+  height: 500px
+  position: absolute
+  left: 0
+  top: 0
+  z-index: 98
 
   img {
-    width: 100%;
-    height: 500px;
+    width: 100%
+    height: 500px
   }
 }
 </style>
 ```
 ## 动态数据渲染
-1- 封装接口
 
-创建apis/home.js
-
+apis/home.js
 ```javascript
-import http from "@/utils/http";
+import http from "@/utils/http"
 
 /**
  * @description: 获取轮播图
@@ -294,13 +270,11 @@ import http from "@/utils/http";
  * @return {*}
  */
 export function getBannerAPI(){
-    return http.get('/home/banner');
+    return http.get('/home/banner')
 }
 ```
-2- 获取数据渲染模版
 
-重构HomeBanner.vue页面
-
+重构HomeBanner.vue
 ```vue
 <script setup>
 import { getBannerAPI } from '@/apis/home'
@@ -331,15 +305,10 @@ onMounted(() => getBanner())
 
 # 3-4 实现新鲜好物
 
-## 封装面板组件
-
-步骤1：创建HomePanel.vue
-
+HomePanel.vue
 ```vue
 <script setup>
-
 </script>
-
 
 <template>
   <div class="home-panel">
@@ -358,25 +327,25 @@ onMounted(() => getBanner())
 
 <style scoped lang='scss'>
 .home-panel {
-  background-color: #fff;
+  background-color: #fff
 
   .head {
-    padding: 40px 0;
-    display: flex;
-    align-items: flex-end;
+    padding: 40px 0
+    display: flex
+    align-items: flex-end
 
     h3 {
-      flex: 1;
-      font-size: 32px;
-      font-weight: normal;
-      margin-left: 6px;
-      height: 35px;
-      line-height: 35px;
+      flex: 1
+      font-size: 32px
+      font-weight: normal
+      margin-left: 6px
+      height: 35px
+      line-height: 35px
 
       small {
-        font-size: 16px;
-        color: #999;
-        margin-left: 20px;
+        font-size: 16px
+        color: #999
+        margin-left: 20px
       }
     }
   }
@@ -384,8 +353,7 @@ onMounted(() => getBanner())
 </style>
 ```
 
-步骤2：重构HomePanel.vue
-
+重构HomePanel.vue
 ```vue
 <script setup>
 
@@ -421,7 +389,7 @@ defineProps({
 
 
 
-步骤3：重构HomeNew与HomeHot
+重构HomeNew与HomeHot
 
 HomeNew
 
@@ -444,19 +412,11 @@ HomeHot
 ```
 
 查看效果
-
-![1690846580050](assets\1690846580050.png)
-
-
-
-
+![](assets/1690846580050.png =400x)
 
 ## 插槽数据渲染
 
-步骤1: 模板中加入数据插槽
-
-重构HomePanel.vue
-
+重构HomePanel.vue加入数据插槽
 ```vue
 <template>
   <div class="home-panel">
@@ -475,40 +435,20 @@ HomeHot
 </template>
 ```
 
-步骤2：封装接口
-
+封装接口
 ```javascript
 /**
  * @description: 获取新鲜好物
- * @param {*}
- * @return {*}
  */
 export const getNewAPI = () => {
     return http.get('/home/new')
 }
 ```
 
-步骤3：获取数据渲染模版 
-```vue
-<script setup>
-import HomePanel from "@/views/Home/components/HomePanel.vue";
-
-import { getNewAPI } from '@/apis/home'
-const newList = ref([])
-const getNewList = async () => {
-  const res = await getNewAPI()  
-  newList.value = res.result
-}
-onMounted(()=>getNewList())
-</script>
-```
-步骤4：准备模版
-
 重构HomeNew.vue
-
 ```vue
 <script setup>
-import HomePanel from "@/views/Home/components/HomePanel.vue";
+import HomePanel from "@/views/Home/components/HomePanel.vue"
 
 import { getNewAPI } from '@/apis/home'
 const newList = ref([])
@@ -526,7 +466,7 @@ onMounted(()=>getNewList())
       <RouterLink to="/">
         <img :src="item.picture" alt="" />
         <p class="name">{{ item.name }}</p>
-        <p class="price">&yen;{{ item.price }}</p>
+        <p class="price">&yen{{ item.price }}</p>
       </RouterLink>
     </li>
   </ul>
@@ -535,51 +475,47 @@ onMounted(()=>getNewList())
 
 <style scoped lang='scss'>
 .goods-list {
-  display: flex;
-  justify-content: space-between;
-  height: 406px;
+  display: flex
+  justify-content: space-between
+  height: 406px
 
   li {
-    width: 306px;
-    height: 406px;
+    width: 306px
+    height: 406px
 
-    background: #f0f9f4;
-    transition: all .5s;
+    background: #f0f9f4
+    transition: all .5s
 
     &:hover {
-      transform: translate3d(0, -3px, 0);
-      box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
+      transform: translate3d(0, -3px, 0)
+      box-shadow: 0 3px 8px rgb(0 0 0 / 20%)
     }
 
     img {
-      width: 306px;
-      height: 306px;
+      width: 306px
+      height: 306px
     }
 
     p {
-      font-size: 22px;
-      padding-top: 12px;
-      text-align: center;
-      text-overflow: ellipsis;
-      overflow: hidden;
-      white-space: nowrap;
+      font-size: 22px
+      padding-top: 12px
+      text-align: center
+      text-overflow: ellipsis
+      overflow: hidden
+      white-space: nowrap
     }
 
     .price {
-      color: $priceColor;
+      color: $priceColor
     }
   }
 }
 </style>
 ```
 
-
-
-
-
 ## 实现人气推荐
 
-步骤 1： 封装接口
+封装接口
 ```javascript
 /**
  * @description: 获取人气推荐
@@ -591,10 +527,10 @@ export const getHotAPI = () => {
 }
 ```
 
-步骤2：获取数据渲染模版
+重构HomeHot.vue
 ```vue
 <script setup>
-import HomePanel from "@/views/Home/components/HomePanel.vue";
+import HomePanel from "@/views/Home/components/HomePanel.vue"
 import { getHotAPI } from '@/apis/home'
 const hotList = ref([])
 const getHotList = async () => {
@@ -620,34 +556,34 @@ onMounted(()=>getHotList())
 
 <style scoped lang='scss'>
 .goods-list {
-  display: flex;
-  justify-content: space-between;
-  height: 426px;
+  display: flex
+  justify-content: space-between
+  height: 426px
 
   li {
-    width: 306px;
-    height: 406px;
-    transition: all .5s;
+    width: 306px
+    height: 406px
+    transition: all .5s
 
     &:hover {
-      transform: translate3d(0, -3px, 0);
-      box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
+      transform: translate3d(0, -3px, 0)
+      box-shadow: 0 3px 8px rgb(0 0 0 / 20%)
     }
 
     img {
-      width: 306px;
-      height: 306px;
+      width: 306px
+      height: 306px
     }
 
     p {
-      font-size: 22px;
-      padding-top: 12px;
-      text-align: center;
+      font-size: 22px
+      padding-top: 12px
+      text-align: center
     }
 
     .desc {
-      color: #999;
-      font-size: 18px;
+      color: #999
+      font-size: 18px
     }
   }
 }
@@ -657,108 +593,8 @@ onMounted(()=>getHotList())
 
 # 3-5 实现图片懒加载指令
 
-## 图片懒加载初实现
-
-步骤1：自定义全局指令
-
-重构main.js
-
-```js
-app.directive('img-lazy',{
-    //el:指令绑定元素 img
-    //binding:binding.value 指令=后面表达式的值 图片url
-    mounted(el,binding){        
-        console.log(el,binding.value)
-    }
-})
-```
-
-重构HomeHot.vue
-
-```
-<img v-img-lazy="item.picture" :src="item.picture" alt="">
-```
-
-
-
-步骤2：判断图片是否在视口区域
-
-![1693812583505](assets/1693812583505.png)
-
-重构main.js
-
-判断图片是否在视口区域
-
-```js
-app.directive('img-lazy',{
-    //el:指令绑定元素 img
-    //binding:binding.value 指令=后面表达式的值 图片url
-    mounted(el,binding){        
-        //console.log(el,binding.value)
-        const { stop } = useIntersectionObserver(
-            el,
-            ([{ isIntersecting }]) => {
-                console.log(isIntersecting)                
-            }
-        )
-    }
-})
-```
-
-步骤3：在视口区域时加载
-
-```js
-app.directive('img-lazy',{
-    //el:指令绑定元素 img
-    //binding:binding.value 指令=后面表达式的值 图片url
-    mounted(el,binding){        
-        //console.log(el,binding.value)
-        const { stop } = useIntersectionObserver(
-            el,
-            ([{ isIntersecting }]) => {
-                console.log(isIntersecting)
-                if(isIntersecting){
-                    el.src = binding.value;
-                    stop();
-                }
-            }
-        )
-    }
-})
-```
-
-重构HomeHot.vue
-
-```
-<HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
-  <ul class="goods-list">
-    <li v-for="item in hotList" :key="item.id">
-      <RouterLink to="/">
-        <img v-img-lazy="item.picture" alt="">
-        <p class="name">{{ item.title }}</p>
-        <p class="desc">{{ item.alt }}</p>
-      </RouterLink>
-    </li>
-  </ul>
-</HomePanel>
-```
-
-
-
-步骤4：测试图片懒加载效果
-
-![1693814224820](assets/1693814224820.png)
-
-
-
-
-
-## 优化图片懒加载指令
-
 步骤1：封装全局指令
-
 创建directives/index.js
-
 ```javascript
 // 定义懒加载插件
 import { useIntersectionObserver } from '@vueuse/core'
@@ -788,27 +624,98 @@ export const lazyPlugin = {
 }
 ```
 
-
-
 步骤2：注册全局指令
-
 ```javascript
 // 全局指令注册
-import {lazyPlugin} from "@/directives";
+import {lazyPlugin} from "@/directives"
 app.use(lazyPlugin)
 ```
 
+步骤3: 重构HomeHot.vue
+```
+<HomePanel title="人气推荐" sub-title="人气爆款 不容错过">
+  <ul class="goods-list">
+    <li v-for="item in hotList" :key="item.id">
+      <RouterLink to="/">
+        <img v-img-lazy="item.picture" alt="">
+        <p class="name">{{ item.title }}</p>
+        <p class="desc">{{ item.alt }}</p>
+      </RouterLink>
+    </li>
+  </ul>
+</HomePanel>
+```
 
 
 # 3-6 实现Product产品列表
+
+创建GoodsItem.vue组件
+```vue
+<script setup>
+defineProps({
+  good: {
+    type: Object,
+    default: () => { }
+  }
+})
+</script>
+
+<template>
+  <RouterLink to="/" class="goods-item">
+    <img v-img-lazy="good.picture" alt="" />
+    <p class="name ellipsis">{{ good.name }}</p>
+    <p class="desc ellipsis">{{ good.desc }}</p>
+    <p class="price">&yen{{ good.price }}</p>
+  </RouterLink>
+</template>
+
+
+<style scoped lang="scss">
+.goods-item {
+  display: block
+  width: 220px
+  padding: 20px 30px
+  text-align: center
+  transition: all .5s
+
+  &:hover {
+    transform: translate3d(0, -3px, 0)
+    box-shadow: 0 3px 8px rgb(0 0 0 / 20%)
+  }
+
+  img {
+    width: 160px
+    height: 160px
+  }
+
+  p {
+    padding-top: 10px
+  }
+
+  .name {
+    font-size: 16px
+  }
+
+  .desc {
+    color: #999
+    height: 29px
+  }
+
+  .price {
+    color: $priceColor
+    font-size: 20px
+  }
+}
+</style>
+```
+
+
 
 ## 基础数据渲染
 1- 封装接口
 ```javascript
 /**
  * @description: 获取产品列表
- * @param {*}
- * @return {*}
  */
 export const getGoodsAPI = () => {
     return http.get('/home/goods')
@@ -833,7 +740,7 @@ onMounted( ()=> getGoods() )
     <HomePanel v-for="cate in goodsProduct" :title="cate.name"  :key="cate.id">
       <div class="box">
         <RouterLink class="cover" to="/">
-          <img :src="cate.picture" />
+          <img v-img-lazy="cate.picture" />
           <strong class="label">
             <span>{{ cate.name }}馆</span>
             <span>{{ cate.saleInfo }}</span>
@@ -842,10 +749,7 @@ onMounted( ()=> getGoods() )
         <ul class="goods-list">
           <li v-for="good in cate.goods" :key="good.id">
             <RouterLink to="/" class="goods-item">
-              <img :src="good.picture" alt="" />
-              <p class="name ellipsis">{{ good.name }}</p>
-              <p class="desc ellipsis">{{ good.desc }}</p>
-              <p class="price">&yen;{{ good.price }}</p>
+              <GoodsItem :good="good"></GoodsItem>
             </RouterLink>
           </li>
         </ul>
@@ -853,249 +757,94 @@ onMounted( ()=> getGoods() )
     </HomePanel>
   </div>
 </template>
-```
 
-3- 添加样式
-
-重构HomeProduct.vue
-
-```vue
 <style scoped lang='scss'>
 .home-product {
-  background: #fff;
-  margin-top: 20px;
+  background: #fff
+  margin-top: 20px
   .sub {
-    margin-bottom: 2px;
+    margin-bottom: 2px
 
     a {
-      padding: 2px 12px;
-      font-size: 16px;
-      border-radius: 4px;
+      padding: 2px 12px
+      font-size: 16px
+      border-radius: 4px
 
       &:hover {
-        background: $xtxColor;
-        color: #fff;
+        background: $xtxColor
+        color: #fff
       }
 
       &:last-child {
-        margin-right: 80px;
+        margin-right: 80px
       }
     }
   }
 
   .box {
-    display: flex;
+    display: flex
 
     .cover {
-      width: 240px;
-      height: 610px;
-      margin-right: 10px;
-      position: relative;
+      width: 240px
+      height: 610px
+      margin-right: 10px
+      position: relative
 
       img {
-        width: 100%;
-        height: 100%;
+        width: 100%
+        height: 100%
       }
 
       .label {
-        width: 188px;
-        height: 66px;
-        display: flex;
-        font-size: 18px;
-        color: #fff;
-        line-height: 66px;
-        font-weight: normal;
-        position: absolute;
-        left: 0;
-        top: 50%;
-        transform: translate3d(0, -50%, 0);
+        width: 188px
+        height: 66px
+        display: flex
+        font-size: 18px
+        color: #fff
+        line-height: 66px
+        font-weight: normal
+        position: absolute
+        left: 0
+        top: 50%
+        transform: translate3d(0, -50%, 0)
 
         span {
-          text-align: center;
+          text-align: center
 
           &:first-child {
-            width: 76px;
-            background: rgba(0, 0, 0, 0.9);
+            width: 76px
+            background: rgba(0, 0, 0, 0.9)
           }
 
           &:last-child {
-            flex: 1;
-            background: rgba(0, 0, 0, 0.7);
+            flex: 1
+            background: rgba(0, 0, 0, 0.7)
           }
         }
       }
     }
 
     .goods-list {
-      width: 990px;
-      display: flex;
-      flex-wrap: wrap;
+      width: 990px
+      display: flex
+      flex-wrap: wrap
 
       li {
-        width: 240px;
-        height: 300px;
-        margin-right: 10px;
-        margin-bottom: 10px;
+        width: 240px
+        height: 300px
+        margin-right: 10px
+        margin-bottom: 10px
 
         &:nth-last-child(-n + 4) {
-          margin-bottom: 0;
+          margin-bottom: 0
         }
 
         &:nth-child(4n) {
-          margin-right: 0;
+          margin-right: 0
         }
       }
     }
-
-    .goods-item {
-      display: block;
-      width: 220px;
-      padding: 20px 30px;
-      text-align: center;
-      transition: all .5s;
-
-      &:hover {
-        transform: translate3d(0, -3px, 0);
-        box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
-      }
-
-      img {
-        width: 160px;
-        height: 160px;
-      }
-
-      p {
-        padding-top: 10px;
-      }
-
-      .name {
-        font-size: 16px;
-      }
-
-      .desc {
-        color: #999;
-        height: 29px;
-      }
-
-      .price {
-        color: $priceColor;
-        font-size: 20px;
-      }
-    }
   }
 }
 </style>
-```
-
-
-
-
-
-## 图片懒加载
-
-```html
-<div class="home-product">
-  <HomePanel :title="cate.name" v-for="cate in goodsProduct" :key="cate.id">
-    <div class="box">
-      <RouterLink class="cover" to="/">
-        <!-- 指令替换 -->
-        <img v-img-lazy="cate.picture" />
-      </RouterLink>
-      <ul class="goods-list">
-        <li v-for="goods in cate.goods" :key="goods.id">
-          <RouterLink to="/" class="goods-item">
-             <!-- 指令替换 -->
-            <img v-img-lazy="goods.picture" alt="" />
-          </RouterLink>
-        </li>
-      </ul>
-    </div>
-  </HomePanel>
-</div>
-```
-
-
-# 3-7 封装GoodsItem组件
-
-## 封装组件
-
-创建GoodsItem.vue组件
-
-```vue
-
-<script setup>
-defineProps({
-  good: {
-    type: Object,
-    default: () => { }
-  }
-})
-</script>
-
-<template>
-  <RouterLink to="/" class="goods-item">
-    <img v-img-lazy="good.picture" alt="" />
-    <p class="name ellipsis">{{ good.name }}</p>
-    <p class="desc ellipsis">{{ good.desc }}</p>
-    <p class="price">&yen;{{ good.price }}</p>
-  </RouterLink>
-</template>
-
-
-<style scoped lang="scss">
-.goods-item {
-  display: block;
-  width: 220px;
-  padding: 20px 30px;
-  text-align: center;
-  transition: all .5s;
-
-  &:hover {
-    transform: translate3d(0, -3px, 0);
-    box-shadow: 0 3px 8px rgb(0 0 0 / 20%);
-  }
-
-  img {
-    width: 160px;
-    height: 160px;
-  }
-
-  p {
-    padding-top: 10px;
-  }
-
-  .name {
-    font-size: 16px;
-  }
-
-  .desc {
-    color: #999;
-    height: 29px;
-  }
-
-  .price {
-    color: $priceColor;
-    font-size: 20px;
-  }
-}
-</style>
-```
-
-
-## 使用组件
-
-重构HomeProduct.vue
-
-```vue
-<ul class="goods-list">
-    <li v-for="good in cate.goods" :key="good.id">
-      <GoodsItem :good="good"></GoodsItem>
-    </li>
-</ul>
-```
-
-删除重复的样式
-
-```
-.goods-item
 ```
