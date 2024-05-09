@@ -38,36 +38,6 @@ make -j12
 cd ../libpqxx
 ./configure
 make
-
-cd ../..
-mkdir build && cd build
-cmake ..
-cmake --build . -j12
-
-vi ../config-ubuntu.json
-{
-	"port": 8080,
-	"thread-num": 2,
-	"conn-num": 4,
-	"conn-str": "postgresql://ethan:123456@127.0.0.1:5432/bserv",
-	"static_root": "../../templates/statics",
-	"template_root": "../../templates",
-	"log-dir": "./log"
-}
-create database bserv;
-CREATE TABLE auth_user (
-    id serial PRIMARY KEY,
-    username character varying(255) NOT NULL UNIQUE,
-    password character varying(255) NOT NULL,
-    is_superuser boolean NOT NULL,
-    first_name character varying(255) NOT NULL,
-    last_name character varying(255) NOT NULL,
-    email character varying(255) NOT NULL,
-    is_active boolean NOT NULL
-);
-
-cd WebApp/
-./WebApp ../../config-ubuntu.json
 ```
 
 ```json
