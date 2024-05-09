@@ -1,21 +1,20 @@
 # 2-1 搭建组件结构
 
-![](assets/1693707319247.png =500x)
+![](assets/1693707319247.png =700x)
 ![](assets/1690788868219.png =300x)
 
 ## LayoutNav.vue
 
 ```vue
 <script setup>
-
 </script>
 
 <template>
   <nav class="app-topnav">
     <div class="container">
       <ul>
-        <template v-if="true">
-          <li><a href="javascript:;"><i class="iconfont icon-user"></i>周杰伦</a></li>
+        <template v-if="false">
+          <li><a href="javascript:;" @click="$router.push('/member')"><i class="iconfont icon-user"></i>周杰伦</a></li>
           <li>
             <el-popconfirm title="确认退出吗?" confirm-button-text="确认" cancel-button-text="取消">
               <template #reference>
@@ -24,10 +23,10 @@
             </el-popconfirm>
           </li>
           <li><a href="javascript:;">我的订单</a></li>
-          <li><a href="javascript:;">会员中心</a></li>
+          <li><a href="javascript:;" @click="$router.push('/member')">会员中心</a></li>
         </template>
         <template v-else>
-          <li><a href="javascript:;">请先登录</a></li>
+          <li><a href="javascript:;" @click="$router.push('/login')">请先登录</a></li>
           <li><a href="javascript:;">帮助中心</a></li>
           <li><a href="javascript:;">关于我们</a></li>
         </template>
@@ -77,7 +76,7 @@
 
 ```vue
 <script setup>
-
+import HeaderCart from "@/views/Layout/components/HeaderCart.vue"
 </script>
 
 <template>
@@ -90,6 +89,7 @@
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
+        <!-- 静态数据 -->
         <li> <RouterLink to="/">居家</RouterLink> </li>
         <li> <RouterLink to="/">美食</RouterLink> </li>
         <li> <RouterLink to="/">服饰</RouterLink> </li>
@@ -99,7 +99,7 @@
         <input type="text" placeholder="搜一搜">
       </div>
       <!-- 头部购物车 -->
-      
+      <HeaderCart/>
     </div>
   </header>
 </template>
@@ -449,31 +449,27 @@
 import LayoutNav from "@/views/Layout/components/LayoutNav.vue";
 import LayoutHeader from "@/views/Layout/components/LayoutHeader.vue";
 import LayoutFooter from "@/views/Layout/components/LayoutFooter.vue";
+import LayoutFixed from "@/views/Layout/components/LayoutFixed.vue"
 </script>
 
 <template>
-  <LayoutNav></LayoutNav>
-  <LayoutHeader></LayoutHeader>
-  <RouterView/>
-  <LayoutFooter></LayoutFooter>
+  <LayoutNav />
+  <LayoutHeader />
+  <LayoutFixed />
+  <router-view />
+  <LayoutFooter />
 </template>
-
-<style scoped>
-
-</style>
 ```
-
-
 
 # 2-2 阿里字体图标渲染
 
 https://www.iconfont.cn
 在 `index.html`文件中引入
 ```html
-  <link rel="stylesheet" href="//at.alicdn.com/t/font_2143783_iq6z4ey5vu.css">
+<link rel="stylesheet" href="//at.alicdn.com/t/font_2143783_iq6z4ey5vu.css">
 ```
 
-# 2-3 Header导航动态渲染
+# 2-3 Header导航动态数据
 
 ![](assets/1693788143931.png =500x)
 
@@ -484,44 +480,53 @@ https://www.iconfont.cn
 3. v-for渲染模版
 
 
-## apis/layout.js
-
+apis/layout.js
 ```javascript
 import http from "@/utils/http";
 
+// 获取全部分类(包含推荐商品)
 export function getCategoryAPI(){
     return http.get('home/category/head');
 }
 ```
+
+stores/categoryStore.js
+```js
+import { getCategoryAPI } from '@/apis/layout'
+export const useCategoryStore = defineStore('category', () => {
+  const categoryList = ref([])
+
+  const getCategory = async () => {
+    const res = await getCategoryAPI()
+    categoryList.value = res.result
+  }
+  onMounted(()=>getCategory());
+
+  return {
+    categoryList,
+    getCategory
+  }
+})
+```
+
 ## 重构LayoutHeader.vue
 
 ```vue
 <script setup>
-import {onMounted, ref} from "vue";
-import {getCategoryAPI} from "@/apis/layout";
-
-const categoryList = ref([]);
-const getCategory = async ()=>{
-  let res = await getCategoryAPI();
-  console.log(res.result);
-  categoryList.value = res.result;
-}
-onMounted(()=>{
-  getCategory();
-})
+import HeaderCart from "@/views/Layout/components/HeaderCart.vue"
+import { useCategoryStore } from "@/stores/categoryStore"
+const categoryStore = useCategoryStore()
 </script>
 
 <template>
-  ...
-     <ul class="app-header-nav">
-        <li class="home">
-          <RouterLink to="/">首页</RouterLink>
-        </li>
-        <li v-for="item in categoryList" :key="item.id">
-          <RouterLink to="/">{{item.name}}</RouterLink>
-        </li>
 
-      </ul>
+  <li class="home">
+    <RouterLink to="/">首页</RouterLink>
+  </li>
+  <li v-for="item in categoryStore.categoryList" :key="item.id">
+    <RouterLink active-class="active" :to="`/category/${item.id}`">{{item.name}}</RouterLink>
+  </li>
+  
 </template>
 ```
 
@@ -529,14 +534,21 @@ onMounted(()=>{
 
 # 2-4 吸顶导航栏
 
-## LayoutFixed.vue
+https://www.vueusejs.com/functions.html
+核心逻辑：根据滚动距离判断当前show类名是否显示
 
+LayoutFixed.vue
 ```vue
 <script setup>
+import { useScroll } from '@vueuse/core'
+const { y } = useScroll(window)
+
+import {useCategoryStore} from "@/stores/categoryStore";
+const categoryStore = useCategoryStore();
 </script>
 
 <template>
-  <div class="app-header-sticky" show>
+  <div class="app-header-sticky" :class="{show:y>78}">
     <div class="container">
       <RouterLink class="logo" to="/" />
       <!-- 导航区域 -->
@@ -544,14 +556,8 @@ onMounted(()=>{
         <li class="home">
           <RouterLink to="/">首页</RouterLink>
         </li>
-        <li>
-          <RouterLink to="/">居家</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">美食</RouterLink>
-        </li>
-        <li>
-          <RouterLink to="/">服饰</RouterLink>
+        <li v-for="item in categoryStore.categoryList" :key="item.id">
+          <RouterLink :to="`/category/${item.id}`">{{item.name}}</RouterLink>
         </li>
       </ul>
       <div class="right">
@@ -648,75 +654,4 @@ onMounted(()=>{
   }
 }
 </style>
-```
-
-##  实现吸顶交互
-
-https://www.vueusejs.com/functions.html
-![](assets/1693788823049.png =550x)
-
-核心逻辑：根据滚动距离判断当前show类名是否显示
-```vue
-<script setup>
-import { useScroll } from '@vueuse/core'
-const { y } = useScroll(window)
-</script>
-
-<template>
-  <div class="app-header-sticky" :class="{show:y>78}">
-    <div class="container">
-      <RouterLink class="logo" to="/" />
-      <!-- 导航区域 -->
-      <ul class="app-header-nav">
-        <li class="home">
-          <RouterLink to="/">首页{{y}}</RouterLink>
-        </li>
-         ...
-```
-
-
-# 2-5 Pinia优化重复请求
-
-![1690812251670](assets\1690812251670.png)
-
-## 创建pinia/categoryStore.js
-
-```javascript
-import { getCategoryAPI } from '@/apis/layout'
-export const useCategoryStore = defineStore('category', () => {
-  const categoryList = ref([])
-
-  const getCategory = async () => {
-    const res = await getCategoryAPI()
-    categoryList.value = res.result
-  }
-  onMounted(()=>getCategory());
-
-  return {
-    categoryList,
-    getCategory
-  }
-})
-```
-
-## 重构组件代码
-
-LayoutHeader.vue
-```vue
-<script setup>
-import {useCategoryStore} from "@/stores/categoryStore";
-const categoryStore = useCategoryStore();
-</script>
-
-<li v-for="item in categoryStore.categoryList" :key="item.id">
-  <RouterLink to="/">{{ item.name }}</RouterLink>
-</li>
-```
-
-LayoutFixed.vue
-```vue
-<script setup>
-import {useCategoryStore} from "@/stores/categoryStore";
-const categoryStore = useCategoryStore();
-</script>
 ```
