@@ -47,7 +47,7 @@ https://glad.dav1d.de/
 https://premake.github.io/download/
 https://github.com/SpartanJ/SOIL2
 ```bash
-sudo apt install build-essential g++ gdb
+sudo apt install build-essential g++ gdb cmake
 sudo apt install libgl-dev libglfw3-dev libglm-dev libsoil-dev libglew-dev libsdl2-dev
 sudo apt install glslang-tools
 
