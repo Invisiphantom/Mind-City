@@ -53,86 +53,26 @@ print(torch.__version__)
 torch.cuda.is_available()
 ```
 
-## Real3D-Portrait项目配置
 
-
-https://real3dportrait.github.io/
-https://github.com/yerfor/Real3DPortrait
-
-
-```bash
-conda create -n real3dportrait python=3.9
-conda activate real3dportrait
-conda install -y conda-forge::ffmpeg
-conda install -y pytorch==2.0.1 torchvision==0.15.2 torchaudio==2.0.2 pytorch-cuda=11.7 -c pytorch -c nvidia
-conda install -y -c fvcore -c iopath -c conda-forge fvcore iopath
-conda install -y pytorch3d::pytorch3d
-pip install cython openmim==0.3.9 lit httpx[socks] gdown
-mim install mmcv==2.1.0
-sudo apt install -y unzip portaudio19-dev gcc g++ cmake libx11-dev libopenblas-dev liblapack-dev libavdevice-dev libavfilter-dev libavformat-dev libavcodec-dev libswresample-dev libswscale-dev libavutil-dev
-pip install -r docs/prepare_env/requirements.txt -v
-
-
-cd deep_3drecon/BFM
-gdown https://drive.google.com/uc?id=1SPM3IHsyNAaVMwqZZGV6QVaV7I2Hly0v
-gdown https://drive.google.com/uc?id=1MSldX9UChKEb3AXLVTPzZQcsbGD4VmGF
-gdown https://drive.google.com/uc?id=180ciTvm16peWrcpl4DOekT9eUQ-lJfMU
-gdown https://drive.google.com/uc?id=1KX9MyGueFB3M-X0Ss152x_johyTXHTfU
-gdown https://drive.google.com/uc?id=19-NyZn_I0_mkF-F5GPyFMwQJ_-WecZIL
-gdown https://drive.google.com/uc?id=11ouQ7Wr2I-JKStp2Fd1afedmWeuifhof
-gdown https://drive.google.com/uc?id=18ICIvQoKX-7feYWP61RbpppzDuYTptCq
-gdown https://drive.google.com/uc?id=1VktuY46m0v_n_d4nvOupauJkK4LF6mHE
-cd ../..
-cd checkpoints
-gdown https://drive.google.com/uc?id=1gz8A6xestHp__GbZT5qozb43YaybRJhZ
-gdown https://drive.google.com/uc?id=1gSUIw2AkkKnlLJnNfS2FCqtaVw9tw3QF
-unzip 240210_real3dportrait_orig.zip
-unzip pretrained_ckpts.zip
-ls
-cd ..
-
-/home/tiger/.cache -> /home/ethan/.cache
-python inference/app_real3dportrait.py
-```
-
-## NeRF-pytorch项目配置
-
-https://www.matthewtancik.com/nerf
-https://github.com/yenchenlin/nerf-pytorch
-
-```bash
-git clone https://github.com/yenchenlin/nerf-pytorch.git
-cd nerf-pytorch
-conda create -n nerf-pytorch python=3.9
-conda activate nerf-pytorch
-conda install -y pytorch torchvision torchaudio pytorch-cuda=12.1 -c pytorch -c nvidia
-pip install imageio imageio-ffmpeg matplotlib configargparse tensorboard tqdm opencv-python
-https://drive.google.com/drive/folders/1jIr8dkvefrQmv737fFm2isiT6tqpbTbv
-
-# vi configs/lego.txt         expname = lego_test
-python run_nerf.py --config configs/lego.txt --render_only
-
-
-```
 
 
 ## PyTorch工具包
 
 https://pytorch.org/docs/stable/torch.html
 
-| Package                  | Desc                 |
-| ------------------------ | -------------------- |
-| torch                    | PyTorch核心库        |
-| torch.nn as nn           | 构建神经网络         |
-| torch.nn.functional as F | 实用数学函数         |
-| torch.utils              | 各种工具包           |
-| torch.utils.data         | 处理数据集的工具包   |
-| torch.autograd           | 自动微分工具包       |
-| torch.optim              | 梯度下降优化算法库   |
-| torchtext                | 文本数据集的工具包   |
-| torchvision              | 图像数据集的工具包   |
-| torchvision.transforms   | 用于图像数据的预处理 |
-| torchviz                 | 可视化神经网络       |
+| Package                | Desc                 |
+| ---------------------- | -------------------- |
+| torch                  | PyTorch核心库        |
+| torch.nn               | 构建神经网络         |
+| torch.nn.functional    | 实用数学函数         |
+| torch.utils            | 各种工具包           |
+| torch.utils.data       | 处理数据集的工具包   |
+| torch.autograd         | 自动微分工具包       |
+| torch.optim            | 梯度下降优化算法库   |
+| torchtext              | 文本数据集的工具包   |
+| torchvision            | 图像数据集的工具包   |
+| torchvision.transforms | 用于图像数据的预处理 |
+| torchviz               | 可视化神经网络       |
 
 ```python
 import torch
@@ -152,24 +92,6 @@ import matplotlib.pyplot as plt
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 print("Using device:", device)
 ```
-
-
-## PyTorch数据类型
-
-[TORCH.TENSOR](https://pytorch.org/docs/stable/tensors.html)
-
-| Data Type              | dtype                       | CPU Tensor                       | GPU Tensor                |
-| ---------------------- | --------------------------- | -------------------------------- | ------------------------- |
-| Boolean                | torch.bool                  | torch.BoolTensor                 | torch.cuda.BoolTensor     |
-| 8-bit integer          | torch.uint8                 | torch.ByteTensor                 | torch.cuda.ByteTensor     |
-| 8-bit integer          | torch.int8                  | torch.CharTensor                 | torch.cuda.CharTensor     |
-| 16-bit integer         | torch.int16                 | torch.ShortTensor                | torch.cuda.ShortTensor    |
-| 32-bit integer         | torch.int32                 | torch.IntTensor                  | torch.cuda.IntTensor      |
-| 64-bit integer         | torch.int64                 | torch.LongTensor                 | torch.cuda.LongTensor     |
-| 16-bit floating point  | torch.float16               | torch.HalfTensor                 | torch.cuda.HalfTensor     |
-| 16-bit floating point+ | torch.bfloat16              | torch.BFloat16Tensor             | torch.cuda.BFloat16Tensor |
-| 32-bit floating point  | torch.float32, torch.float  | torch.FloatTensor (torch.Tensor) | torch.cuda.FloatTensor    |
-| 64-bit floating point  | torch.float64, torch.double | torch.DoubleTensor               | torch.cuda.DoubleTensor   |
 
 
 | Func               | Desc                     |
