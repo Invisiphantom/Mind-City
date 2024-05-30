@@ -42,18 +42,18 @@ git config --global init.defaultBranch main
 
 ## SSH服务器
 
-https://www.zerotier.com/download/
-https://my.zerotier.com/
+
 
 ```bash
 sudo apt install openssh-server
 sudo service ssh start
 sudo service ssh status
 
-curl -s https://install.zerotier.com | sudo bash
-sudo zerotier-cli join 35c192ce9b6b3b60
-sudo service zerotier-one status
-ssh ethan@192.168.196.1
+wget https://pgy.oray.com/softwares/153/download/2156/PgyVisitor_6.2.0_x86_64.deb
+dpkg -i PgyVisitor_6.2.0_x86_64.deb
+pgyvisitor login
+orkj980241faslk0
+cyl2004...
 ```
 
 ```bash
