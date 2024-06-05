@@ -41,8 +41,6 @@ git config --global user.email 1677035769@qq.com
 
 ## SSH服务器
 
-
-
 ```bash
 sudo apt install openssh-server
 sudo service ssh start
@@ -50,6 +48,7 @@ sudo service ssh status
 
 wget https://pgy.oray.com/softwares/153/download/2156/PgyVisitor_6.2.0_x86_64.deb
 dpkg -i PgyVisitor_6.2.0_x86_64.deb
+pgyvisitor autologin -y
 pgyvisitor login
 orkj980241faslk0
 cyl2004...
@@ -59,28 +58,8 @@ cyl2004...
 C:\Users\16770>
 ssh-keygen -t rsa
 
-
+mkdir ~/.ssh
 vi ~/.ssh/authorized_keys
-C:\ProgramData\ssh\administrators_authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDsOPasY+BHAoHRLbC/qYXtXN16FkecK+p6kTdX8rOqjdBoywrKETffxtWTB+bc0qTP7twO3LP3942mn/8op/8mMz9D0B9EtQJV4fwJh/BXNvWrfg093tLYj9bAsi7SP1tyLgFc+al09a/istVWWmHczustorsxoH96mU4mUrm92iDj6/kvOFew3bP66mzKrYc3W52cOMbMEEQAyd42bBQOAo24mewu4dudYm2Dh+ISSgjILHAsfLS67FGPAoZbqE2ic/iq9G16WZjEGpyrou68FLK/Rzf5hJZ7VIa24Cn9WK3ZhWGW3EpiPtEu/4GgYD3pzIygqae5za2bgN144ucCRK+xmkVzq0gxIchSdvp2FdSB2cpUAK++WofkjWLC1tiJ2RMUtFYkFilCCnUd/XyLrFjtVH7iO6g0K/D15fhSKTGZuAO/LzQ37jakWowO2YFIiNPP+r5ZWvMAex0cJmRmrj4n4T0Q/sHTazU2udbeXjvyx28s9S18J82umlH/tDk= 16770@Ethan-Surface
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7YJgwtjdJdHVwEVEgt6vMUIIgJBggc/ABaFSFh2uKxbyPjfl7iYFcM62tLjYE6ScsuOlrrQ8NEVVthDVk9kESzyQ4Rff6ypITax/ib1dZol7MiKbEG3jZYVrQ26nB4hwJcP6teyc0Z2qL2S8FQqcc2An2zDPmqb9ZN7vuNyAoYdL+4j4tVf0F4G2XLifSaYzdMaGhFWLZnWZeRenLrcCZGqJQeeMji88IvUo6X3iF8EHTL7XIJUX+C8/Z/df/x1YcWme7M+8jHoDxhKCZDdp+ZUBh83VZNPrTs4hbsz6NOHMwUquu7LWKeffrkdrI5Gl9H7hGhY8aeFkY75VwNwgctLcOKLiTwpZangV49+1gknaga/p8Vte/GhGJ+kEAsN/xKAI5LddWix0MI4WFSijlRZ5e939iw2KCS21l2+IckTIRgFVrZG2vYZR2umEFwEfJ1lZYRznAE0f6Gv7qFq5ckv/uy9kssmU6g52LIXyIG7eUemMGR12QySog/obbB6U= 16770@Ethan-Surface
 ```
 
-## Samba服务器
-
-```bash
-sudo apt-get install samba
-sudo ufw allow samba
-
-sudo vi /etc/samba/smb.conf
-[Ubuntu22.04]
-    path = /home/ethan
-    available = yes
-    browseable = yes
-    public = yes
-    writable = yes
-
-sudo smbd restart
-sudo smbpasswd -a ethan
-\\192.168.196.1\Ubuntu
-\\192.168.196.2\Ubuntu22.04
-```
