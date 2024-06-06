@@ -47,7 +47,7 @@ sudo service ssh start
 sudo service ssh status
 
 wget https://pgy.oray.com/softwares/153/download/2156/PgyVisitor_6.2.0_x86_64.deb
-dpkg -i PgyVisitor_6.2.0_x86_64.deb
+sudo dpkg -i PgyVisitor_6.2.0_x86_64.deb
 pgyvisitor autologin -y
 pgyvisitor login
 orkj980241faslk0
