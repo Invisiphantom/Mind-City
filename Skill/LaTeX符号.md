@@ -104,10 +104,10 @@ $$\ce{Hg^2+ ->[I-] HgI2 ->[I-] [Hg^{II}I4]^2-}$$
 ```mermaid
 graph LR
     Square[方形] --> B(圆角)
-    B <--a=1--> C{{条件a}}
+    B o--a=1--o C{{条件a}}
     C -.->|a=1| D[结果1]
     subgraph 子图
-        C <-->|a=2| E[结果2]
+        C x--x|a=2| E[结果2]
     end
 ```
 
