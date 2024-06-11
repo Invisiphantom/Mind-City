@@ -10,6 +10,19 @@
 2. 配置环境并使用Real3D-Portrait生成视频
 
 
+1. nerfacto架构简介
+https://docs.nerf.studio/nerfology/methods/nerfacto.html
+2. Real3D-Portrait架构简介
+https://arxiv.org/pdf/2401.08503
 
 
-
+任务分工:
+1. 录制用于NerfStudio重建的视频(已完成)
+2. 使用NerfStudio-nerfacto进行三维重建
+3. nerfacto算法实现报告
+4. 截取一分钟左右的说话人脸视频, 用于Real3D-Portrait效果展示
+5. 将Real3D-Portrait与BasicSR架构进行整合
+6. Real3D-Portrait架构实现报告
+7. BasicSR架构实现报告
+8. PPT制作(选题意义, 使用方法, 效果展示)
+9. 课堂演讲并实机展示

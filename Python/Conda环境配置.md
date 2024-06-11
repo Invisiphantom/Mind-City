@@ -11,7 +11,11 @@ conda remove --name PyT --all
 conda create --name PyT python=3.12
 conda activate PyT
 
-pip install torch torchvision torchaudio torchmetrics numpy pandas matplotlib jupyter seaborn scikit-learn transformers datasets tokenizers accelerate altair torch_tb_profiler tensorboard nltk sentencepiece
+pip install torch torchvision torchaudio 
+pip install torchmetrics numpy pandas matplotlib jupyter seaborn 
+pip install scikit-learn transformers datasets tokenizers accelerate altair 
+pip install torch_tb_profiler tensorboard nltk sentencepiece networkx
+pip uninstall
 
 import torch
 print(torch.__version__)
@@ -22,4 +26,11 @@ nltk.download()
 
 sudo apt install libglu1-mesa-dev
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
+```
+
+```cmd
+python -m site
+setx PYTHONNOUSERSITE 1
+set PYTHONNOUSERSITE=1
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
 ```
