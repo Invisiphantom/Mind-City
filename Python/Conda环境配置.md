@@ -1,6 +1,13 @@
 ## Miniconda安装
 
+https://developer.nvidia.com/cuda-downloads
+
 ```bash
+wget https://developer.download.nvidia.com/compute/cuda/repos/wsl-ubuntu/x86_64/cuda-keyring_1.1-1_all.deb
+sudo dpkg -i cuda-keyring_1.1-1_all.deb
+sudo apt update
+sudo apt -y install cuda-toolkit-12-5
+
 mkdir -p ~/miniconda3
 wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/miniconda3/miniconda.sh
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
@@ -23,9 +30,6 @@ torch.cuda.is_available()
 
 import nltk
 nltk.download()
-
-sudo apt install libglu1-mesa-dev
-export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 ```
 
 ```cmd
