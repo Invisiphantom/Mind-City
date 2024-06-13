@@ -15,7 +15,6 @@ pip install nerfstudio
 conda install -c conda-forge colmap
 sudo apt install ffmpeg -y
 
-
 ns-download-data nerfstudio --capture-name=poster
 ns-train nerfacto --data data/nerfstudio/poster
 ```
@@ -32,18 +31,40 @@ ns-train nerfacto --data data/nerfstudio/poster
 ```bash
 conda activate ns
 ns-process-data video --data data/custom/bicycle/video.mp4 --output-dir data/custom/bicycle/
+ns-process-data video --data data/custom/wangdao/video.mp4 --output-dir data/custom/wangdao/
 
 ns-train splatfacto --data data/custom/bicycle/
 ns-viewer --load-config outputs/bicycle/splatfacto/2024-06-10_111235/config.yml
 
+ns-train splatfacto-big --data data/custom/book/
+ns-viewer --load-config outputs/book/splatfacto/2024-06-10_124254/config.yml
+
+
+
 ns-train splatfacto-big --data data/custom/bicycle/
 ns-viewer --load-config outputs/bicycle/splatfacto/2024-06-10_113701/config.yml   
 
-ns-train splatfacto-big --pipeline.model.cull_alpha_thresh=0.005 --pipeline.model.continue_cull_post_densification=False --data data/custom/book/
-ns-viewer --load-config outputs/book/splatfacto/2024-06-10_124254/config.yml
 
 ns-train nerfacto-big --data data/custom/wangdao/
 ns-viewer --load-config outputs/wangdao/nerfacto/2024-06-10_192114/config.yml  
+ns-eval --load-config outputs/wangdao/nerfacto/2024-06-10_192114/config.yml \
+--output-path eval/wangdao/nerfacto/2024-06-10_192114/output.json \
+--render-output-path eval/wangdao/nerfacto/2024-06-10_192114
 
 ns-train splatfacto-big --data data/custom/wangdao/
 ns-viewer --load-config outputs/wangdao/splatfacto/2024-06-10_222845/config.yml  
+ns-eval --load-config outputs/wangdao/splatfacto/2024-06-10_222845/config.yml \
+--output-path eval/wangdao/splatfacto/2024-06-10_222845/output.json \
+--render-output-path eval/wangdao/splatfacto/2024-06-10_222845
+
+
+ns-train splatfacto-big \
+--pipeline.model.cull_alpha_thresh=0.005 \
+--pipeline.model.continue_cull_post_densification=False \
+--pipeline.model.use_scale_regularization=True \
+--data data/custom/wangdao/
+ns-viewer --load-config outputs/wangdao/splatfacto/2024-06-11_184110/config.yml 
+ns-eval --load-config outputs/wangdao/splatfacto/2024-06-11_184110/config.yml \
+--output-path eval/wangdao/splatfacto/2024-06-11_184110/output.json \
+--render-output-path eval/wangdao/splatfacto/2024-06-11_184110
+
