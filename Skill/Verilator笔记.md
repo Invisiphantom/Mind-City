@@ -7,7 +7,7 @@ https://github.com/chipsalliance/verible
 ```bash
 git clone https://github.com/verilator/verilator.git
 cd verilator && git checkout v4.210
-sudo apt install perl make autoconf g++ flex bison ccache gtkwave libsdl2-dev zip
+sudo apt install -y perl make autoconf g++ flex bison ccache gtkwave libsdl2-dev zip
 autoupdate
 autoconf
 ./configure

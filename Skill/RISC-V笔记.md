@@ -101,7 +101,7 @@ https://github.com/Tan-YiFan/rvcpu
 | 0           | 5          | 0101   | Load access fault              |
 | 0           | 6          | 0110   | Store/AMO address misaligned   |
 | 0           | 7          | 0111   | Store/AMO access fault         |
-| 0           | 8          | 1000   | Environment call from U-mode   |
+| 0           | 8          | 1000   | *Environment call from U-mode  |
 | 0           | 9          | 1001   | Environment call from S-mode   |
 | 0           | 10         | 1010   | Reserved                       |
 | 0           | 11         | 1011   | Environment call from M-mode   |
@@ -137,40 +137,77 @@ https://github.com/Tan-YiFan/rvcpu
 | --- | --- | --- | --- |
 | MIE |     | SIE | UIE |
 
- Control and Status Register
-| Num   | CSR          | 全称                      | 功能               |
-| ----- | ------------ | ------------------------- | ------------------ |
-| 0x300 | mstatus      | Machine Status            | 全局状态           |
-|       | mstatus.xIE  | x-Mode Interrupt Enable   | 启用中断功能       |
-|       | mstatus.xPIE | x-Mode Previous IE        | 之前的中断状态     |
-|       | mstatus.xPP  | x-Mode Previous Privilege | 之前的特权状态     |
-| 0x304 | mie          | Machine Interrupt Enable  | 中断使能           |
-| 0x305 | mtvec        | Machine Trap Vector       | 初始化异常处理地址 |
-| 0x340 | mscratch     | Machine Scratch           | 暂存基地址         |
-| 0x341 | mepc         | Machine Exception PC      | 保存异常发生地址   |
-| 0x342 | mcause       | Machine Exception Cause   | 异常发生原因       |
-| 0x343 | mtval        | Machine Trap Value        | 异常附加信息       |
-| 0x344 | mip          | Machine Interrupt Pending | 中断挂起           |
+
+| CSR          | Num   | 全称                                          | 功能               |
+| ------------ | ----- | --------------------------------------------- | ------------------ |
+| satp         | 0x180 | Supervisor Address Translation and Protection | 页表基址和模式设置 |
+| mstatus      | 0x300 | Machine Status                                | 全局状态           |
+| mstatus.xIE  |       | x-Mode Interrupt Enable                       | 启用中断功能       |
+| mstatus.xPIE |       | x-Mode Previous IE                            | 之前的中断状态     |
+| mstatus.xPP  |       | x-Mode Previous Privilege                     | 之前的特权状态     |
+| mie          | 0x304 | Machine Interrupt Enable                      | 中断使能           |
+| mtvec        | 0x305 | Machine Trap Vector                           | 初始化异常处理地址 |
+| mscratch     | 0x340 | Machine Scratch                               | 暂存基地址         |
+| mepc         | 0x341 | Machine Exception PC                          | 保存异常发生地址   |
+| mcause       | 0x342 | Machine Exception Cause                       | 异常发生原因       |
+| mtval        | 0x343 | Machine Trap Value                            | 异常附加信息       |
+| mip          | 0x344 | Machine Interrupt Pending                     | 中断挂起           |
 
 
 
-| RV64I  | Name                 | FMT | CSR[31:20] | [19:15] | Funct3[14:12] | rd[11:7] | Opcode[6:0] | Description                         |
-| ------ | -------------------- | --- | ---------- | ------- | ------------- | -------- | ----------- | ----------------------------------- |
-| csrrw  | CSR Read & Write     | I   |            | rs1     | 001           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]   |
-| csrrs  | CSR Read & Set       | I   |            | rs1     | 010           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1] |
-| csrrc  | CSR Read & Clear     | I   |            | rs1     | 011           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1] |
-| csrrwi | CSR Read & Write Imm | I   |            | zimm    | 101           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=zimm     |
-| csrrsi | CSR Read & Set Imm   | I   |            | zimm    | 110           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm   |
-| csrrci | CSR Read & Clear Imm | I   |            | zimm    | 111           |          | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm   |
+| RV64I  | Name                 | FMT | CSR[31:20]     | [19:15] | Funct3[14:12] | rd[11:7] | Opcode[6:0] | Description                         |
+| ------ | -------------------- | --- | -------------- | ------- | ------------- | -------- | ----------- | ----------------------------------- |
+| csrrw  | CSR Read & Write     | I   |                | rs1     | 001           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]   |
+| csrrs  | CSR Read & Set       | I   |                | rs1     | 010           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1] |
+| csrrc  | CSR Read & Clear     | I   |                | rs1     | 011           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1] |
+| csrrwi | CSR Read & Write Imm | I   |                | zimm    | 101           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=zimm     |
+| csrrsi | CSR Read & Set Imm   | I   |                | zimm    | 110           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm   |
+| csrrci | CSR Read & Clear Imm | I   |                | zimm    | 111           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm   |
+| ecall  | Env Call             |     | 0000_0000_0000 | 00000   | 000           | 00000    | 1110011     |                                     |
+| mret   | M-Mode Return        |     | 0011_0000_0010 | 00000   | 000           | 00000    | 1110011     |                                     |
 
 
 
-| RVPI   | Name          | rw_CSR | [31:20]        | [19:15] | Funct3[14:12] | [11:7] | [6:0]   |
-| ------ | ------------- | ------ | -------------- | ------- | ------------- | ------ | ------- |
-| ecall  | Env Call      | 0x000  | 0000_0000_0000 | 00000   | 000           | 00000  | 1110011 |
-| ebreak | Env Break     | 0x001  | 0000_0000_0001 | 00000   | 000           | 00000  | 1110011 |
-| sret   | S-Mode Return | 0x102  | 0001_0000_0010 | 00000   | 000           | 00000  | 1110011 |
-| mret   | M-Mode Return | 0x302  | 0011_0000_0010 | 00000   | 000           | 00000  | 1110011 |
+异常或中断:
+1. pc <- mtvec
+2. mepc <- pc
+3. 异常: mcause[63] <- 0
+   中断: mcause[63] <- 1
+4. mcause[62:0] <- code
+5. mtval <- Info
+6. mstatus.mpie <- mstatus.mie
+7. mstatus.mie <- 0
+8. mstatus.mpp <- mode
+9. mode <- 2'b11
+
+
+特权返回:
+1. pc <- mepc
+2. mstatus.mie <- mstatus.mpie
+3. mstatus.mpie <- 1'b1
+4. mode <- mstatus.mpp
+5. mstatus.mpp <- 2'b00
+
+
+![image.png](https://s2.loli.net/2024/06/15/mwPIkOV5viFCdex.png)
+
+![](https://img-blog.csdnimg.cn/20210506163112151.png =700x)
+![](https://img-blog.csdnimg.cn/20210506163014251.png =700x)
+
+![](https://learningos.cn/uCore-Tutorial-Guide-2022S/_images/sv39-full.png)
+
+| Flag | Desc                                   |
+| ---- | -------------------------------------- |
+| PPN  | 叶结点: 物理页号, 指针: 下一级页表地址 |
+| RWX  | 读,写,执行权限 (全0:指针, 有1:叶结点)  |
+| V    | 该页表项是否有效 (0:无效, 1:有效)      |
+| U    | 是否使用户界面 (0:S能访问, 1:U能访问)  |
+| G    | 是否为全局页表                         |
+| A    | 是否被访问过                           |
+| D    | 是否被写过 (脏位)                      |
+
+
+
 
 ```bash
 trap_vector:
