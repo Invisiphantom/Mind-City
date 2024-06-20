@@ -21,7 +21,8 @@ conda activate PyT
 pip install torch torchvision torchaudio 
 pip install torchmetrics numpy pandas matplotlib jupyter seaborn 
 pip install scikit-learn transformers datasets tokenizers accelerate altair 
-pip install torch_tb_profiler tensorboard nltk sentencepiece networkx
+pip install torch_tb_profiler tensorboard nltk sentencepiece networkx kaggle
+pip install opencv-python wandb ultralytics roboflow labelimg
 pip uninstall
 
 import torch
@@ -30,6 +31,9 @@ torch.cuda.is_available()
 
 import nltk
 nltk.download()
+
+wandb login
+https://wandb.ai/settings#api
 ```
 
 ```cmd
