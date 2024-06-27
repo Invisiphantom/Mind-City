@@ -159,7 +159,6 @@ FROM <基本表序列|视图序列>
 [LIMIT <行数> [OFFSET <行数>] | FETCH FIRST <行数> ROWS ONLY]
 ```
 
-```
 1. 执行FROM: 读取基本表或视图, 进行笛卡尔积
 2. 执行WHERE: 选择满足行条件表达式的元组
 3. 执行GROUP: 按列名序列分组, 同时提取满足HAVING的组
