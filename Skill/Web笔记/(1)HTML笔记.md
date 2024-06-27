@@ -109,8 +109,3 @@ https://developer.mozilla.org/zh-CN/docs/Web/HTML/Reference
 | ="post" | 主体请求 |
 | action  | 地址     |
 
-
-```html
-
-
-```
