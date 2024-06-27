@@ -1,10 +1,5 @@
 RISC-V中文手册
 
-https://github.com/Tan-YiFan/rvcpu
-
-
-
-
 | xReg | 别称  | 功能                           |
 | ---- | ----- | ------------------------------ |
 | x0   | zero  | Hardwired zero                 |
