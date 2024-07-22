@@ -5,6 +5,12 @@ https://xiguayun.pw/link/PwUlY64zoNUiCYzZ?clash=1
 
 ## Ubuntu配置
 
+C:\Users\16770\\.wslconfig
+```
+[experimental]
+autoProxy=false
+```
+
 ```shell
 wsl --list
 wsl --unregister Ubuntu-22.04
@@ -24,9 +30,11 @@ fi
 unset color_prompt force_color_prompt
 
 alias ll='ls -alhF'
+alias update='sudo apt update && sudo apt upgrade -y'
 alias unzip_dir='f() { unzip "$1" -d "${1%.zip}"; }; f'
 export PATH=/usr/local/cuda/bin/:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
+
 host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
 export https_proxy="http://$host_ip:7890"
 export http_proxy="http://$host_ip:7890"
@@ -34,7 +42,7 @@ export all_proxy="socks5://$host_ip:7890"
 export ALL_PROXY="socks5://$host_ip:7890"
 
 
-sudo apt update && sudo apt upgrade -y
+update
 sudo apt install -y gcc g++ gdb make cmake zip git-lfs
 git config --global user.name "Ethan Cao"
 git config --global user.email 1677035769@qq.com
