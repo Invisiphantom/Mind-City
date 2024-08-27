@@ -8,7 +8,8 @@ https://xiguayun.pw/link/PwUlY64zoNUiCYzZ?clash=1
 C:\Users\16770\\.wslconfig
 ```
 [experimental]
-autoProxy=false
+autoProxy=true
+networkingMode=mirrored
 ```
 
 ```shell
@@ -34,12 +35,6 @@ alias update='sudo apt update && sudo apt upgrade -y'
 alias unzip_dir='f() { unzip "$1" -d "${1%.zip}"; }; f'
 export PATH=/usr/local/cuda/bin/:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
-
-host_ip=$(cat /etc/resolv.conf |grep "nameserver" |cut -f 2 -d " ")
-export https_proxy="http://$host_ip:7890"
-export http_proxy="http://$host_ip:7890"
-export all_proxy="socks5://$host_ip:7890"
-export ALL_PROXY="socks5://$host_ip:7890"
 
 
 update
