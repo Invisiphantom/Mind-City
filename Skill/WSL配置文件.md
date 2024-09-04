@@ -30,7 +30,11 @@ else
 fi
 unset color_prompt force_color_prompt
 
-alias ll='ls -alhF'
+alias ll='ls -ailhF'
+alias cp='cp -i'
+alias mv='mv -i'
+alias rm='rm -i'
+alias ps='ps axuc --forest'
 alias update='sudo apt update && sudo apt upgrade -y'
 alias unzip_dir='f() { unzip "$1" -d "${1%.zip}"; }; f'
 export PATH=/usr/local/cuda/bin/:$PATH
@@ -38,7 +42,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 
 
 update
-sudo apt install -y gcc g++ gdb make cmake zip git-lfs
+sudo apt install -y gcc g++ gdb make cmake tree zip git-lfs net-tools
 git config --global user.name "Ethan Cao"
 git config --global user.email 1677035769@qq.com
 git lfs install
