@@ -12,7 +12,7 @@ autoProxy=true
 networkingMode=mirrored
 ```
 
-```shell
+```bash
 wsl --list
 wsl --unregister Ubuntu-22.04
 ```
@@ -31,6 +31,7 @@ fi
 unset color_prompt force_color_prompt
 
 alias ll='ls -ailhF'
+
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
@@ -39,6 +40,25 @@ alias update='sudo apt update && sudo apt upgrade -y'
 alias unzip_dir='f() { unzip "$1" -d "${1%.zip}"; }; f'
 export PATH=/usr/local/cuda/bin/:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
+
+
+function proxy_on() {
+    export http_proxy=http://127.0.0.1:7890
+    export https_proxy=http://127.0.0.1:7890
+    export no_proxy=127.0.0.1,localhost
+    export HTTP_PROXY=http://127.0.0.1:7890
+    export HTTPS_PROXY=http://127.0.0.1:7890
+    export NO_PROXY=127.0.0.1,localhost
+}
+function proxy_off(){
+    unset http_proxy
+    unset https_proxy
+    unset no_proxy
+    unset HTTP_PROXY
+    unset HTTPS_PROXY
+    unset NO_PROXY
+}
+proxy_on
 
 
 update
@@ -68,13 +88,3 @@ pgyvisitor login
 orkj980241faslk0
 cyl2004...
 ```
-
-```bash
-C:\Users\16770>
-ssh-keygen -t rsa
-
-mkdir ~/.ssh
-vi ~/.ssh/authorized_keys
-ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQC7YJgwtjdJdHVwEVEgt6vMUIIgJBggc/ABaFSFh2uKxbyPjfl7iYFcM62tLjYE6ScsuOlrrQ8NEVVthDVk9kESzyQ4Rff6ypITax/ib1dZol7MiKbEG3jZYVrQ26nB4hwJcP6teyc0Z2qL2S8FQqcc2An2zDPmqb9ZN7vuNyAoYdL+4j4tVf0F4G2XLifSaYzdMaGhFWLZnWZeRenLrcCZGqJQeeMji88IvUo6X3iF8EHTL7XIJUX+C8/Z/df/x1YcWme7M+8jHoDxhKCZDdp+ZUBh83VZNPrTs4hbsz6NOHMwUquu7LWKeffrkdrI5Gl9H7hGhY8aeFkY75VwNwgctLcOKLiTwpZangV49+1gknaga/p8Vte/GhGJ+kEAsN/xKAI5LddWix0MI4WFSijlRZ5e939iw2KCS21l2+IckTIRgFVrZG2vYZR2umEFwEfJ1lZYRznAE0f6Gv7qFq5ckv/uy9kssmU6g52LIXyIG7eUemMGR12QySog/obbB6U= 16770@Ethan-Surface
-```
-
