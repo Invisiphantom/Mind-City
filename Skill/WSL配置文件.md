@@ -14,7 +14,7 @@ networkingMode=mirrored
 
 ```bash
 wsl --list
-wsl --unregister Ubuntu-22.04
+wsl --unregister Ubuntu-24.04
 ```
 
 ```bash
@@ -35,9 +35,10 @@ alias ll='ls -ailhF'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
+alias df='df -h'
+alias du='du -c'
 alias ps='ps axuc --forest'
 alias update='sudo apt update && sudo apt upgrade -y'
-alias unzip_dir='f() { unzip "$1" -d "${1%.zip}"; }; f'
 export PATH=/usr/local/cuda/bin/:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 
@@ -68,23 +69,8 @@ git config --global user.email 1677035769@qq.com
 git lfs install
 ```
 
+
 ```cmd
 setx http_proxy http://127.0.0.1:7890
 setx https_proxy http://127.0.0.1:7890
-```
-
-
-## SSH服务器
-
-```bash
-sudo apt install openssh-server -y
-sudo service ssh start
-sudo service ssh status
-
-wget https://pgy.oray.com/softwares/153/download/2156/PgyVisitor_6.2.0_x86_64.deb
-sudo dpkg -i PgyVisitor_6.2.0_x86_64.deb
-pgyvisitor autologin -y
-pgyvisitor login
-orkj980241faslk0
-cyl2004...
 ```

@@ -12,6 +12,8 @@
 
 
 ### plt.imshow()
+
+```py
 (function) def imshow(
     X: ArrayLike | Image,
     cmap: str | Colormap | None = None,
@@ -32,6 +34,7 @@
     data: Any | None = None,
     **kwargs: Any
 ) -> AxesImage
+```
 
 | Para                | Func         |
 | ------------------- | ------------ |
