@@ -16,3 +16,13 @@ hr {
 .cjk_fallback {
     font-size: 14px;
 }
+
+body {
+    background-color: rgb(36, 41, 46);
+    color: rgb(225, 228, 232);
+    font-family: "Cascadia Code";
+    font-size: 15;
+    font-weight: bold;
+}
+
+
