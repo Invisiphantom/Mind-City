@@ -1,3 +1,4 @@
+
 p {
     margin-top: 22px;
     margin-bottom: 4px;
@@ -6,6 +7,10 @@ p {
 h1, h2, h3, h4, h5, h6 {
     margin-top: 64px;
     margin-bottom: 16px;
+}
+
+h1 {
+    font-size: 1.7em;
 }
 
 hr {
@@ -25,3 +30,10 @@ body {
 }
 
 
+pre code {
+    background-color: rgb(47, 54, 61);
+}
+
+ul {
+    padding-inline-start: 20px;
+}
