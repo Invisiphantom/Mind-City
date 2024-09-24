@@ -6,7 +6,7 @@ http://localhost:9870/explorer.html#/user/hadoop
 
 ```bash
 sudo useradd -m -s /bin/bash hadoop
-sudo adduser hadoop sudo
+sudo usermod -aG sudo hadoop
 sudo passwd hadoop
 su hadoop && cd
 
