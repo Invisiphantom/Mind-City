@@ -13,6 +13,11 @@ h1 {
     font-size: 1.7em;
 }
 
+h3 {
+    margin-top: 35px;
+    margin-bottom: 0px;
+}
+
 hr {
     margin-top: 30px;
     margin-bottom: 50px;
