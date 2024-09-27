@@ -42,13 +42,13 @@ alias update='sudo apt update && sudo apt upgrade -y'
 export PATH=/usr/local/cuda/bin/:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 
-
+proxy_port=7890
 function proxy_on() {
-    export http_proxy=http://127.0.0.1:7890
-    export https_proxy=http://127.0.0.1:7890
+    export http_proxy=http://127.0.0.1:$proxy_port
+    export https_proxy=http://127.0.0.1:$proxy_port
     export no_proxy=127.0.0.1,localhost
-    export HTTP_PROXY=http://127.0.0.1:7890
-    export HTTPS_PROXY=http://127.0.0.1:7890
+    export HTTP_PROXY=http://127.0.0.1:$proxy_port
+    export HTTPS_PROXY=http://127.0.0.1:$proxy_port
     export NO_PROXY=127.0.0.1,localhost
 }
 function proxy_off(){
@@ -63,7 +63,7 @@ proxy_on
 
 
 update
-sudo apt install -y gcc g++ gdb make cmake tree zip git-lfs net-tools
+sudo apt install -y gcc g++ gdb make cmake tree zip git-lfs net-tools openssh-server
 git config --global user.name "Ethan Cao"
 git config --global user.email 1677035769@qq.com
 git lfs install
