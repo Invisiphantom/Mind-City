@@ -197,6 +197,7 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | strh      | STore Register Halfword            | I   | 01_111001_00    | Imm12       | M[R[Rn] + Imm][15:0] = R[Rt][15:0]                |
 | str       | STore Register                     | I   | 10_111001_00    | Imm12       | M[R[Rn] + Imm][31:0] = R[Rt][31:0]                |
 | str       | STore Register                     | I   | 11_111001_00    | Imm12       | M[R[Rn] + Imm][63:0] = R[Rt][63:0]                |
+| stp       | STore Pair                         | I   | 10_101001_00    | Imm7        | M[R[Rn] + Imm][127:0] = R[Rt1], R[Rt2]            |
 |           |                                    |     |                 |             | Imm < 0                                           |
 | sturb     | STore Unscaled Register Byte       | D   | 00_111000000    | 00          | M[R[Rn] + Imm][7:0] = R[Rt][7:0]                  |
 | sturh     | STore Unscaled Register Halfword   | D   | 01_111000000    | 00          | M[R[Rn] + Imm][15:0] = R[Rt][15:0]                |
@@ -219,6 +220,7 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | ldrh      | LoaD Register Half                 | I   | 01_111001_01    | Imm12       | R[Rt] = M[R[Rn] + Imm][15:0]                      |
 | ldr       | LoaD Register                      | I   | 10_111001_01    | Imm12       | R[Rt] = M[R[Rn] + Imm][31:0]                      |
 | ldr       | LoaD Register                      | I   | 11_111001_01    | Imm12       | R[Rt] = M[R[Rn] + Imm][63:0]                      |
+| ldp       | LoaD Pair                          | I   | 10_101001_01    | Imm7        | R[Rt1], R[Rt2] = M[R[Rn] + Imm][127:0]            |
 |           |                                    |     |                 |             | Imm < 0                                           |
 | ldursb    | LoaD Unscaled Register Signed Byte | D   | 00_111000_10_0  | 00          | R[Rt] = M[R[Rn] + Imm][7:0].sext                  |
 | ldursh    | LoaD Unscaled Register Signed Half | D   | 01_111000_10_0  | 00          | R[Rt] = M[R[Rn] + Imm][15:0].sext                 |
@@ -227,8 +229,6 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | ldurh     | LoaD Unscaled Register Half        | D   | 01_111000_01_0  | 00          | R[Rt] = M[R[Rn] + Imm][15:0]                      |
 | ldur      | LoaD Unscaled Register             | D   | 10_111000_01_0  | 00          | R[Rt] = M[R[Rn] + Imm][31:0]                      |
 | ldur      | LoaD Unscaled Register             | D   | 11_111000_01_0  | 00          | R[Rt] = M[R[Rn] + Imm][63:0]                      |
-
-
 
 
 
@@ -257,19 +257,6 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | sturs     | STore Single float     | R   | 10_111100000  |              | M[R[Rn] + Imm] = S[Rt]          |
 | sturd     | STore Double float     | R   | 11_111100000  |              | M[R[Rn] + Imm] = D[Rt]          |
 
-
-
-| Alias  | Src    | Situation               |
-| ------ | ------ | ----------------------- |
-| cmn    | adds   |                         |
-| cmp    | subs   |                         |
-| neg{s} | sub{s} |                         |
-| ngc{s} | sbc{s} |                         |
-| lsl(I) | ubfm   | Immr=Imms+1 && Imms!=63 |
-| lsr(I) | ubfm   | Imms=63                 |
-| ubfiz  | ubfm   | Immr < Imms             |
-| uxtb   | ubfm   | Immr=0 && Imms=7        |
-| uxth   | ubfm   | Immr=0 && Imms=15       |
 
 
 

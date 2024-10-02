@@ -14,17 +14,15 @@ wget https://repo.anaconda.com/miniconda/Miniconda3-latest-Linux-x86_64.sh -O ~/
 bash ~/miniconda3/miniconda.sh -b -u -p ~/miniconda3
 rm ~/miniconda3/miniconda.sh
 ~/miniconda3/bin/conda init bash
+source .bashrc
 
 conda remove --name PyT --all
 conda create --name PyT python=3.12
 conda activate PyT
 
 pip install torch torchvision torchaudio
-pip install torchmetrics numpy pandas matplotlib jupyter seaborn 
-pip install scikit-learn transformers datasets tokenizers accelerate altair 
-pip install torch_tb_profiler tensorboard nltk sentencepiece networkx kaggle
-pip install opencv-python wandb ultralytics roboflow labelimg
-pip uninstall
+pip install numpy pandas matplotlib jupyter
+pip install scikit-learn transformers datasets tokenizers tqdm tensorboard torchmetrics
 
 import torch
 print(torch.__version__)

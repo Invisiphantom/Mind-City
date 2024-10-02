@@ -30,8 +30,6 @@ else
 fi
 unset color_prompt force_color_prompt
 
-alias ll='ls -ailhF'
-
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -i'
