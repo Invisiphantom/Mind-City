@@ -56,7 +56,7 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | EL3   | 安全监视器 |
 
 
-![](https://s2.loli.net/2024/09/29/5xfhw8rDpNGyBLd.png)
+![](https://img.ethancao.cn/2024_09_29_5xfhw8rDpNGyBLd.png)
 
 | PSTATE | Desc                                       |
 | ------ | ------------------------------------------ |
@@ -108,7 +108,7 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 
 
 
-![](https://s2.loli.net/2024/09/29/MyU7EODZC6lnsLX.png)
+![](https://img.ethancao.cn/2024_09_29_MyU7EODZC6lnsLX.png)
 
 | R-Type | 31-21  | 20-16 | 15-10 | 9-5 | 4-0 |
 | ------ | ------ | ----- | ----- | --- | --- |

@@ -4,7 +4,7 @@
 
 ## 自注意力机制(Re-weighting)
 
-![image.png](https://s2.loli.net/2024/05/22/WfPibwjr8HmoyvZ.png)
+![image.png](https://img.ethancao.cn/2024_05_22_WfPibwjr8HmoyvZ.png)
 
 输入向量: $\{x_1,\cdots,x_n\}\in \mathbb{R}^{n\times d}$
 权重矩阵: $W_q, W_k, W_v\in \mathbb{R}^{d\times k}$

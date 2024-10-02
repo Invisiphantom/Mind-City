@@ -186,7 +186,7 @@
 5. mstatus.mpp <- 2'b00
 
 
-![image.png](https://s2.loli.net/2024/06/15/mwPIkOV5viFCdex.png)
+![image.png](https://img.ethancao.cn/2024_06_15_mwPIkOV5viFCdex.png)
 
 ![](https://img-blog.csdnimg.cn/20210506163112151.png =700x)
 ![](https://img-blog.csdnimg.cn/20210506163014251.png =700x)
@@ -245,7 +245,7 @@ B型指令: 用于分支操作
 U型指令: 用于长立即数
 J型指令: 用于跳转操作
 
-![](https://s2.loli.net/2024/05/23/iOL7vzrpm6jSA5l.png)
+![](https://img.ethancao.cn/2024_05_23_iOL7vzrpm6jSA5l.png)
 
 | RV64I   | Name                        | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                                     |
 | ------- | --------------------------- | --- | ----------- | ------------- | ------------- | ----------------------------------------------- |
@@ -410,7 +410,7 @@ J型指令: 用于跳转操作
 
 
 
-![IMG_20240503_221324.jpg](https://s2.loli.net/2024/05/03/gLY3SmHVtylo2DB.jpg =500x)
+![IMG_20240503_221324.jpg](https://img.ethancao.cn/2024_05_03_gLY3SmHVtylo2DB.jpg =500x)
 
 - PC模块: 负责更新跳转PCaddress
 - InstMem模块: 负责读取指令
