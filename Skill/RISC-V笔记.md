@@ -1,6 +1,9 @@
 
+https://www.cnblogs.com/harrypotterjackson/p/17548837.html
 
-| xReg | 别称  | 功能                           |
+
+
+| xReg | Alias | Desc                           |
 | ---- | ----- | ------------------------------ |
 | x0   | zero  | Hardwired zero                 |
 | x1   | ra    | Return address                 |
@@ -37,78 +40,127 @@
 
 
 
-| fReg | 别称 | 功能                              |
-| ---- | ---- | --------------------------------- |
-| f0   | ft0  | FP Temporary                      |
-| f1   | ft1  | FP Temporary                      |
-| f2   | ft2  | FP Temporary                      |
-| f3   | ft3  | FP Temporary                      |
-| f4   | ft4  | FP Temporary                      |
-| f5   | ft5  | FP Temporary                      |
-| f6   | ft6  | FP Temporary                      |
-| f7   | ft7  | FP Temporary                      |
-| f8   | fs0  | FP Saved register                 |
-| f9   | fs1  | FP Saved register                 |
-| f10  | fa0  | FP Function argument/Return value |
-| f11  | fa1  | FP Function argument/Return value |
-| f12  | fa2  | FP Function argument              |
-| f13  | fa3  | FP Function argument              |
-| f14  | fa4  | FP Function argument              |
-| f15  | fa5  | FP Function argument              |
-| f16  | fa6  | FP Function argument              |
-| f17  | fa7  | FP Function argument              |
-| f18  | fs2  | FP Saved register                 |
-| f19  | fs3  | FP Saved register                 |
-| f20  | fs4  | FP Saved register                 |
-| f21  | fs5  | FP Saved register                 |
-| f22  | fs6  | FP Saved register                 |
-| f23  | fs7  | FP Saved register                 |
-| f24  | fs8  | FP Saved register                 |
-| f25  | fs9  | FP Saved register                 |
-| f26  | fs10 | FP Saved register                 |
-| f27  | fs11 | FP Saved register                 |
-| f28  | ft8  | FP Temporary                      |
-| f29  | ft9  | FP Temporary                      |
-| f30  | ft10 | FP Temporary                      |
-| f31  | ft11 | FP Temporary                      |
+| fReg | Alias | Desc                              |
+| ---- | ----- | --------------------------------- |
+| f0   | ft0   | FP Temporary                      |
+| f1   | ft1   | FP Temporary                      |
+| f2   | ft2   | FP Temporary                      |
+| f3   | ft3   | FP Temporary                      |
+| f4   | ft4   | FP Temporary                      |
+| f5   | ft5   | FP Temporary                      |
+| f6   | ft6   | FP Temporary                      |
+| f7   | ft7   | FP Temporary                      |
+| f8   | fs0   | FP Saved register                 |
+| f9   | fs1   | FP Saved register                 |
+| f10  | fa0   | FP Function argument/Return value |
+| f11  | fa1   | FP Function argument/Return value |
+| f12  | fa2   | FP Function argument              |
+| f13  | fa3   | FP Function argument              |
+| f14  | fa4   | FP Function argument              |
+| f15  | fa5   | FP Function argument              |
+| f16  | fa6   | FP Function argument              |
+| f17  | fa7   | FP Function argument              |
+| f18  | fs2   | FP Saved register                 |
+| f19  | fs3   | FP Saved register                 |
+| f20  | fs4   | FP Saved register                 |
+| f21  | fs5   | FP Saved register                 |
+| f22  | fs6   | FP Saved register                 |
+| f23  | fs7   | FP Saved register                 |
+| f24  | fs8   | FP Saved register                 |
+| f25  | fs9   | FP Saved register                 |
+| f26  | fs10  | FP Saved register                 |
+| f27  | fs11  | FP Saved register                 |
+| f28  | ft8   | FP Temporary                      |
+| f29  | ft9   | FP Temporary                      |
+| f30  | ft10  | FP Temporary                      |
+| f31  | ft11  | FP Temporary                      |
 
 
-| Inter/Excep | Excep Code | Binary | mcause Description             |
-| ----------- | ---------- | ------ | ------------------------------ |
-| 1           | 0          | 0000   | User software interrupt        |
-| 1           | 1          | 0001   | Supervisor software interrupt  |
-| 1           | 2          | 0010   | Reserved                       |
-| 1           | 3          | 0011   | Machine software interrupt     |
-| ----------- | ---------- | ------ | ------------------------------ |
-| 1           | 4          | 0100   | User timer interrupt           |
-| 1           | 5          | 0101   | Supervisor timer interrupt     |
-| 1           | 6          | 0110   | Reserved                       |
-| 1           | 7          | 0111   | Machine timer interrupt        |
-| ----------- | ---------- | ------ | ------------------------------ |
-| 1           | 8          | 1000   | User external interrupt        |
-| 1           | 9          | 1001   | Supervisor external interrupt  |
-| 1           | 10         | 1010   | Reserved                       |
-| 1           | 11         | 1011   | Machine external interrupt     |
-| ----------- | ---------- | ------ | ------------------------------ |
-| 0           | 0          | 0000   | Instruction address misaligned |
-| 0           | 1          | 0001   | Instruction access fault       |
-| 0           | 2          | 0010   | Illegal instruction            |
-| 0           | 3          | 0011   | Breakpoint                     |
-| 0           | 4          | 0100   | Load address misaligned        |
-| 0           | 5          | 0101   | Load access fault              |
-| 0           | 6          | 0110   | Store/AMO address misaligned   |
-| 0           | 7          | 0111   | Store/AMO access fault         |
-| 0           | 8          | 1000   | *Environment call from U-mode  |
-| 0           | 9          | 1001   | Environment call from S-mode   |
-| 0           | 10         | 1010   | Reserved                       |
-| 0           | 11         | 1011   | Environment call from M-mode   |
-| 0           | 12         | 1100   | Instruction page fault         |
-| 0           | 13         | 1101   | Load page fault                |
-| 0           | 14         | 1110   | Reserved                       |
-| 0           | 15         | 1111   | Store/AMO page fault           |
 
 
-[详解RISC-V中断](https://www.cnblogs.com/harrypotterjackson/p/17548837.html)
+
+
+| M-mode CSR | Num   | Priv | Desc                                     |
+| ---------- | ----- | ---- | ---------------------------------------- |
+| mvendorid  | 0xF11 | MRO  | Vendor ID                                |
+| marchid    | 0xF12 | MRO  | Architecture ID                          |
+| mimpid     | 0xF13 | MRO  | Implementation ID                        |
+| mhartid    | 0xF14 | MRO  | Hardware Thread ID                       |
+| mconfigptr | 0xF15 | MRO  | Config Pointer                           |
+| ---------- |       |      |                                          |
+| mstatus    | 0x300 | MRW  | Status                                   |
+| misa       | 0x301 | MRW  | ISA and Extensions                       |
+| medeleg    | 0x302 | MRW  | Exception Delegation                     |
+| mideleg    | 0x303 | MRW  | Interrupt Delegation                     |
+| mie        | 0x304 | MRW  | Interrupt Enable                         |
+| mtvec      | 0x305 | MRW  | Trap Vector                              |
+| mcounteren | 0x306 | MRW  | Counter Enable                           |
+| ---------- |       |      |                                          |
+| mscratch   | 0x340 | MRW  | Scratch                                  |
+| mepc       | 0x341 | MRW  | Exception PC                             |
+| mcause     | 0x342 | MRW  | Exception Cause                          |
+| mtval      | 0x343 | MRW  | Exception Value                          |
+| mip        | 0x344 | MRW  | Interrupt Pending                        |
+| ---------- |       |      |                                          |
+| menvcfg    | 0x30A | MRW  | Environment Configuration                |
+| pmpcfg0    | 0x3A0 | MRW  | Physical Memory Protection Configuration |
+| pmpaddr0   | 0x3B0 | MRW  | Physical Memory Protection Address       |
+
+
+
+
+| S-mode CSR | Num   | Priv | Desc                |
+| ---------- | ----- | ---- | ------------------- |
+| sstatus    | 0x100 | SRW  | Status              |
+| sie        | 0x104 | SRW  | Interrupt Enable    |
+| stvec      | 0x105 | SRW  | Trap Vector         |
+| scounteren | 0x106 | SRW  | Counter Enable      |
+| ---------- |       |      |                     |
+| sscratch   | 0x140 | SRW  | Scratch             |
+| sepc       | 0x141 | SRW  | Exception PC        |
+| scause     | 0x142 | SRW  | Exception Cause     |
+| stval      | 0x143 | SRW  | Exception Value     |
+| sip        | 0x144 | SRW  | Interrupt Pending   |
+| satp       | 0x180 | SRW  | Address Translation |
+
+
+
+
+
+| Int/Exp | Code | Binary | mcause Description             |
+| ------- | ---- | ------ | ------------------------------ |
+| 1       | 0    | 0000   | User software interrupt        |
+| 1       | 1    | 0001   | Supervisor software interrupt  |
+| 1       | 2    | 0010   | Reserved                       |
+| 1       | 3    | 0011   | Machine software interrupt     |
+| ------- | ---- | ------ | ------------------------------ |
+| 1       | 4    | 0100   | User timer interrupt           |
+| 1       | 5    | 0101   | Supervisor timer interrupt     |
+| 1       | 6    | 0110   | Reserved                       |
+| 1       | 7    | 0111   | Machine timer interrupt        |
+| ------- | ---- | ------ | ------------------------------ |
+| 1       | 8    | 1000   | User external interrupt        |
+| 1       | 9    | 1001   | Supervisor external interrupt  |
+| 1       | A    | 1010   | Reserved                       |
+| 1       | B    | 1011   | Machine external interrupt     |
+| ------- | ---- | ------ | ------------------------------ |
+| 0       | 0    | 0000   | Instruction address misaligned |
+| 0       | 1    | 0001   | Instruction access fault       |
+| 0       | 2    | 0010   | Illegal instruction            |
+| 0       | 3    | 0011   | Breakpoint                     |
+| 0       | 4    | 0100   | Load address misaligned        |
+| 0       | 5    | 0101   | Load access fault              |
+| 0       | 6    | 0110   | Store/AMO address misaligned   |
+| 0       | 7    | 0111   | Store/AMO access fault         |
+| 0       | 8    | 1000   | *Environment call from U-mode  |
+| 0       | 9    | 1001   | Environment call from S-mode   |
+| 0       | A    | 1010   | Reserved                       |
+| 0       | B    | 1011   | Environment call from M-mode   |
+| 0       | C    | 1100   | Instruction page fault         |
+| 0       | D    | 1101   | Load page fault                |
+| 0       | E    | 1110   | Reserved                       |
+| 0       | F    | 1111   | Store/AMO page fault           |
+
 
 | Abbre | Description                                   |
 | ----- | --------------------------------------------- |
@@ -135,50 +187,34 @@
 | MIE |     | SIE | UIE |
 
 
-| CSR          | Num   | 全称                                          | 功能               |
-| ------------ | ----- | --------------------------------------------- | ------------------ |
-| satp         | 0x180 | Supervisor Address Translation and Protection | 页表基址和模式设置 |
-| mstatus      | 0x300 | Machine Status                                | 全局状态           |
-| mstatus.xIE  |       | x-Mode Interrupt Enable                       | 启用中断功能       |
-| mstatus.xPIE |       | x-Mode Previous IE                            | 之前的中断状态     |
-| mstatus.xPP  |       | x-Mode Previous Privilege                     | 之前的特权状态     |
-| mie          | 0x304 | Machine Interrupt Enable                      | 中断使能           |
-| mtvec        | 0x305 | Machine Trap Vector                           | 初始化异常处理地址 |
-| mscratch     | 0x340 | Machine Scratch                               | 暂存基地址         |
-| mepc         | 0x341 | Machine Exception PC                          | 保存异常发生地址   |
-| mcause       | 0x342 | Machine Exception Cause                       | 异常发生原因       |
-| mtval        | 0x343 | Machine Trap Value                            | 异常附加信息       |
-| mip          | 0x344 | Machine Interrupt Pending                     | 中断挂起           |
 
-
-
-| RV64I  | Name                 | FMT | CSR[31:20]     | [19:15] | Funct3[14:12] | rd[11:7] | Opcode[6:0] | Description                         |
-| ------ | -------------------- | --- | -------------- | ------- | ------------- | -------- | ----------- | ----------------------------------- |
-| csrrw  | CSR Read & Write     | I   |                | rs1     | 001           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]   |
-| csrrs  | CSR Read & Set       | I   |                | rs1     | 010           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1] |
-| csrrc  | CSR Read & Clear     | I   |                | rs1     | 011           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1] |
-| csrrwi | CSR Read & Write Imm | I   |                | zimm    | 101           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=zimm     |
-| csrrsi | CSR Read & Set Imm   | I   |                | zimm    | 110           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm   |
-| csrrci | CSR Read & Clear Imm | I   |                | zimm    | 111           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm   |
-| ecall  | Env Call             |     | 0000_0000_0000 | 00000   | 000           | 00000    | 1110011     |                                     |
-| mret   | M-Mode Return        |     | 0011_0000_0010 | 00000   | 000           | 00000    | 1110011     |                                     |
-
-
-
-异常或中断:
-1. pc <- mtvec
-2. mepc <- pc
-3. 异常: mcause[63] <- 0
+异常或中断
+(机器模式)
+1. mstatus.mpie <- mstatus.mie
+2. mstatus.mie <- 0
+3. mepc <- pc
+4. mstatus.mpp <- mode
+5. 异常: mcause[63] <- 0
    中断: mcause[63] <- 1
-4. mcause[62:0] <- code
-5. mtval <- Info
-6. mstatus.mpie <- mstatus.mie
-7. mstatus.mie <- 0
-8. mstatus.mpp <- mode
-9. mode <- 2'b11
+   mcause[62:0] <- code
+   mtval <- Info
+6. mode <- 2'b11
+7. pc <- mtvec
+
+(内核模式)
+1. sstatus.spie <- sstatus.sie
+2. sstatus.sie <- 0
+3. sepc <- pc
+4. sstatus.spp <- mode
+5. 异常: scause[63] <- 0
+   中断: scause[63] <- 1
+   scause[62:0] <- code
+   stval <- Info
+6. mode <- 2'b01
+7. pc <- stvec
 
 
-特权返回:
+特权返回
 1. pc <- mepc
 2. mstatus.mie <- mstatus.mpie
 3. mstatus.mpie <- 1'b1
@@ -186,55 +222,16 @@
 5. mstatus.mpp <- 2'b00
 
 
+
+
+
 ![image.png](https://img.ethancao.cn/2024_06_15_mwPIkOV5viFCdex.png)
 
 ![](https://img-blog.csdnimg.cn/20210506163112151.png =700x)
 ![](https://img-blog.csdnimg.cn/20210506163014251.png =700x)
-
 ![](https://learningos.cn/uCore-Tutorial-Guide-2022S/_images/sv39-full.png)
 
-| Flag | Desc                                   |
-| ---- | -------------------------------------- |
-| PPN  | 叶结点: 物理页号, 指针: 下一级页表地址 |
-| RWX  | 读,写,执行权限 (全0:指针, 有1:叶结点)  |
-| V    | 该页表项是否有效 (0:无效, 1:有效)      |
-| U    | 是否使用户界面 (0:S能访问, 1:U能访问)  |
-| G    | 是否为全局页表                         |
-| A    | 是否被访问过                           |
-| D    | 是否被写过 (脏位)                      |
 
-
-
-
-```bash
-trap_vector:
-	# save context(registers).
-	csrrw	t6, mscratch, t6	# swap t6 and mscratch
-	reg_save t6                 # base Memory Address
-
-	# Save the actual t6 register, which we swapped into mscratch
-	mv	t5, t6			        # t5 points to the context of current task
-	csrr	t6, mscratch		# read t6 back from mscratch
-	STORE	t6, 30*SIZE_REG(t5)	# save t6 with t5 as base
-
-	# Restore the context pointer into mscratch
-	csrw	mscratch, t5
-
-	# call the C trap handler in trap.c
-	csrr	a0, mepc
-	csrr	a1, mcause
-	call	trap_handler
-
-	# trap_handler will return the return address via a0.
-	csrw	mepc, a0
-
-	# restore context(registers).
-	csrr	t6, mscratch
-	reg_restore t6
-
-	# return to whatever we were doing before trap.
-	mret
-```
 
 
 
@@ -310,6 +307,18 @@ J型指令: 用于跳转操作
 | ------- |                             |     |             |               |               |                                                 |
 
 
+| RV64I  | Name                 | FMT | CSR[31:20]     | [19:15] | Funct3[14:12] | rd[11:7] | Opcode[6:0] | Description                         |
+| ------ | -------------------- | --- | -------------- | ------- | ------------- | -------- | ----------- | ----------------------------------- |
+| csrrw  | CSR Read & Write     | I   |                | rs1     | 001           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=x[rs1]   |
+| csrrs  | CSR Read & Set       | I   |                | rs1     | 010           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=x[rs1] |
+| csrrc  | CSR Read & Clear     | I   |                | rs1     | 011           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~x[rs1] |
+| csrrwi | CSR Read & Write Imm | I   |                | zimm    | 101           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]=zimm     |
+| csrrsi | CSR Read & Set Imm   | I   |                | zimm    | 110           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]\|=zimm   |
+| csrrci | CSR Read & Clear Imm | I   |                | zimm    | 111           | rd       | 1110011     | x[rd]=CSRs[csr]; CSRs[csr]&=~zimm   |
+| ecall  | Env Call             |     | 0000_0000_0000 | 00000   | 000           | 00000    | 1110011     |                                     |
+| mret   | M-Mode Return        |     | 0011_0000_0010 | 00000   | 000           | 00000    | 1110011     |                                     |
+
+
 
 
 | RV64M  | Name               | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | Description                                 |
@@ -326,6 +335,8 @@ J型指令: 用于跳转操作
 | remw+  | Remainder (+)      | R   | 0111011     | 110           | 0000001       | x[rd] = sext((x[rs1][31:0] % x[rs2][31:0])) |
 | remu   | Remainder (U)      | R   | 0110011     | 111           | 0000001       | x[rd] = x[rs1] % x[rs2]                     |
 | remuw+ | Remainder (U) (+)  | R   | 0111011     | 111           | 0000001       | x[rd] = sext((x[rs1][31:0] % x[rs2][31:0])) |
+
+
 
 
 | RV64F      | Name                        | FMT | Opcode[6:0] | Funct3[14:12] | Funct7[31:25] | rs2[24:20] | Description                                   |
