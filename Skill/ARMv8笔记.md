@@ -3,6 +3,7 @@
 
 
 https://godbolt.org/
+https://img.ethancao.cn/ARMv8%20Instruction.pdf
 https://armv8-doc.readthedocs.io/en/latest/06.html
 https://courses.cs.washington.edu/courses/cse469/19wi/arm64.pdf
 https://www.cs.princeton.edu/courses/archive/spr22/cos217/reading/ArmInstructionSetOverview.pdf
@@ -69,6 +70,7 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | A      | SError mask bit                            |
 | I      | IRQ mask bit                               |
 | F      | FIQ mask bit                               |
+|        |                                            |
 | SS     | Software Step bit                          |
 | IL     | Illegal Execution State bit                |
 | EL     | Exception level                            |
@@ -76,10 +78,15 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | SP     | Stack Pointer selector (0:SP_EL0 1:SP_ELn) |
 
 
+ttbr0_el1
+ttbr1_el1
+vbar
+esr
+daif
 
 
 
-
+![](https://img.ethancao.cn/202410061649421.png)
 
 
 
