@@ -1,63 +1,84 @@
 
 
-
-
-https://godbolt.org/
+https://img.ethancao.cn/Armv8-Ref.pdf
 https://img.ethancao.cn/ARMv8%20Instruction.pdf
+https://cs140e.sergio.bz/docs/ARMv8-A-Programmer-Guide.pdf
+
 https://armv8-doc.readthedocs.io/en/latest/06.html
 https://courses.cs.washington.edu/courses/cse469/19wi/arm64.pdf
-https://www.cs.princeton.edu/courses/archive/spr22/cos217/reading/ArmInstructionSetOverview.pdf
-https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-Reference-Guide.pdf
 
 
 
-| Regs      | 功能                      |
-| --------- | ------------------------- |
-| pc        | Program Counter           |
-| x0        | Param and Ret             |
-| x1        | Param                     |
-| x2        | Param                     |
-| x3        | Param                     |
-| x4        | Param                     |
-| x5        | Param                     |
-| x6        | Param                     |
-| x7        | Param                     |
-| x8        | Caller Saved / Struct Ret |
-| x9        | Caller Saved              |
-| x10       | Caller Saved              |
-| x11       | Caller Saved              |
-| x12       | Caller Saved              |
-| x13       | Caller Saved              |
-| x14       | Caller Saved              |
-| x15       | Caller Saved              |
-| x16 (IP0) | Veneers Scratch           |
-| x17 (IP1) | Veneers Scratch           |
-| x18 (PR)  | Platform Register         |
-| x19       | Callee Saved              |
-| x20       | Callee Saved              |
-| x21       | Callee Saved              |
-| x22       | Callee Saved              |
-| x23       | Callee Saved              |
-| x24       | Callee Saved              |
-| x25       | Callee Saved              |
-| x26       | Callee Saved              |
-| x27       | Callee Saved              |
-| x28       | Callee Saved              |
-| x29 (FP)  | Frame Pointer             |
-| x30 (LR)  | Return Address            |
-| xzr       | Constant Zero             |
 
 
 
-| Level | Desc       |
-| ----- | ---------- |
-| EL0   | 用户空间   |
-| EL1   | 内核空间   |
-| EL2   | 虚拟机管理 |
-| EL3   | 安全监视器 |
+| General   | Desc                         |
+| --------- | ---------------------------- |
+| x0        | Param and RetVal             |
+| x1        | Param                        |
+| x2        | Param                        |
+| x3        | Param                        |
+| x4        | Param                        |
+| x5        | Param                        |
+| x6        | Param                        |
+| x7        | Param                        |
+| x8        | Caller Saved / Struct RetVal |
+| x9        | Caller Saved                 |
+| x10       | Caller Saved                 |
+| x11       | Caller Saved                 |
+| x12       | Caller Saved                 |
+| x13       | Caller Saved                 |
+| x14       | Caller Saved                 |
+| x15       | Caller Saved                 |
+| x16 (IP0) | Veneers Scratch              |
+| x17 (IP1) | Veneers Scratch              |
+| x18 (PR)  | Platform Register            |
+| x19       | Callee Saved                 |
+| x20       | Callee Saved                 |
+| x21       | Callee Saved                 |
+| x22       | Callee Saved                 |
+| x23       | Callee Saved                 |
+| x24       | Callee Saved                 |
+| x25       | Callee Saved                 |
+| x26       | Callee Saved                 |
+| x27       | Callee Saved                 |
+| x28       | Callee Saved                 |
+| x29 (FP)  | Frame Pointer                |
+| x30 (LR)  | Return Address               |
+| xzr       | Zero Register                |
 
 
-![](https://img.ethancao.cn/2024_09_29_5xfhw8rDpNGyBLd.png)
+
+
+
+
+| Special | Desc                     |
+| ------- | ------------------------ |
+| pc      | Program Counter          |
+| sp      | Stack Pointer            |
+|         |                          |
+| ttbr0   | Translation Table Base 0 |
+| ttbr1   | Translation Table Base 1 |
+| mpidr   | Multi Processor ID       |
+|         |                          |
+| cntfrq  | Counter Frequency        |
+| cntpct  | Counter Physical Count   |
+|         |                          |
+| spsr    | Saved Program Status     |
+| elr     | Exception Link           |
+| esr     | Exception Syndrome       |
+| vbar    | Vector Base Address      |
+
+
+异常或中断
+1. spsr_el1 <- pstate
+2. elr_el1 <- pc
+3. esr_el1 <- Trap Info
+4. sp_el0 <- sp
+5. pc <- vbar_el1
+
+
+
 
 | PSTATE | Desc                                       |
 | ------ | ------------------------------------------ |
@@ -68,8 +89,8 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 |        |                                            |
 | D      | Debug mask bit                             |
 | A      | SError mask bit                            |
-| I      | IRQ mask bit                               |
-| F      | FIQ mask bit                               |
+| I      | IRQ mask bit (Interrupt ReQuest)           |
+| F      | FIQ mask bit (Fast Interrupt Request)      |
 |        |                                            |
 | SS     | Software Step bit                          |
 | IL     | Illegal Execution State bit                |
@@ -78,11 +99,26 @@ https://www.usna.edu/Users/cs/lmcdowel/courses/ic220/S20/resources/ARM-v8-Quick-
 | SP     | Stack Pointer selector (0:SP_EL0 1:SP_ELn) |
 
 
-ttbr0_el1
-ttbr1_el1
-vbar
-esr
-daif
+| SPSR | Bit | Desc                                          |
+| ---- | --- | --------------------------------------------- |
+| N    | 31  | Negative flag                                 |
+| Z    | 30  | Zero flag                                     |
+| C    | 29  | Carry flag                                    |
+| V    | 28  | oVerflow flag                                 |
+|      |     |                                               |
+| SS   | 21  | Software Step bit                             |
+| IL   | 20  | Illegal Execution State bit                   |
+|      |     |                                               |
+| D    | 9   | Debug mask bit                                |
+| A    | 8   | SError mask bit                               |
+| I    | 7   | IRQ mask bit (Interrupt ReQuest)              |
+| F    | 6   | FIQ mask bit (Fast Interrupt Request)         |
+|      |     |                                               |
+| M    | 4   | Exception Execution state (0:64-bit 1:32-bit) |
+| M    | 3:0 | Exception Exception level                     |
+
+
+
 
 
 
@@ -92,63 +128,23 @@ daif
 
 
 
-| ARMv8  | Name                   | Operand        | Description               |
-| ------ | ---------------------- | -------------- | ------------------------- |
-| add(s) | ADD                    | rd, rn, rm     | rd = rn + rm      (FLAGS) |
-| adc(s) | AdD with Carry         | rd, rn, rm     | rd = rn + rm + C  (FLAGS) |
-| sub(s) | SUBstract              | rd, rn, rm     | rd = rn - rm      (FLAGS) |
-| sbc(s) | SBstract with Carry    | rd, rn, rm     | rd = rn - rm - ~C (FLAGS) |
-| neg(s) | NEGate                 | rd,     rm     | rd = - rm         (FLAGS) |
-| ngc(s) | NeGate with Carry      | rd,     rm     | rd = - rm - ~C    (FLAGS) |
-| cmp    | CoMPare                | rn, rm         | rn - rm           (FLAGS) |
-| cmn    | CoMPare Negative       | rn, rm         | rn + rm           (FLAGS) |
-| madd   | Multiply ADD           | rd, rn, rm, ra | rd = ra + rn * rm         |
-| msub   | Multiply SUBtract      | rd, rn, rm, ra | rd = ra - rn * rm         |
-| mneg   | Multiply NEGate        | rd, rn, rm     | rd = - rn * rm            |
-| mul    | MULtiply               | rd, rn, rm     | rd = rn * rm              |
-| smulh  | Signed MULtiply High   | rd, rn, rm     | rd = (rn * rm)[127:64]    |
-| umulh  | Unsigned MULtiply High | rd, rn, rm     | rd = (rn * rm)[127:64]    |
-| sdiv   | Signed DIVide          | rd, rn, rm     | rd = rn / rm              |
-| udiv   | Unsigned DIVide        | rd, rn, rm     | rd = rn / rm              |
-| adr    | ADd Relative           | rd, rel[21]    | rd = PC + rel             |
+
+
+
+| Inst | Desc                         |
+| ---- | ---------------------------- |
+| dsb  | Data Synchronization Barrier |
+| isb  | Inst Synchronization Barrier |
+| dc   | Data Cache                   |
+| tlbi | TLB Invalidate               |
+| svc  | Supervisor Call              |
+| eret | Exception Return             |
+
 
 
 
 
 ![](https://img.ethancao.cn/2024_09_29_MyU7EODZC6lnsLX.png)
-
-| R-Type | 31-21  | 20-16 | 15-10 | 9-5 | 4-0 |
-| ------ | ------ | ----- | ----- | --- | --- |
-|        | Opcode | Rm    | Imm6  | Rn  | Rd  |
-
-| I-Type | 31-22  | 21-16  15-10 | 9-5 | 4-0 |
-| ------ | ------ | ------------ | --- | --- |
-|        | Opcode | Immr   Imms  | Rn  | Rd  |
-
-| D-Type | 31-21  | 20-12 | 11-10 | 9-5 | 4-0 |
-| ------ | ------ | ----- | ----- | --- | --- |
-|        | Opcode | Imm9  | Op    | Rn  | Rt  |
-
-| Op  | Name       | Desc                     |
-| --- | ---------- | ------------------------ |
-| 00  | Unscaled   | 直接用作内存地址         |
-| 01  | Post-index | 基地址在指令执行完后改变 |
-| 11  | Pre-index  | 基地址在指令执行前改变   |
-
-
-| B-Type | 31-26  | 25-0  |
-| ------ | ------ | ----- |
-|        | Opcode | Imm26 |
-
-| CB-Type | 31-24  | 23-5  | 4-0 |
-| ------- | ------ | ----- | --- |
-|         | Opcode | Imm19 | Rt  |
-
-| IM-Type | 31-21  | 20-5  | 4-0 |
-| ------- | ------ | ----- | --- |
-|         | Opcode | Imm16 | Rd  |
-
-
 
 | ARMv8-A64 | Name                               | FMT | Opcode[31:x]    | Shamt[x:10] | Description                                       |
 | --------- | ---------------------------------- | --- | --------------- | ----------- | ------------------------------------------------- |
