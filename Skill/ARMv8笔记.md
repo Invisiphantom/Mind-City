@@ -123,10 +123,8 @@ https://courses.cs.washington.edu/courses/cse469/19wi/arm64.pdf
 
 
 ![](https://img.ethancao.cn/202410061649421.png)
-
-
-
-
+![](https://segmentfault.com/img/remote/1460000044036626/view)
+![](https://img2018.cnblogs.com/blog/1771657/201908/1771657-20190825003457256-241282150.png)
 
 
 
