@@ -28,8 +28,8 @@ sudo apt install -y openjdk-11-jre-headless openjdk-11-jdk-headless
 
 vi ~/.bashrc && source ~/.bashrc
 export HADOOP_HOME=/usr/local/hadoop
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-arm64
+# export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export PATH=HADOOP_HOME/bin/:$PATH
 export PATH=HADOOP_HOME/sbin/:$PATH
 rm -f $HADOOP_HOME/bin/*.cmd
@@ -41,6 +41,7 @@ vi $HADOOP_HOME/etc/hadoop/hdfs-site.xml
 
 hdfs namenode -format
 start-dfs.sh
+http://localhost:9870/
 
 hdfs dfs -mkdir -p /user/hadoop/input
 hdfs dfs -put $HADOOP_HOME/etc/hadoop/*.xml input

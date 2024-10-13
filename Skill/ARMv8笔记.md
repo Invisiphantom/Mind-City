@@ -52,22 +52,24 @@ https://courses.cs.washington.edu/courses/cse469/19wi/arm64.pdf
 
 
 
-| Special | Desc                     |
-| ------- | ------------------------ |
-| pc      | Program Counter          |
-| sp      | Stack Pointer            |
-|         |                          |
-| ttbr0   | Translation Table Base 0 |
-| ttbr1   | Translation Table Base 1 |
-| mpidr   | Multi Processor ID       |
-|         |                          |
-| cntfrq  | Counter Frequency        |
-| cntpct  | Counter Physical Count   |
-|         |                          |
-| spsr    | Saved Program Status     |
-| elr     | Exception Link           |
-| esr     | Exception Syndrome       |
-| vbar    | Vector Base Address      |
+| Special   | Desc                        |
+| --------- | --------------------------- |
+| pc        | Program Counter             |
+| sp        | Stack Pointer               |
+|           |                             |
+| ttbr0     | Translation Table Base 0    |
+| ttbr1     | Translation Table Base 1    |
+| mpidr     | Multi Processor ID          |
+|           |                             |
+| cntfrq    | Counter Frequency           |
+| cntpct    | Counter Physical Count      |
+| cntv_ctl  | Counter Virtual Control     |
+| cntv_tval | Counter Virtual Timer Value |
+|           |                             |
+| spsr      | Saved Program Status        |
+| elr       | Exception Link              |
+| esr       | Exception Syndrome          |
+| vbar      | Vector Base Address         |
 
 
 异常或中断
