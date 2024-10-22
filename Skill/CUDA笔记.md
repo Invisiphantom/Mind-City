@@ -23,6 +23,7 @@
 | `__device__`                       | 设备调用, 设备执行   |
 | `foo<<<dim3 grid, dim3 block>>>()` | 网格维度, 线程块维度 |
 
+
 | Cuda Function                                                               | C Function | Desc     |
 | --------------------------------------------------------------------------- | ---------- | -------- |
 | `cudaMalloc(float **devPtr, size_t size)`                                   | `malloc`   | 内存分配 |

@@ -42,3 +42,8 @@ pre code {
 ul {
     padding-inline-start: 20px;
 }
+
+table {
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
