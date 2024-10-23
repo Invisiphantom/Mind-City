@@ -227,7 +227,6 @@ https://www.cnblogs.com/harrypotterjackson/p/17548837.html
 
 ![image.png](https://img.ethancao.cn/2024_06_15_mwPIkOV5viFCdex.png)
 
-![](https://img-blog.csdnimg.cn/20210506163112151.png =700x)
 ![](https://img-blog.csdnimg.cn/20210506163014251.png =700x)
 ![](https://learningos.cn/uCore-Tutorial-Guide-2022S/_images/sv39-full.png)
 

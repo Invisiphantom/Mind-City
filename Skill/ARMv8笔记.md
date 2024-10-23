@@ -120,16 +120,24 @@ https://courses.cs.washington.edu/courses/cse469/19wi/arm64.pdf
 | M    | 3:0 | Exception Exception level                     |
 
 
+| Page Table | Desc                  |
+| ---------- | --------------------- |
+| PGD        | Page Global Directory |
+| PUD        | Page Upper Directory  |
+| PMD        | Page Middle Directory |
+| PTE        | Page Table Entry      |
 
 
+| 64:48 | 47:39    | 38:30    | 29:21    | 20:12    | 11:0      |
+| ----- | -------- | -------- | -------- | -------- | --------- |
+|       | VA_PART0 | VA_PART1 | VA_PART2 | VA_PART3 | VA_OFFSET |
 
 
 ![](https://img.ethancao.cn/202410061649421.png)
+
 ![](https://segmentfault.com/img/remote/1460000044036626/view)
-![](https://img2018.cnblogs.com/blog/1771657/201908/1771657-20190825003457256-241282150.png)
 
-
-
+![](https://img.ethancao.cn/20241023111107.png)
 
 | Inst | Desc                         |
 | ---- | ---------------------------- |
@@ -139,8 +147,6 @@ https://courses.cs.washington.edu/courses/cse469/19wi/arm64.pdf
 | tlbi | TLB Invalidate               |
 | svc  | Supervisor Call              |
 | eret | Exception Return             |
-
-
 
 
 
