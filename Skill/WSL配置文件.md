@@ -40,14 +40,16 @@ alias update='sudo apt update && sudo apt upgrade -y'
 export PATH=/usr/local/cuda/bin/:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 
+
 proxy_port=7890
+proxy_addr=127.0.0.1
 function proxy_on() {
-    export http_proxy=http://127.0.0.1:$proxy_port
-    export https_proxy=http://127.0.0.1:$proxy_port
-    export no_proxy=127.0.0.1,localhost
-    export HTTP_PROXY=http://127.0.0.1:$proxy_port
-    export HTTPS_PROXY=http://127.0.0.1:$proxy_port
-    export NO_PROXY=127.0.0.1,localhost
+    export http_proxy=http://proxy_addr:$proxy_port
+    export https_proxy=http://proxy_addr:$proxy_port
+    export no_proxy=proxy_addr,localhost
+    export HTTP_PROXY=http://proxy_addr:$proxy_port
+    export HTTPS_PROXY=http://proxy_addr:$proxy_port
+    export NO_PROXY=proxy_addr,localhost
 }
 function proxy_off(){
     unset http_proxy
@@ -60,15 +62,40 @@ function proxy_off(){
 proxy_on
 
 
+
+
 update
 sudo apt install -y gcc g++ gdb make cmake tree zip git-lfs net-tools openssh-server
 git config --global user.name "Ethan Cao"
 git config --global user.email 1677035769@qq.com
 git lfs install
+
+
+ssh -R 7890:localhost:7890 ten
+wget https://github.com/fatedier/frp/releases/download/v0.61.0/frp_0.61.0_linux_amd64.tar.gz
+nohup ./frps &
+
+
+https://github.com/fatedier/frp/releases/download/v0.61.0/frp_0.61.0_windows_amd64.zip
+frpc.exe -c frpc.toml
+
+
+frpc.toml
+serverAddr = "110.40.135.15"
+serverPort = 7000
+
+[[proxies]]
+name = "clash-asus"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 7890
+remotePort = 7890
+
+
 ```
 
 
 ```cmd
-setx http_proxy http://127.0.0.1:7890
-setx https_proxy http://127.0.0.1:7890
+setx http_proxy http://proxy_addr:7890
+setx https_proxy http://proxy_addr:7890
 ```
