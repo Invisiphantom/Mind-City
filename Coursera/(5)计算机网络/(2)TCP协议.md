@@ -81,7 +81,7 @@
     {
         if (ReceiveBase > SendBase)
             SendBase = ReceiveBase
-            if (当前仍无任何应答报文段)
+            if (当前还有未被应答的报文段)
                 启动定时器
     }
 }
@@ -98,7 +98,7 @@
     {
         if (ReceiveBase > SendBase)
             SendBase = ReceiveBase
-            if (当前仍无任何应答报文段)
+            if (当前还有未被应答的报文段)
                 启动定时器
         else
             当前冗余ACK数目++
@@ -107,3 +107,39 @@
     }
 ```
 
+
+# 流量控制
+
+
+![](https://img.ethancao.cn/202410291016260.png =400x)
+
+|                                              |                        |
+| -------------------------------------------- | ---------------------- |
+| RcvBuffer                                    | 接收缓存大小           |
+| LastByteRevd                                 | 接收方收到的字节编号   |
+| LastByteRead                                 | 接收方读出的字节编号   |
+| ASSERT(LastByteRevd-LastByteRead<=RevBuffer) | 不允许缓存溢出         |
+| rwnd=RevBuffer-[LastByteRevd-LastByteRead]   | 接收窗口大小           |
+|                                              | '                      |
+| LastByteSend                                 | 发送方发送的字节编号   |
+| LastByteAcked                                | 发送方确认的字节编号   |
+| ASSERT(LastByteSend-LastByteAcked<=rwnd)     | 不允许发送超出接收窗口 |
+
+> 当接收窗口为0时, 发送方将会继续发送1个字节的报文段, 直到缓存开始清空
+
+
+# 连接管理
+
+
+![](https://img.ethancao.cn/202410291044296.png =400x)
+
+![](https://img.ethancao.cn/202410291050575.png =400x)
+
+![](https://img.ethancao.cn/202410291051360.png =400x)
+
+![](https://img.ethancao.cn/202410291055015.png =400x)
+
+
+# 拥塞控制
+
+![](https://img.ethancao.cn/202410291211587.png)

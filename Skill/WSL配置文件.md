@@ -42,14 +42,14 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 
 
 proxy_port=7890
-proxy_addr=127.0.0.1
+proxy_addr=110.40.135.15
 function proxy_on() {
-    export http_proxy=http://proxy_addr:$proxy_port
-    export https_proxy=http://proxy_addr:$proxy_port
-    export no_proxy=proxy_addr,localhost
-    export HTTP_PROXY=http://proxy_addr:$proxy_port
-    export HTTPS_PROXY=http://proxy_addr:$proxy_port
-    export NO_PROXY=proxy_addr,localhost
+    export http_proxy=http://$proxy_addr:$proxy_port
+    export https_proxy=http://$proxy_addr:$proxy_port
+    export no_proxy=$proxy_addr,localhost
+    export HTTP_PROXY=http://$proxy_addr:$proxy_port
+    export HTTPS_PROXY=http://$proxy_addr:$proxy_port
+    export NO_PROXY=$proxy_addr,localhost
 }
 function proxy_off(){
     unset http_proxy
