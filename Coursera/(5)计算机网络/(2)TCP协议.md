@@ -143,3 +143,5 @@
 # 拥塞控制
 
 ![](https://img.ethancao.cn/202410291211587.png)
+
+![](https://img.ethancao.cn/202411050900085.png)
