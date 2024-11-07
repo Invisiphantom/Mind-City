@@ -8,8 +8,12 @@ https://xiguayun.pw/link/PwUlY64zoNUiCYzZ?clash=1
 C:\Users\16770\\.wslconfig
 ```
 [experimental]
-autoProxy=true
-networkingMode=mirrored
+autoProxy=false
+
+[wsl2]
+networkingMode=bridged
+vmSwitch=WSLSwitch
+ipv6=false
 ```
 
 ```bash
@@ -41,8 +45,9 @@ export PATH=/usr/local/cuda/bin/:$PATH
 export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 
 
+# proxy_addr=110.40.135.15
+proxy_addr=192.168.1.66
 proxy_port=7890
-proxy_addr=110.40.135.15
 function proxy_on() {
     export http_proxy=http://$proxy_addr:$proxy_port
     export https_proxy=http://$proxy_addr:$proxy_port
