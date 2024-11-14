@@ -8,6 +8,12 @@ https://xiguayun.pw/link/PwUlY64zoNUiCYzZ?clash=1
 C:\Users\16770\\.wslconfig
 ```
 [experimental]
+autoProxy=true
+networkingMode=mirrored
+```
+
+```
+[experimental]
 autoProxy=false
 
 [wsl2]
@@ -46,7 +52,7 @@ export LIBRARY_PATH=$LIBRARY_PATH:/usr/lib/wsl/lib
 
 
 # proxy_addr=110.40.135.15
-proxy_addr=192.168.1.66
+proxy_addr=127.0.0.1
 proxy_port=7890
 function proxy_on() {
     export http_proxy=http://$proxy_addr:$proxy_port
@@ -101,6 +107,6 @@ remotePort = 7890
 
 
 ```cmd
-setx http_proxy http://proxy_addr:7890
-setx https_proxy http://proxy_addr:7890
+setx http_proxy http://127.0.0.1:7890
+setx https_proxy http://127.0.0.1:7890
 ```
