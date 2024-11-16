@@ -1,4 +1,5 @@
 
+## WSL配置
 
 C:\Users\16770\\.wslconfig
 ```
@@ -14,13 +15,18 @@ autoProxy=false
 [wsl2]
 networkingMode=bridged
 vmSwitch=WSLSwitch
-ipv6=false
 ```
 
-```bash
+```cmd
+setx http_proxy http://127.0.0.1:7890
+setx https_proxy http://127.0.0.1:7890
+
 wsl --list
 wsl --unregister Ubuntu-24.04
 ```
+
+
+## bash配置
 
 ```bash
 # Shell Color Config (with git branch)
@@ -77,6 +83,12 @@ git config --global user.email 1677035769@qq.com
 git lfs install
 
 
+```
+
+## frp配置
+
+```bash
+
 ssh -R 7890:localhost:7890 ten
 wget https://github.com/fatedier/frp/releases/download/v0.61.0/frp_0.61.0_linux_amd64.tar.gz
 nohup ./frps &
@@ -97,9 +109,3 @@ localIP = "127.0.0.1"
 localPort = 7890
 remotePort = 7890
 ```
-
-```cmd
-setx http_proxy http://127.0.0.1:7890
-setx https_proxy http://127.0.0.1:7890
-```
-
