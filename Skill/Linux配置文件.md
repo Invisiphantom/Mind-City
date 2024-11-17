@@ -123,65 +123,37 @@ https://www.youtube.com/watch?v=Cy4Zo9-Tn-c
 https://www.pling.com/p/1670979/
 
 ```bash
-sudo apt install chrome-gnome-shell gnome-tweaks
+sudo apt install -y chrome-gnome-shell gnome-tweaks libfuse2t64 wine64 wine32
+rm -rf ~/.wine && winecfg
 
-cd Downloads/
-
-git clone https://github.com/vinceliuice/Fluent-gtk-theme
-cd Fluent-gtk-theme/
-./install.sh -t all -c -s -i
-./install.sh --tweaks round
-./install.sh --tweaks blur
-./install.sh --tweaks square
-
-sudo apt install ostree appstream-util
+cd ~/Downloads/
+sudo apt install -y ostree appstream-util
 git clone https://github.com/refi64/stylepak.git
 cd stylepak/
 ./stylepak install-user
 
+cd ~/Downloads/
 git clone https://github.com/yeyushengfan258/Win11-icon-theme.git
 cd Win11-icon-theme/
 ./install.sh -a
 
-git clone https://github.com/vinceliuice/Fluent-icon-theme.git
-cd Fluent-icon-theme/
-./install.sh -a -r
-./cursors/install.sh
-
+cd ~/Downloads/
 git clone https://github.com/mrbvrz/segoe-ui-linux.git
 cd segoe-ui-linux/
 ./install.sh
 ```
 
+界面字体: Segoe UI (11)
+文档字体: Segoe UI (11)
+等宽字体: Cascadia Code (11)
+光标: Fluent-cursors
+图标: Win11-blue-dark
+Shell: Yaru-blue-dark
+
 https://extensions.gnome.org/
 https://extensions.gnome.org/extension/19/user-themes/
-
-Theme: Fluent-light-compact
-Cursors: Fluent-cursors
-Icons: Win11-Blue
-Shell: Fluent-light-compact
-Fonts: Segoe UI Regular:10
-
-
 https://extensions.gnome.org/extension/1160/dash-to-panel/
 https://extensions.gnome.org/extension/3628/arcmenu/
 https://extensions.gnome.org/extension/4655/date-menu-formatter/
-
-https://extensions.gnome.org/extension/97/coverflow-alt-tab/
-https://extensions.gnome.org/extension/1319/gsconnect/
-https://extensions.gnome.org/extension/3193/blur-my-shell/
-
-
-
-
-
-Dash to Panel
-
-
-
-HH : mm aa \n EEEE \n dd MMMM yyy
-dd/MM/y\nHH : mm aa
-
-sudo systemctl disable lightdm.service 
-sudo systemctl enable gdm.service 
-reboot
+https://extensions.gnome.org/extension/6661/wallhub/
+https://extensions.gnome.org/extension/779/clipboard-indicator/
