@@ -81,8 +81,6 @@ sudo apt install -y gcc g++ gdb make cmake tree zip git-lfs net-tools openssh-se
 git config --global user.name "Ethan Cao"
 git config --global user.email 1677035769@qq.com
 git lfs install
-
-
 ```
 
 ## frp配置
