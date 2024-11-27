@@ -141,6 +141,8 @@ cd ~/Downloads/
 git clone https://github.com/mrbvrz/segoe-ui-linux.git
 cd segoe-ui-linux/
 ./install.sh
+
+HH:mm\nyyyy/MM/dd
 ```
 
 界面字体: Segoe UI (11)
