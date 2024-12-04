@@ -18,6 +18,9 @@ vmSwitch=WSLSwitch
 ```
 
 ```cmd
+bcdedit /set hypervisorlaunchtype off
+bcdedit /set hypervisorlaunchtype auto
+
 wsl --list
 wsl --unregister Ubuntu-24.04
 setx http_proxy http://127.0.0.1:7890
